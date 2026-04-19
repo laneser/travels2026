@@ -226,6 +226,47 @@
     });
   }
 
+  // Resolve a ref (string) to a place with name/address/youtube.
+  // Looks up RESTAURANTS by id first, then SIGHTS by name.
+  function resolveRef(ref) {
+    if (!ref || typeof ref !== "string") return null;
+    const r = RESTAURANTS.find((x) => x.id === ref);
+    if (r) return { name: r.name, address: r.address, youtube: r.youtube, kind: "restaurant" };
+    const s = SIGHTS.find((x) => x.name === ref);
+    if (s) return { name: s.name, address: s.address || s.city, kind: "sight" };
+    return null;
+  }
+
+  // Render a compact row of `📍 Google Maps` + `📺 <creator>` pill links for a list of refs.
+  function renderPlaceLinks(refs) {
+    if (!refs || !refs.length) return null;
+    const children = [];
+    for (const ref of refs) {
+      const place = resolveRef(ref);
+      if (!place) continue;
+      children.push(el("a", {
+        class: `place-link place-link-map place-link-${place.kind}`,
+        href: mapsUrl(place.name, place.address),
+        target: "_blank",
+        rel: "noopener",
+        title: `Google Maps：${place.name}`,
+      }, `📍 ${place.name}`));
+      (place.youtube || []).forEach((yt) => {
+        if (!yt || !yt.id) return;
+        const creator = yt.creator || "YouTube";
+        children.push(el("a", {
+          class: "place-link place-link-yt",
+          href: youtubeUrl(yt),
+          target: "_blank",
+          rel: "noopener",
+          title: `${creator}・${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+        }, yt.time ? `📺 ${creator} ${yt.time}` : `📺 ${creator}`));
+      });
+    }
+    if (!children.length) return null;
+    return el("div", { class: "place-links" }, ...children);
+  }
+
   function renderDayCard(d) {
     const meals = el("div", { class: "meals" },
       ...(d.meals || []).map((m) =>
@@ -234,7 +275,8 @@
             el("span", { class: "meal-type" }, m.type),
             el("span", { class: "meal-name" }, m.title),
             m.star ? el("span", { class: "meal-stars" }, stars(m.star)) : null),
-          m.note ? el("p", { class: "meal-note" }, m.note) : null)));
+          m.note ? el("p", { class: "meal-note" }, m.note) : null,
+          renderPlaceLinks(m.refs))));
 
     const catChips = el("div", { class: "cat-chips" },
       ...(d.categories || []).map((cat) => {
@@ -261,7 +303,8 @@
           ...d.timeline.map((t) =>
             el("li", null,
               el("span", { class: "tl-time" }, t.time),
-              el("span", { class: "tl-event" }, t.event)))) : null,
+              el("span", { class: "tl-event" }, t.event),
+              renderPlaceLinks(t.refs)))) : null,
         (d.meals && d.meals.length) ? el("div", { class: "sec-title" }, "🍽️ 美食推薦") : null,
         (d.meals && d.meals.length) ? meals : null,
         d.tips ? el("div", { class: "tip-box" }, d.tips) : null,

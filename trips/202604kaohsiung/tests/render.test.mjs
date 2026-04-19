@@ -68,6 +68,27 @@ describe('Itinerary', () => {
     const cards = dom.window.document.querySelectorAll('#day-cards .day-card');
     assert.equal(cards.length, dom.window.TRIP_DATA.DAYS.length);
   });
+  test('meal/timeline refs render .place-links with valid hrefs', () => {
+    const { DAYS, RESTAURANTS, SIGHTS } = dom.window.TRIP_DATA;
+    let linkCount = 0;
+    for (const d of DAYS) {
+      const allRefs = [
+        ...(d.meals || []).flatMap((m) => m.refs || []),
+        ...(d.timeline || []).flatMap((t) => t.refs || []),
+      ];
+      for (const ref of allRefs) {
+        const hit = RESTAURANTS.find((r) => r.id === ref) || SIGHTS.find((s) => s.name === ref);
+        assert.ok(hit, `unresolved ref: "${ref}" on Day ${d.day}`);
+        linkCount++;
+      }
+    }
+    assert.ok(linkCount > 0, 'expected some meals/timeline to have refs');
+    const rendered = dom.window.document.querySelectorAll('#day-cards .place-links .place-link-map');
+    assert.ok(
+      rendered.length >= linkCount,
+      `expected at least ${linkCount} rendered place-link-map, got ${rendered.length}`,
+    );
+  });
 });
 
 describe('Food', () => {
