@@ -3,6 +3,7 @@
 
 const TRIP = {
   title: "2026/4 高雄小旅行",
+  emoji: "🏙️",
   subtitle: "三天兩夜・四人 Tesla 南下・高雄萬豪",
   heroTitle: "高雄萬豪小度假 × 巨蛋演唱會夜",
   heroDesc: "四人 Tesla 自駕南下，Day 1 晚順看高雄巨蛋演唱會，Day 2 吃透高雄老饕名單，Day 3 萬豪 buffet 後悠閒北返。",

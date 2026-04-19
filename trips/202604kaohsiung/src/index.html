@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#c8102e" />
-  <meta name="description" content="週末快閃高雄，一晚萬豪小度假" />
-  <title>2026/4 高雄小旅行 ｜ 2026.04.24 – 04.25</title>
+  <meta id="meta-desc" name="description" content="2026/4 高雄小旅行" />
+  <title id="page-title">2026/4 高雄小旅行</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏙️%3C/text%3E%3C/svg%3E" />
 </head>
@@ -14,10 +14,10 @@
 <header class="top">
   <div class="top-inner">
     <div class="brand">
-      <span class="brand-emoji">🏙️</span>
+      <span class="brand-emoji" id="brand-emoji">🏙️</span>
       <div class="brand-text">
-        <div class="brand-title">2026/4 高雄小旅行</div>
-        <div class="brand-sub">2026.04.24 – 04.25 ｜ 2 位大人</div>
+        <div class="brand-title" id="brand-title">2026/4 高雄小旅行</div>
+        <div class="brand-sub" id="brand-sub">2026.04.24 – 04.26 ｜ 4 位大人</div>
       </div>
     </div>
     <div id="countdown" class="countdown"></div>
@@ -105,7 +105,7 @@
 
 <footer class="foot">
   <p>✨ 資料來源於 <code>src/data.js</code>（SSOT）</p>
-  <p class="muted small">© 2026 2026/4 高雄小旅行 ｜ 點擊任何地點可直接開啟 Google Maps</p>
+  <p class="muted small">© <span id="foot-year"></span> <span id="foot-title"></span> ｜ 點擊任何地點可直接開啟 Google Maps</p>
 </footer>
 
 <script src="data.js"></script>

@@ -46,6 +46,21 @@ describe('App boot', () => {
   });
 });
 
+describe('Brand header (derived from data.js)', () => {
+  test('brand-title, brand-sub, page title all match TRIP', () => {
+    const { TRIP } = dom.window.TRIP_DATA;
+    const doc = dom.window.document;
+    assert.equal(doc.getElementById('brand-title').textContent, TRIP.title);
+    const sub = doc.getElementById('brand-sub').textContent;
+    assert.ok(sub.includes(String(TRIP.people)), `brand-sub missing people count: "${sub}"`);
+    assert.ok(sub.includes(TRIP.dates.end.slice(5).replace('-', '.')), `brand-sub missing end date: "${sub}"`);
+    assert.ok(doc.title.startsWith(TRIP.title), `page title mismatch: "${doc.title}"`);
+    if (TRIP.emoji) {
+      assert.equal(doc.getElementById('brand-emoji').textContent, TRIP.emoji);
+    }
+  });
+});
+
 describe('Overview', () => {
   test('hero stats render 3 items', () => {
     const stats = dom.window.document.querySelectorAll('#hero-stats .stat');

@@ -52,6 +52,38 @@
   function stars(n) { return n ? "⭐".repeat(n) : ""; }
 
   // ============== Countdown ==============
+  // Populate <title>, meta description, header brand and footer from TRIP.
+  // Everything that was hardcoded in index.html and duplicated in data.js now
+  // flows from data.js only.
+  function fmtDates() {
+    const s = (TRIP.dates.start || "").replace(/-/g, ".");
+    const e = (TRIP.dates.end || "").replace(/-/g, ".");
+    const eShort = e.slice(5); // "04.26" from "2026.04.26"
+    return `${s} – ${eShort}`;
+  }
+  function renderBrand() {
+    const datesLabel = fmtDates();
+    const subLabel = `${datesLabel} ｜ ${TRIP.people} 位大人`;
+    const setText = (id, text) => { const n = document.getElementById(id); if (n) n.textContent = text; };
+    setText("brand-title", TRIP.title);
+    setText("brand-sub", subLabel);
+    setText("foot-title", TRIP.title);
+    setText("foot-year", String(new Date().getFullYear()));
+    const titleEl = document.getElementById("page-title");
+    if (titleEl) titleEl.textContent = `${TRIP.title} ｜ ${datesLabel}`;
+    const metaEl = document.getElementById("meta-desc");
+    if (metaEl) metaEl.setAttribute("content", TRIP.heroDesc || TRIP.subtitle || TRIP.title);
+    if (TRIP.emoji) {
+      setText("brand-emoji", TRIP.emoji);
+      // Also update favicon SVG to match.
+      const favicon = document.querySelector('link[rel="icon"]');
+      if (favicon) {
+        const svg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E${encodeURIComponent(TRIP.emoji)}%3C/text%3E%3C/svg%3E`;
+        favicon.setAttribute("href", svg);
+      }
+    }
+  }
+
   function renderCountdown() {
     const node = $("#countdown");
     if (!node) return;
@@ -600,6 +632,7 @@
 
   // ============== init ==============
   document.addEventListener("DOMContentLoaded", () => {
+    renderBrand();
     renderCountdown();
     setupTabs();
     renderOverview();
