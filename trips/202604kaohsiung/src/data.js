@@ -148,6 +148,9 @@ const RESTAURANTS = [
     price: "NT$60-150/人",
     must_try: ["鴨肉飯", "下水湯", "鴨腿"],
     note: "65 年老店・2022 米其林必比登。鴨肉切厚塊、帶煙燻香。11:00 前或 14:00 後避峰；週二公休。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
   },
   {
     id: "gangyuan-beef-noodle",
@@ -234,6 +237,9 @@ const RESTAURANTS = [
     price: "NT$80-200/人",
     must_try: ["手工雞絲麵", "太監雞", "黑白切滷味"],
     note: "50 年老麵店，雞絲麵豬油炸製超彈牙。11:30–21:00，週日公休。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
   },
   {
     id: "duchuan-ice",
@@ -371,7 +377,7 @@ const RESTAURANTS = [
     must_try: ["手工巨無霸鍋貼（NT$7.5/顆）", "水煎包", "韭菜盒"],
     note: "皮薄餡多、肉汁爆發。**需預訂 0986-750355**，佛光山下來順路。12:00–18:30。",
     youtube: [
-      { id: "3QK6nFhTpoo", time: "10:17" },
+      { id: "3QK6nFhTpoo", time: "10:17", creator: "痛風老饕" },
     ],
   },
   {
@@ -386,7 +392,7 @@ const RESTAURANTS = [
     must_try: ["當歸羊肉湯", "沙茶羊肉", "三杯羊排"],
     note: "岡山羊肉老字號；若大樹麵匠沒訂到，改走國1 到岡山吃這家。",
     youtube: [
-      { id: "3QK6nFhTpoo" },
+      { id: "3QK6nFhTpoo", creator: "痛風老饕" },
     ],
   },
   {
@@ -401,7 +407,7 @@ const RESTAURANTS = [
     must_try: ["𩼣魚湯", "虱目魚肚湯", "魚皮湯", "滷肉飯"],
     note: "早餐到中午的老店款；若走國1 南下北返可順繞。",
     youtube: [
-      { id: "3QK6nFhTpoo" },
+      { id: "3QK6nFhTpoo", creator: "痛風老饕" },
     ],
   },
   {
@@ -416,8 +422,8 @@ const RESTAURANTS = [
     must_try: ["招牌堀江乾麵", "餛飩湯", "滷味"],
     note: "兩支痛風老饕影片都推（「排兩小時」與「老饕 brunch」）。10:00–14:00 午餐限定，週一休。",
     youtube: [
-      { id: "APLGAgNhCJA" },
-      { id: "jOjSo6QpE60" },
+      { id: "APLGAgNhCJA", creator: "痛風老饕" },
+      { id: "jOjSo6QpE60", creator: "痛風老饕" },
     ],
   },
   {
@@ -432,7 +438,7 @@ const RESTAURANTS = [
     must_try: ["土魠魚粥", "香菇肉燥飯"],
     note: "「排兩小時值不值得」首選之一。鹽埕老味道。",
     youtube: [
-      { id: "APLGAgNhCJA" },
+      { id: "APLGAgNhCJA", creator: "痛風老饕" },
     ],
   },
   {
@@ -447,7 +453,7 @@ const RESTAURANTS = [
     must_try: ["燒餅", "豆漿", "蛋餅"],
     note: "04:00–12:00，週一休。**與萬豪同在中華一路**，開車 10 分鐘，Day 3 避開興隆居排隊的好選擇。",
     youtube: [
-      { id: "jOjSo6QpE60" },
+      { id: "jOjSo6QpE60", creator: "痛風老饕" },
     ],
   },
   {
@@ -462,7 +468,7 @@ const RESTAURANTS = [
     must_try: ["烤蛤蠣", "烤肉串", "烤魚"],
     note: "晚上才出現的白蝙蝠老闆（網友暱稱）；蛤蠣多汁爆出名。",
     youtube: [
-      { id: "3QK6nFhTpoo" },
+      { id: "3QK6nFhTpoo", creator: "痛風老饕" },
     ],
   },
   {
@@ -477,7 +483,7 @@ const RESTAURANTS = [
     must_try: ["燒酒雞湯", "麻油雞", "雞腿飯"],
     note: "原本是 30 年前酒店外送菜，在地老饕指名；演唱會散場的宵夜選項之一。",
     youtube: [
-      { id: "APLGAgNhCJA" },
+      { id: "APLGAgNhCJA", creator: "痛風老饕" },
     ],
   },
 
@@ -494,7 +500,7 @@ const RESTAURANTS = [
     must_try: ["白糖粿（花生）", "白糖粿（芝麻）"],
     note: "爆排白糖粿兩大流派之一；建議與「正牌白糖粿」各買一份比較。",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "01:20" },
+      { id: "aJ_eDHjvW7I", time: "01:20", creator: "痛風老饕" },
     ],
   },
   {
@@ -509,7 +515,7 @@ const RESTAURANTS = [
     must_try: ["白糖粿", "地瓜球"],
     note: "與「老牌」對打的另一家。",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "20:13" },
+      { id: "aJ_eDHjvW7I", time: "20:13", creator: "痛風老饕" },
     ],
   },
   {
@@ -524,7 +530,7 @@ const RESTAURANTS = [
     must_try: ["大塊霸氣滷肉飯", "滷蛋", "油豆腐"],
     note: "大塊肉而非肉燥，份量霸氣。",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "03:42" },
+      { id: "aJ_eDHjvW7I", time: "03:42", creator: "痛風老饕" },
     ],
   },
   {
@@ -539,7 +545,7 @@ const RESTAURANTS = [
     must_try: ["蒜味滷豆干", "滷味拼盤"],
     note: "蒜味濃郁。",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "07:08" },
+      { id: "aJ_eDHjvW7I", time: "07:08", creator: "痛風老饕" },
     ],
   },
   {
@@ -554,7 +560,7 @@ const RESTAURANTS = [
     must_try: ["手工水餃", "酸辣湯"],
     note: "痛風老饕推薦",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "10:27" },
+      { id: "aJ_eDHjvW7I", time: "10:27", creator: "痛風老饕" },
     ],
   },
   {
@@ -569,7 +575,7 @@ const RESTAURANTS = [
     must_try: ["免費紅茶", "免費豆漿", "茶葉蛋"],
     note: "**免費紅茶豆漿喝到飽**是全夜市傳奇。",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "12:30" },
+      { id: "aJ_eDHjvW7I", time: "12:30", creator: "痛風老饕" },
     ],
   },
   {
@@ -584,7 +590,8 @@ const RESTAURANTS = [
     must_try: ["湯包", "紅油抄手", "擔擔麵"],
     note: "痛風老饕推薦",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "15:18" },
+      { id: "aJ_eDHjvW7I", time: "15:18", creator: "痛風老饕" },
+      { id: "4oL6YTda5kw", time: "08:11", creator: "那個女生 Kiki" },
     ],
   },
   {
@@ -599,7 +606,7 @@ const RESTAURANTS = [
     must_try: ["酵素臭豆腐", "泡菜"],
     note: "酵素發酵，風味獨特。",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "17:45" },
+      { id: "aJ_eDHjvW7I", time: "17:45", creator: "痛風老饕" },
     ],
   },
   {
@@ -614,7 +621,7 @@ const RESTAURANTS = [
     must_try: ["香雞排", "甜不辣"],
     note: "痛風老饕推薦",
     youtube: [
-      { id: "aJ_eDHjvW7I", time: "21:39" },
+      { id: "aJ_eDHjvW7I", time: "21:39", creator: "痛風老饕" },
     ],
   },
 
@@ -631,7 +638,7 @@ const RESTAURANTS = [
     must_try: ["鴛鴦奶茶", "紅茶拿鐵"],
     note: "瑞豐傳統飲料攤。",
     youtube: [
-      { id: "SvYPdB4-JU8" },
+      { id: "SvYPdB4-JU8", creator: "痛風老饕" },
     ],
   },
   {
@@ -646,7 +653,7 @@ const RESTAURANTS = [
     must_try: ["QQ 蛋（雞蛋糕）", "鯛魚燒"],
     note: "小孩子最愛的彈牙雞蛋糕。",
     youtube: [
-      { id: "SvYPdB4-JU8" },
+      { id: "SvYPdB4-JU8", creator: "痛風老饕" },
     ],
   },
   {
@@ -661,7 +668,7 @@ const RESTAURANTS = [
     must_try: ["福建炒麵", "炒米粉"],
     note: "痛風老饕推薦",
     youtube: [
-      { id: "SvYPdB4-JU8" },
+      { id: "SvYPdB4-JU8", creator: "痛風老饕" },
     ],
   },
   {
@@ -676,7 +683,7 @@ const RESTAURANTS = [
     must_try: ["酥炸大魷魚", "胡椒蝦"],
     note: "痛風老饕推薦",
     youtube: [
-      { id: "SvYPdB4-JU8" },
+      { id: "SvYPdB4-JU8", creator: "痛風老饕" },
     ],
   },
   {
@@ -691,7 +698,7 @@ const RESTAURANTS = [
     must_try: ["木瓜牛奶", "香蕉牛奶"],
     note: "瑞豐夜市的木瓜牛奶招牌。",
     youtube: [
-      { id: "SvYPdB4-JU8" },
+      { id: "SvYPdB4-JU8", creator: "痛風老饕" },
     ],
   },
   {
@@ -706,7 +713,7 @@ const RESTAURANTS = [
     must_try: ["臭豆腐", "泡菜"],
     note: "**僅週二、六有開**（4/25 週六有開！）。",
     youtube: [
-      { id: "SvYPdB4-JU8" },
+      { id: "SvYPdB4-JU8", creator: "痛風老饕" },
     ],
   },
 
@@ -723,7 +730,7 @@ const RESTAURANTS = [
     must_try: ["乾麵", "餛飩湯", "黑白切"],
     note: "無招牌的在地老店。",
     youtube: [
-      { id: "3QK6nFhTpoo", time: "01:05" },
+      { id: "3QK6nFhTpoo", time: "01:05", creator: "痛風老饕" },
     ],
   },
   {
@@ -738,7 +745,7 @@ const RESTAURANTS = [
     must_try: ["蔥油餅加蛋", "韭菜盒"],
     note: "痛風老饕推薦",
     youtube: [
-      { id: "3QK6nFhTpoo", time: "04:28" },
+      { id: "3QK6nFhTpoo", time: "04:28", creator: "痛風老饕" },
     ],
   },
   {
@@ -753,7 +760,7 @@ const RESTAURANTS = [
     must_try: ["旗魚黑輪", "甜不辣"],
     note: "前金第一公有市場內。",
     youtube: [
-      { id: "3QK6nFhTpoo", time: "06:10" },
+      { id: "3QK6nFhTpoo", time: "06:10", creator: "痛風老饕" },
     ],
   },
   {
@@ -768,7 +775,7 @@ const RESTAURANTS = [
     must_try: ["蔥油餅", "韭菜盒子"],
     note: "鹽埕必忠街老店。",
     youtube: [
-      { id: "APLGAgNhCJA", time: "17:44" },
+      { id: "APLGAgNhCJA", time: "17:44", creator: "痛風老饕" },
     ],
   },
   {
@@ -783,7 +790,8 @@ const RESTAURANTS = [
     must_try: ["水煎包", "豬肉餡餅", "韭菜盒子"],
     note: "& 22:44（兩度入鏡）。",
     youtube: [
-      { id: "APLGAgNhCJA", time: "20:28" },
+      { id: "APLGAgNhCJA", time: "20:28", creator: "痛風老饕" },
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
     ],
   },
   {
@@ -798,7 +806,7 @@ const RESTAURANTS = [
     must_try: ["燻茶鵝", "鵝油拌飯"],
     note: "與下一鍋水煎包同址。",
     youtube: [
-      { id: "APLGAgNhCJA", time: "20:23" },
+      { id: "APLGAgNhCJA", time: "20:23", creator: "痛風老饕" },
     ],
   },
   {
@@ -813,7 +821,7 @@ const RESTAURANTS = [
     must_try: ["古早味鬆餅", "酥脆小黃瓜"],
     note: "鬆餅＋小黃瓜是招牌組合。",
     youtube: [
-      { id: "3QK6nFhTpoo", time: "20:26" },
+      { id: "3QK6nFhTpoo", time: "20:26", creator: "痛風老饕" },
     ],
   },
 
@@ -830,7 +838,7 @@ const RESTAURANTS = [
     must_try: ["古早味雜菜湯", "滷肉飯"],
     note: "07:15–12:40，週三休；4/25 週六、4/26 週日都有開。",
     youtube: [
-      { id: "jOjSo6QpE60", time: "00:41" },
+      { id: "jOjSo6QpE60", time: "00:41", creator: "痛風老饕" },
     ],
   },
   {
@@ -845,7 +853,7 @@ const RESTAURANTS = [
     must_try: ["蒸肉圓（Q 皮）", "香菇肉羹湯"],
     note: "11:00–17:00，週日休。南部蒸派肉圓代表。",
     youtube: [
-      { id: "jOjSo6QpE60", time: "03:11" },
+      { id: "jOjSo6QpE60", time: "03:11", creator: "痛風老饕" },
     ],
   },
   {
@@ -860,7 +868,7 @@ const RESTAURANTS = [
     must_try: ["碳火豬肉冬粉", "滷菜"],
     note: "10:30–18:30（15:00–16:30 午休），週日休。",
     youtube: [
-      { id: "jOjSo6QpE60", time: "05:51" },
+      { id: "jOjSo6QpE60", time: "05:51", creator: "痛風老饕" },
     ],
   },
   {
@@ -875,7 +883,7 @@ const RESTAURANTS = [
     must_try: ["鴨肉飯", "下水湯"],
     note: "10:00–21:00，週一休。鴨肉珍的三民區對手。",
     youtube: [
-      { id: "jOjSo6QpE60", time: "06:22" },
+      { id: "jOjSo6QpE60", time: "06:22", creator: "痛風老饕" },
     ],
   },
   {
@@ -890,7 +898,7 @@ const RESTAURANTS = [
     must_try: ["招牌檸檬汁", "綜合果汁"],
     note: "09:00–22:00。三民市場內。",
     youtube: [
-      { id: "jOjSo6QpE60", time: "09:27" },
+      { id: "jOjSo6QpE60", time: "09:27", creator: "痛風老饕" },
     ],
   },
   {
@@ -905,7 +913,7 @@ const RESTAURANTS = [
     must_try: ["早午餐盤", "手沖咖啡"],
     note: "六合一路文青咖啡店。",
     youtube: [
-      { id: "jOjSo6QpE60", time: "11:44" },
+      { id: "jOjSo6QpE60", time: "11:44", creator: "痛風老饕" },
     ],
   },
   {
@@ -920,7 +928,7 @@ const RESTAURANTS = [
     must_try: ["手工粉圓冰", "仙草凍"],
     note: "10:00–21:45。",
     youtube: [
-      { id: "jOjSo6QpE60", time: "17:39" },
+      { id: "jOjSo6QpE60", time: "17:39", creator: "痛風老饕" },
     ],
   },
 
@@ -936,6 +944,566 @@ const RESTAURANTS = [
     price: "NT$180-300/人",
     must_try: ["海鮮鍋燒麵（蝦、干貝、蛤蠣）", "痛風系列"],
     note: "網路推為「痛風鍋燒麵海味擔當」；店名「痛風」與痛風老饕頻道同調，有可能是她流量帶起的店。",
+  },
+
+  {
+    id: "laopai-pig-blood",
+    name: "老牌豬血湯",
+    city: "高雄",
+    category: "breakfast",
+    area: "三民區",
+    address: "高雄市三民區建國三路 272 號",
+    days: [2],
+    price: "NT$60-150/人",
+    must_try: ["豬血湯", "豬雜湯", "肉燥飯"],
+    note: "厭世甜點店拿拿摳口袋名單。三民區老字號豬血湯。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "tianchi-wintermelon",
+    name: "天池冬瓜茶",
+    city: "高雄",
+    category: "snack",
+    area: "鹽埕區",
+    address: "高雄市鹽埕區新樂街 113 號",
+    days: [1, 2],
+    price: "NT$30-60/杯",
+    must_try: ["冬瓜茶", "冬瓜檸檬"],
+    note: "厭世甜點店拿拿摳推薦。鹽埕冬瓜茶老店。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "migao-city",
+    name: "米糕城",
+    city: "高雄",
+    category: "lunch",
+    area: "鹽埕區",
+    address: "高雄市鹽埕區大仁路 107 號",
+    days: [1, 2],
+    price: "NT$60-120/人",
+    must_try: ["筒仔米糕", "四神湯", "肉羹"],
+    note: "厭世甜點店拿拿摳口袋。鹽埕老店米糕。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "aloha-luwei",
+    name: "阿囉哈滷味",
+    city: "高雄",
+    category: "snack",
+    area: "鹽埕區",
+    address: "高雄市鹽埕區大仁路 154 號",
+    days: [1, 2],
+    price: "NT$100-250/人",
+    must_try: ["招牌滷味拼盤", "滷鴨翅", "滷豆乾"],
+    note: "厭世甜點店拿拿摳口袋。鹽埕滷味老店。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "beigang-tongzi-migao",
+    name: "高雄北港蔡筒仔米糕",
+    city: "高雄",
+    category: "lunch",
+    area: "鹽埕區",
+    address: "高雄市鹽埕區河西路 167 號",
+    days: [1, 2],
+    price: "NT$60-120/人",
+    must_try: ["筒仔米糕", "魚丸湯"],
+    note: "厭世甜點店拿拿摳推薦。鹽埕河西路筒仔米糕。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "hamasen-black-fishball",
+    name: "哈瑪星黑旗魚丸大王",
+    city: "高雄",
+    category: "lunch",
+    area: "鼓山區",
+    address: "高雄市鼓山區鼓波街 27-7 號",
+    days: [2],
+    price: "NT$60-120/人",
+    must_try: ["黑旗魚丸湯", "米糕"],
+    note: "厭世甜點店拿拿摳推薦。與哈瑪星汕頭麵同鼓波街，可順吃。",
+    youtube: [
+      { id: "QWQGCAdZ3A8", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "qishan-pigheart-noodle",
+    name: "旗山秀明豬心冬粉",
+    city: "高雄",
+    category: "lunch",
+    area: "旗山區",
+    address: "高雄市旗山區永平街 41 號",
+    days: [3],
+    price: "NT$100-200/人",
+    must_try: ["豬心冬粉", "豬肝湯", "豬腰湯"],
+    note: "2024 米其林必比登新增。旗山老街附近，Day 3 若改走旗山／美濃路線可順吃。",
+    youtube: [
+      { id: "vqpvRxxEApQ", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "chunlan-gua-bao",
+    name: "春蘭割包",
+    city: "高雄",
+    category: "lunch",
+    area: "新興區",
+    address: "高雄市新興區復興一路 5 號",
+    days: [2],
+    price: "NT$60-150/人",
+    must_try: ["爆漿割包", "四神湯"],
+    note: "2024 米其林必比登。新興區人氣排隊割包。",
+    youtube: [
+      { id: "vqpvRxxEApQ", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "maiyanshun-taiwanese",
+    name: "賣塩順台菜（正宗台菜）",
+    city: "高雄",
+    category: "dinner",
+    area: "鼓山區",
+    address: "高雄市鼓山區青海路 173 號",
+    days: [2],
+    price: "NT$400-800/人",
+    must_try: ["剝皮辣椒雞湯", "老薑炒雞腿", "古早味家常菜"],
+    note: "2024 米其林必比登新增。剝皮辣椒雞湯是招牌。",
+    youtube: [
+      { id: "vqpvRxxEApQ", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "xiaodun-kitchen",
+    name: "小燉食室",
+    city: "高雄",
+    category: "dinner",
+    area: "前鎮區",
+    address: "高雄市前鎮區廣西路 226 號",
+    days: [2],
+    price: "NT$300-600/人",
+    must_try: ["滷豬腳", "燉品", "白飯"],
+    note: "2024 米其林必比登新增。前鎮區家常燉菜。",
+    youtube: [
+      { id: "vqpvRxxEApQ", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "liangjia-pigfoot",
+    name: "良佳豬腳",
+    city: "高雄",
+    category: "lunch",
+    area: "三民區",
+    address: "高雄市三民區陽明路 229 號",
+    days: [2],
+    price: "NT$200-400/人",
+    must_try: ["滷豬腳", "豬腳飯", "苦瓜排骨湯"],
+    note: "2024 米其林必比登新增。三民區滷豬腳老店。",
+    youtube: [
+      { id: "vqpvRxxEApQ", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "xianzuo-riceball",
+    name: "現做越光米飯團（新潟觀光物產）",
+    city: "高雄",
+    category: "breakfast",
+    area: "鼓山區",
+    address: "高雄市鼓山區青海路 63 號",
+    days: [2],
+    price: "NT$60-150/人",
+    must_try: ["越光米飯團", "味噌湯"],
+    note: "厭世甜點店 × 住高雄日本人 Mana。現做日式飯糰。",
+    youtube: [
+      { id: "GWTY0pTp3Jc", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "xiaquan-kai",
+    name: "夏全開",
+    city: "高雄",
+    category: "dinner",
+    area: "左營區",
+    address: "高雄市左營區翠峰路 26 號",
+    days: [2],
+    price: "NT$400-800/人",
+    must_try: ["名古屋料理", "味噌豬排"],
+    note: "厭世甜點店 × Mana 推薦。道地名古屋料理。",
+    youtube: [
+      { id: "GWTY0pTp3Jc", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "jintianjia-ramen",
+    name: "金田家拉麵",
+    city: "高雄",
+    category: "lunch",
+    area: "左營區",
+    address: "高雄市左營區安吉街 380 號",
+    days: [2],
+    price: "NT$250-400/人",
+    must_try: ["豚骨拉麵", "沾麵"],
+    note: "厭世甜點店 × Mana「最好吃的拉麵」。左營日式拉麵。",
+    youtube: [
+      { id: "GWTY0pTp3Jc", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "canxiong-puff",
+    name: "倉熊手作甜品（招牌泡芙）",
+    city: "高雄",
+    category: "cafe",
+    area: "左營區",
+    address: "高雄市左營區德威街 54 號",
+    days: [2],
+    price: "NT$60-180/人",
+    must_try: ["脆皮泡芙", "招牌達克瓦茲"],
+    note: "厭世甜點店 × Mana 推薦脆皮泡芙。",
+    youtube: [
+      { id: "GWTY0pTp3Jc", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "chaolai-izakaya",
+    name: "潮來居酒屋",
+    city: "高雄",
+    category: "dinner",
+    area: "前金區",
+    address: "高雄市前金區文武二街 107 號",
+    days: [1, 2],
+    price: "NT$500-1000/人",
+    must_try: ["日式串燒", "生魚片", "清酒"],
+    note: "厭世甜點店 × Mana 推薦。前金區日式居酒屋。",
+    youtube: [
+      { id: "GWTY0pTp3Jc", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "houshan-dacquoise",
+    name: "厚山 Hòu Shān 達克瓦茲",
+    city: "高雄",
+    category: "cafe",
+    area: "三民區",
+    address: "高雄市三民區中華二路 337 號",
+    days: [2],
+    price: "NT$60-180/人",
+    must_try: ["榴槤達克瓦茲", "經典達克瓦茲"],
+    note: "厭世甜點店 × Mana 推薦。三民區達克瓦茲專賣。",
+    youtube: [
+      { id: "GWTY0pTp3Jc", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "yancheng-tea",
+    name: "鹽埕茶町",
+    city: "高雄",
+    category: "cafe",
+    area: "鹽埕區",
+    address: "高雄市鹽埕區瀨南街 35 號",
+    days: [2],
+    price: "NT$100-250/人",
+    must_try: ["抹抹茶冰", "抹茶拿鐵"],
+    note: "厭世甜點店「地表最抹抹茶冰」。鹽埕抹茶冰專賣。",
+    youtube: [
+      { id: "yFfeElqwKbw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "heyuan-cane-ice",
+    name: "禾苑蔗片冰",
+    city: "高雄",
+    category: "snack",
+    area: "鼓山區",
+    address: "高雄市鼓山區博愛二路 347 號",
+    days: [2],
+    price: "NT$80-180/人",
+    must_try: ["炭燒蔗片冰", "黑糖剉冰"],
+    note: "厭世甜點店推薦冰品。**近高雄巨蛋（博愛二路）**，4/24 演唱會前後可順吃。",
+    youtube: [
+      { id: "yFfeElqwKbw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "yeyuetang-snow",
+    name: "葉月堂手作雪花冰（富民店）",
+    city: "高雄",
+    category: "snack",
+    area: "左營區",
+    address: "高雄市左營區富民路 18 號",
+    days: [2],
+    price: "NT$120-250/人",
+    must_try: ["酪梨雪花冰", "芒果雪花冰"],
+    note: "厭世甜點店推薦。左營手作雪花冰。",
+    youtube: [
+      { id: "yFfeElqwKbw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "kongqi-icecream",
+    name: "空氣分子霜淇淋",
+    city: "高雄",
+    category: "snack",
+    area: "三民區",
+    address: "高雄市三民區灣中街 66 號",
+    days: [2],
+    price: "NT$80-160/人",
+    must_try: ["繡球花霜淇淋", "季節霜淇淋"],
+    note: "厭世甜點店推薦。繡球花造型霜淇淋是招牌。",
+    youtube: [
+      { id: "yFfeElqwKbw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "guanyu-sweet",
+    name: "關愉甜",
+    city: "高雄",
+    category: "cafe",
+    area: "三民區",
+    address: "高雄市三民區大昌二路 549 號",
+    days: [2],
+    price: "NT$150-300/人",
+    must_try: ["季節甜點", "手沖咖啡"],
+    note: "厭世甜點店推薦。三民區質感甜點店。",
+    youtube: [
+      { id: "yFfeElqwKbw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "yuqian-tea",
+    name: "御前上茶（漢神成功店）",
+    city: "高雄",
+    category: "cafe",
+    area: "苓雅區",
+    address: "高雄市苓雅區成功一路 266 號",
+    days: [2],
+    price: "NT$100-200/杯",
+    must_try: ["鐵觀音拿鐵", "珍珠奶茶"],
+    note: "Kiki 內行人才知 #13 推薦。漢神成功店下午茶。",
+    youtube: [
+      { id: "kHRMiFz4JdI", time: "11:25", creator: "那個女生 Kiki" },
+    ],
+  },
+
+  {
+    id: "yizhi-beef-katsu",
+    name: "逸之牛 牛かつ·焼肉専売（高雄本家）",
+    city: "高雄",
+    category: "dinner",
+    area: "新興區",
+    address: "高雄市新興區中山橫路 5 號",
+    days: [2],
+    price: "NT$500-1000/人",
+    must_try: ["爆汁炸牛排", "日式燒肉"],
+    note: "Kiki 內行人才知 #13 推薦。日式炸牛排專門。",
+    youtube: [
+      { id: "kHRMiFz4JdI", time: "13:11", creator: "那個女生 Kiki" },
+    ],
+  },
+
+  {
+    id: "bingta-snow",
+    name: "冰塔職人雪花（文化店）",
+    city: "高雄",
+    category: "snack",
+    area: "新興區",
+    address: "高雄市新興區文化路 64 號",
+    days: [2],
+    price: "NT$100-220/人",
+    must_try: ["雪花冰", "炸餡芋泥三明治"],
+    note: "Kiki 吃爆十家 #24 推薦。新興區文化路雪花冰。",
+    youtube: [
+      { id: "4oL6YTda5kw", time: "11:33", creator: "那個女生 Kiki" },
+    ],
+  },
+
+  {
+    id: "chengfu-seafood",
+    name: "澄福鮮酥雞（海線）",
+    city: "高雄",
+    category: "lunch",
+    area: "茄萣區",
+    address: "高雄市茄萣區頂漁路 19 號",
+    days: [2],
+    price: "NT$150-400/人",
+    must_try: ["炸海鮮拼盤", "炸蚵"],
+    note: "⚠️ 高雄海線（茄萣區），距萬豪 ~40 分鐘車程。海線半日遊替代行程。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "yongji-meatball",
+    name: "永吉肉圓（海線）",
+    city: "高雄",
+    category: "snack",
+    area: "茄萣區",
+    address: "高雄市茄萣區仁愛路二段 48 號",
+    days: [2],
+    price: "NT$40-100/人",
+    must_try: ["肉圓", "四神湯"],
+    note: "⚠️ 海線茄萣區。海線半日遊候選。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "dexingtang-herb",
+    name: "德興堂中藥房（十全雞燉湯，海線）",
+    city: "高雄",
+    category: "lunch",
+    area: "茄萣區",
+    address: "高雄市茄萣區崎漏路 86 號",
+    days: [2],
+    price: "NT$300-500/人",
+    must_try: ["十全雞燉湯", "藥膳料理"],
+    note: "⚠️ 海線茄萣區。百年藥行私房菜，需預約。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "baoning-fish-soup",
+    name: "保寧魚湯（海線）",
+    city: "高雄",
+    category: "breakfast",
+    area: "永安區",
+    address: "高雄市永安區保安路 203 號",
+    days: [2],
+    price: "NT$80-150/人",
+    must_try: ["虱目魚湯", "滷肉飯"],
+    note: "⚠️ 海線永安區。海線半日遊候選。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "qiuzhiwei-seafood",
+    name: "邱之味海鮮店（海線）",
+    city: "高雄",
+    category: "dinner",
+    area: "永安區",
+    address: "高雄市永安區永達路 73-3 號",
+    days: [2],
+    price: "NT$500-1200/人",
+    must_try: ["現撈海產", "烏魚子"],
+    note: "⚠️ 海線永安區。新鮮海產。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "yongan-noodle-tudi",
+    name: "永安泡麵土地（海線）",
+    city: "高雄",
+    category: "snack",
+    area: "永安區",
+    address: "高雄市永安區興達路 67-5 號",
+    days: [2],
+    price: "NT$50-150/人",
+    must_try: ["海景泡麵", "打卡拍照"],
+    note: "⚠️ 海線永安區。百萬海景＋泡麵土地公打卡點。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "laolei-noodle",
+    name: "老雷麵店（海線）",
+    city: "高雄",
+    category: "lunch",
+    area: "彌陀區",
+    address: "高雄市彌陀區中正路 277 號",
+    days: [2],
+    price: "NT$60-120/人",
+    must_try: ["乾麵", "餛飩湯"],
+    note: "⚠️ 海線彌陀區。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "yuxiang-cafe",
+    name: "餘香咖啡（魚塭秘境，海線）",
+    city: "高雄",
+    category: "cafe",
+    area: "彌陀區",
+    address: "高雄市彌陀區南寮路光明巷 31-1 號",
+    days: [2],
+    price: "NT$200-400/人",
+    must_try: ["虱目魚沙拉", "咖啡果皮氣泡飲"],
+    note: "⚠️ 海線彌陀區。藏身魚塭的秘境咖啡。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "caiji-oyster",
+    name: "蔡記蚵仔寮現撈現炸（海線）",
+    city: "高雄",
+    category: "lunch",
+    area: "梓官區",
+    address: "高雄市梓官區港九街 84 號",
+    days: [2],
+    price: "NT$200-500/人",
+    must_try: ["現撈炸海鮮", "炸蚵"],
+    note: "⚠️ 海線梓官區。蚵仔寮漁市媲美餐廳等級。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
+  },
+
+  {
+    id: "keliao-dumpling",
+    name: "蚵寮水餃王（海線）",
+    city: "高雄",
+    category: "lunch",
+    area: "梓官區",
+    address: "高雄市梓官區禮仁路 80 號",
+    days: [2],
+    price: "NT$60-150/人",
+    must_try: ["蚵仔水餃", "韭菜水餃"],
+    note: "⚠️ 海線梓官區。蚵仔寮水餃王。",
+    youtube: [
+      { id: "fou8Sk3VPRw", creator: "厭世甜點店" },
+    ],
   },
 
   // === 沿途服務區 · Day 1 南下 & Day 3 北上 ===

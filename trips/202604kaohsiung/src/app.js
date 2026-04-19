@@ -388,13 +388,14 @@
     }
     (r.youtube || []).forEach((yt) => {
       if (!yt || !yt.id) return;
-      const label = yt.time ? `📺 痛風老饕 ${yt.time}` : `📺 痛風老饕`;
+      const creator = yt.creator || "YouTube";
+      const label = yt.time ? `📺 ${creator} ${yt.time}` : `📺 ${creator}`;
       actions.push(el("a", {
         class: "btn btn-yt",
         href: youtubeUrl(yt),
         target: "_blank",
         rel: "noopener",
-        title: `YouTube ${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+        title: `${creator}・${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
       }, label));
     });
 
