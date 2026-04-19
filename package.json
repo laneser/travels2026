@@ -1,0 +1,20 @@
+{
+  "name": "travels2026",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "個人旅行規劃集 · 互動式網站 · GitHub Pages 自動部署",
+  "scripts": {
+    "test": "npm run test:data && npm run test:render",
+    "test:data": "node --test trips/*/tests/data.test.mjs",
+    "test:render": "node --test --test-force-exit trips/*/tests/render.test.mjs",
+    "build": "node build.js",
+    "preview": "node build.js && python3 -m http.server 8000 --directory dist"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "jsdom": "^29.0.2"
+  }
+}

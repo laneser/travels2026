@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#c8102e" />
+  <meta name="description" content="週末快閃高雄，一晚萬豪小度假" />
+  <title>2026/4 高雄小旅行 ｜ 2026.04.24 – 04.25</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏙️%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <span class="brand-emoji">🏙️</span>
+      <div class="brand-text">
+        <div class="brand-title">2026/4 高雄小旅行</div>
+        <div class="brand-sub">2026.04.24 – 04.25 ｜ 2 位大人</div>
+      </div>
+    </div>
+    <div id="countdown" class="countdown"></div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="overview">總覽</button>
+    <button class="tab" data-tab="itinerary">行程</button>
+    <button class="tab" data-tab="food">美食</button>
+    <button class="tab" data-tab="transport">交通</button>
+    <button class="tab" data-tab="tips">實用</button>
+  </nav>
+</header>
+
+<main id="app">
+
+  <!-- 總覽 -->
+  <section class="view active" id="view-overview">
+    <div class="hero">
+      <div class="hero-card">
+        <div class="hero-eyebrow" id="hero-eyebrow"></div>
+        <h1 class="hero-title" id="hero-title"></h1>
+        <p class="hero-desc" id="hero-desc"></p>
+        <div class="hero-stats" id="hero-stats"></div>
+      </div>
+    </div>
+
+    <div class="grid-2" id="overview-cards"></div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-icon">📅</span>
+        <h2 class="card-title">行程總覽</h2>
+      </div>
+      <div id="summary-days" class="summary-days"></div>
+    </div>
+
+    <div class="card" id="budget-card" hidden>
+      <div class="card-head">
+        <span class="card-icon">💴</span>
+        <h2 class="card-title">預算</h2>
+      </div>
+      <div id="budget-info"></div>
+    </div>
+  </section>
+
+  <!-- 行程 -->
+  <section class="view" id="view-itinerary">
+    <div class="day-nav" id="day-nav"></div>
+    <div id="day-cards"></div>
+  </section>
+
+  <!-- 美食 -->
+  <section class="view" id="view-food">
+    <div class="search-bar">
+      <input type="search" id="food-search" placeholder="搜尋餐廳、地區、類別⋯" autocomplete="off" />
+      <button class="btn-clear" id="search-clear" aria-label="清除">✕</button>
+    </div>
+    <div class="filter-row">
+      <div class="filter-group" id="filter-day">
+        <span class="filter-label">日期</span>
+        <button class="chip active" data-filter-day="all">全部</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <div class="filter-group" id="filter-cat">
+        <span class="filter-label">類別</span>
+        <button class="chip active" data-filter-cat="all">全部</button>
+      </div>
+    </div>
+    <div class="food-result-count" id="food-count"></div>
+    <div id="food-list" class="food-list"></div>
+  </section>
+
+  <!-- 交通 -->
+  <section class="view" id="view-transport">
+    <div id="transport-sections"></div>
+  </section>
+
+  <!-- 實用 -->
+  <section class="view" id="view-tips">
+    <div id="tips-sections"></div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>✨ 資料來源於 <code>src/data.js</code>（SSOT）</p>
+  <p class="muted small">© 2026 2026/4 高雄小旅行 ｜ 點擊任何地點可直接開啟 Google Maps</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
