@@ -369,7 +369,10 @@ const RESTAURANTS = [
     days: [3],
     price: "NT$80-150/人",
     must_try: ["手工巨無霸鍋貼（NT$7.5/顆）", "水煎包", "韭菜盒"],
-    note: "📺 痛風老饕 YouTube 推薦 — 皮薄餡多、肉汁爆發。**需預訂 0986-750355**，佛光山下來順路。12:00–18:30。",
+    note: "皮薄餡多、肉汁爆發。**需預訂 0986-750355**，佛光山下來順路。12:00–18:30。",
+    youtube: [
+      { id: "3QK6nFhTpoo", time: "10:17" },
+    ],
   },
   {
     id: "jiushi-lamb",
@@ -381,7 +384,10 @@ const RESTAURANTS = [
     days: [3],
     price: "NT$200-500/人",
     must_try: ["當歸羊肉湯", "沙茶羊肉", "三杯羊排"],
-    note: "📺 痛風老饕 YouTube 影片 3QK6nFhTpoo 推薦。岡山羊肉老字號；若大樹麵匠沒訂到，改走國1 到岡山吃這家。",
+    note: "岡山羊肉老字號；若大樹麵匠沒訂到，改走國1 到岡山吃這家。",
+    youtube: [
+      { id: "3QK6nFhTpoo" },
+    ],
   },
   {
     id: "fengshan-xu-milkfish",
@@ -393,7 +399,10 @@ const RESTAURANTS = [
     days: [3],
     price: "NT$80-200/人",
     must_try: ["𩼣魚湯", "虱目魚肚湯", "魚皮湯", "滷肉飯"],
-    note: "📺 痛風老饕 3QK6nFhTpoo 推薦。早餐到中午的老店款；若走國1 南下北返可順繞。",
+    note: "早餐到中午的老店款；若走國1 南下北返可順繞。",
+    youtube: [
+      { id: "3QK6nFhTpoo" },
+    ],
   },
   {
     id: "jueue-noodle",
@@ -405,7 +414,11 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$80-150/人",
     must_try: ["招牌堀江乾麵", "餛飩湯", "滷味"],
-    note: "📺 痛風老饕兩支影片都推（APLGAgNhCJA 排兩小時／jOjSo6QpE60 老饕brunch）。10:00–14:00 午餐限定，週一休。",
+    note: "兩支痛風老饕影片都推（「排兩小時」與「老饕 brunch」）。10:00–14:00 午餐限定，週一休。",
+    youtube: [
+      { id: "APLGAgNhCJA" },
+      { id: "jOjSo6QpE60" },
+    ],
   },
   {
     id: "qinjie-fish-porridge",
@@ -417,7 +430,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$80-180/人",
     must_try: ["土魠魚粥", "香菇肉燥飯"],
-    note: "📺 痛風老饕 APLGAgNhCJA「排兩小時值不值得」首選之一。鹽埕老味道。",
+    note: "「排兩小時值不值得」首選之一。鹽埕老味道。",
+    youtube: [
+      { id: "APLGAgNhCJA" },
+    ],
   },
   {
     id: "kuanlaishun-breakfast",
@@ -429,7 +445,10 @@ const RESTAURANTS = [
     days: [3],
     price: "NT$50-120/人",
     must_try: ["燒餅", "豆漿", "蛋餅"],
-    note: "📺 痛風老饕 jOjSo6QpE60 推薦。04:00–12:00，週一休。**與萬豪同在中華一路**，開車 10 分鐘，Day 3 避開興隆居排隊的好選擇。",
+    note: "04:00–12:00，週一休。**與萬豪同在中華一路**，開車 10 分鐘，Day 3 避開興隆居排隊的好選擇。",
+    youtube: [
+      { id: "jOjSo6QpE60" },
+    ],
   },
   {
     id: "aman-bbq",
@@ -441,7 +460,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$300-600/人",
     must_try: ["烤蛤蠣", "烤肉串", "烤魚"],
-    note: "📺 痛風老饕 3QK6nFhTpoo 推薦。晚上才出現的白蝙蝠老闆（網友暱稱）；蛤蠣多汁爆出名。",
+    note: "晚上才出現的白蝙蝠老闆（網友暱稱）；蛤蠣多汁爆出名。",
+    youtube: [
+      { id: "3QK6nFhTpoo" },
+    ],
   },
   {
     id: "jibo-shaojiu-chicken",
@@ -453,7 +475,10 @@ const RESTAURANTS = [
     days: [1],
     price: "NT$300-500/人",
     must_try: ["燒酒雞湯", "麻油雞", "雞腿飯"],
-    note: "📺 痛風老饕 APLGAgNhCJA 推薦。原本是 30 年前酒店外送菜，在地老饕指名；演唱會散場的宵夜選項之一。",
+    note: "原本是 30 年前酒店外送菜，在地老饕指名；演唱會散場的宵夜選項之一。",
+    youtube: [
+      { id: "APLGAgNhCJA" },
+    ],
   },
 
   // === 自強夜市 攤商（痛風老饕 aJ_eDHjvW7I「高流演唱會必吃」）===
@@ -467,7 +492,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$30-80/人",
     must_try: ["白糖粿（花生）", "白糖粿（芝麻）"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 01:20。爆排白糖粿兩大流派之一；建議與「正牌白糖粿」各買一份比較。",
+    note: "爆排白糖粿兩大流派之一；建議與「正牌白糖粿」各買一份比較。",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "01:20" },
+    ],
   },
   {
     id: "zhengpai-baitangguo",
@@ -479,7 +507,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$30-80/人",
     must_try: ["白糖粿", "地瓜球"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 20:13。與「老牌」對打的另一家。",
+    note: "與「老牌」對打的另一家。",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "20:13" },
+    ],
   },
   {
     id: "nanfeng-rice",
@@ -491,7 +522,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$40-100/人",
     must_try: ["大塊霸氣滷肉飯", "滷蛋", "油豆腐"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 03:42。大塊肉而非肉燥，份量霸氣。",
+    note: "大塊肉而非肉燥，份量霸氣。",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "03:42" },
+    ],
   },
   {
     id: "chunri-tofu",
@@ -503,7 +537,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$40-80/人",
     must_try: ["蒜味滷豆干", "滷味拼盤"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 07:08。蒜味濃郁。",
+    note: "蒜味濃郁。",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "07:08" },
+    ],
   },
   {
     id: "yujia-dumpling",
@@ -515,7 +552,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$60-150/人",
     must_try: ["手工水餃", "酸辣湯"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 10:27。",
+    note: "痛風老饕推薦",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "10:27" },
+    ],
   },
   {
     id: "zhenxiang-tea",
@@ -527,7 +567,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$0-60/人",
     must_try: ["免費紅茶", "免費豆漿", "茶葉蛋"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 12:30。**免費紅茶豆漿喝到飽**是全夜市傳奇。",
+    note: "**免費紅茶豆漿喝到飽**是全夜市傳奇。",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "12:30" },
+    ],
   },
   {
     id: "houdefu-tangbao",
@@ -539,7 +582,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$80-180/人",
     must_try: ["湯包", "紅油抄手", "擔擔麵"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 15:18。",
+    note: "痛風老饕推薦",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "15:18" },
+    ],
   },
   {
     id: "hushuo-tofu",
@@ -551,7 +597,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$60-120/人",
     must_try: ["酵素臭豆腐", "泡菜"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 17:45。酵素發酵，風味獨特。",
+    note: "酵素發酵，風味獨特。",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "17:45" },
+    ],
   },
   {
     id: "aliang-chicken",
@@ -563,7 +612,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$60-120/人",
     must_try: ["香雞排", "甜不辣"],
-    note: "📺 痛風老饕 aJ_eDHjvW7I 21:39。",
+    note: "痛風老饕推薦",
+    youtube: [
+      { id: "aJ_eDHjvW7I", time: "21:39" },
+    ],
   },
 
   // === 瑞豐夜市 其他攤商（痛風老饕 SvYPdB4-JU8 口袋名單）===
@@ -577,7 +629,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$40-80/杯",
     must_try: ["鴛鴦奶茶", "紅茶拿鐵"],
-    note: "📺 痛風老饕 SvYPdB4-JU8 推薦。瑞豐傳統飲料攤。",
+    note: "瑞豐傳統飲料攤。",
+    youtube: [
+      { id: "SvYPdB4-JU8" },
+    ],
   },
   {
     id: "aphan-qq-egg",
@@ -589,7 +644,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$40-80/人",
     must_try: ["QQ 蛋（雞蛋糕）", "鯛魚燒"],
-    note: "📺 痛風老饕 SvYPdB4-JU8 推薦。小孩子最愛的彈牙雞蛋糕。",
+    note: "小孩子最愛的彈牙雞蛋糕。",
+    youtube: [
+      { id: "SvYPdB4-JU8" },
+    ],
   },
   {
     id: "zeng-fujian-noodle",
@@ -601,7 +659,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$60-120/人",
     must_try: ["福建炒麵", "炒米粉"],
-    note: "📺 痛風老饕 SvYPdB4-JU8 推薦。",
+    note: "痛風老饕推薦",
+    youtube: [
+      { id: "SvYPdB4-JU8" },
+    ],
   },
   {
     id: "okinawa-squid",
@@ -613,7 +674,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$80-150/人",
     must_try: ["酥炸大魷魚", "胡椒蝦"],
-    note: "📺 痛風老饕 SvYPdB4-JU8 推薦。",
+    note: "痛風老饕推薦",
+    youtube: [
+      { id: "SvYPdB4-JU8" },
+    ],
   },
   {
     id: "liujiazhuang-papaya",
@@ -625,7 +689,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$60-100/杯",
     must_try: ["木瓜牛奶", "香蕉牛奶"],
-    note: "📺 痛風老饕 SvYPdB4-JU8 推薦。瑞豐夜市的木瓜牛奶招牌。",
+    note: "瑞豐夜市的木瓜牛奶招牌。",
+    youtube: [
+      { id: "SvYPdB4-JU8" },
+    ],
   },
   {
     id: "pengshi-stinky-tofu",
@@ -637,7 +704,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$60-120/人",
     must_try: ["臭豆腐", "泡菜"],
-    note: "📺 痛風老饕 SvYPdB4-JU8 遺珠。**僅週二、六有開**（4/25 週六有開！）。",
+    note: "**僅週二、六有開**（4/25 週六有開！）。",
+    youtube: [
+      { id: "SvYPdB4-JU8" },
+    ],
   },
 
   // === 鹽埕／前金區 其他老店（痛風老饕 3QK6nFhTpoo / APLGAgNhCJA）===
@@ -651,7 +721,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$60-120/人",
     must_try: ["乾麵", "餛飩湯", "黑白切"],
-    note: "📺 痛風老饕 3QK6nFhTpoo 01:05。無招牌的在地老店。",
+    note: "無招牌的在地老店。",
+    youtube: [
+      { id: "3QK6nFhTpoo", time: "01:05" },
+    ],
   },
   {
     id: "mazu-scallion-pancake",
@@ -663,7 +736,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$40-80/人",
     must_try: ["蔥油餅加蛋", "韭菜盒"],
-    note: "📺 痛風老饕 3QK6nFhTpoo 04:28。",
+    note: "痛風老饕推薦",
+    youtube: [
+      { id: "3QK6nFhTpoo", time: "04:28" },
+    ],
   },
   {
     id: "xiangsihai-fish-cake",
@@ -675,7 +751,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$40-100/人",
     must_try: ["旗魚黑輪", "甜不辣"],
-    note: "📺 痛風老饕 3QK6nFhTpoo 06:10。前金第一公有市場內。",
+    note: "前金第一公有市場內。",
+    youtube: [
+      { id: "3QK6nFhTpoo", time: "06:10" },
+    ],
   },
   {
     id: "wuming-scallion-leek",
@@ -687,7 +766,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$40-80/人",
     must_try: ["蔥油餅", "韭菜盒子"],
-    note: "📺 痛風老饕 APLGAgNhCJA 17:44。鹽埕必忠街老店。",
+    note: "鹽埕必忠街老店。",
+    youtube: [
+      { id: "APLGAgNhCJA", time: "17:44" },
+    ],
   },
   {
     id: "xiayiguo-bun",
@@ -699,7 +781,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$30-80/人",
     must_try: ["水煎包", "豬肉餡餅", "韭菜盒子"],
-    note: "📺 痛風老饕 APLGAgNhCJA 20:28 & 22:44（兩度入鏡）。",
+    note: "& 22:44（兩度入鏡）。",
+    youtube: [
+      { id: "APLGAgNhCJA", time: "20:28" },
+    ],
   },
   {
     id: "bianzui-smoked-goose",
@@ -711,7 +796,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$200-500/人",
     must_try: ["燻茶鵝", "鵝油拌飯"],
-    note: "📺 痛風老饕 APLGAgNhCJA 20:23。與下一鍋水煎包同址。",
+    note: "與下一鍋水煎包同址。",
+    youtube: [
+      { id: "APLGAgNhCJA", time: "20:23" },
+    ],
   },
   {
     id: "guangyuan-pancake",
@@ -723,7 +811,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$80-180/人",
     must_try: ["古早味鬆餅", "酥脆小黃瓜"],
-    note: "📺 痛風老饕 3QK6nFhTpoo 20:26。鬆餅＋小黃瓜是招牌組合。",
+    note: "鬆餅＋小黃瓜是招牌組合。",
+    youtube: [
+      { id: "3QK6nFhTpoo", time: "20:26" },
+    ],
   },
 
   // === 老饕 Brunch 系列（痛風老饕 jOjSo6QpE60）===
@@ -737,7 +828,10 @@ const RESTAURANTS = [
     days: [2, 3],
     price: "NT$60-150/人",
     must_try: ["古早味雜菜湯", "滷肉飯"],
-    note: "📺 痛風老饕 jOjSo6QpE60 00:41。07:15–12:40，週三休；4/25 週六、4/26 週日都有開。",
+    note: "07:15–12:40，週三休；4/25 週六、4/26 週日都有開。",
+    youtube: [
+      { id: "jOjSo6QpE60", time: "00:41" },
+    ],
   },
   {
     id: "fuxing-meatball",
@@ -749,7 +843,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$40-100/人",
     must_try: ["蒸肉圓（Q 皮）", "香菇肉羹湯"],
-    note: "📺 痛風老饕 jOjSo6QpE60 03:11。11:00–17:00，週日休。南部蒸派肉圓代表。",
+    note: "11:00–17:00，週日休。南部蒸派肉圓代表。",
+    youtube: [
+      { id: "jOjSo6QpE60", time: "03:11" },
+    ],
   },
   {
     id: "fangde-pork-noodle",
@@ -761,7 +858,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$60-150/人",
     must_try: ["碳火豬肉冬粉", "滷菜"],
-    note: "📺 痛風老饕 jOjSo6QpE60 05:51。10:30–18:30（15:00–16:30 午休），週日休。",
+    note: "10:30–18:30（15:00–16:30 午休），週日休。",
+    youtube: [
+      { id: "jOjSo6QpE60", time: "05:51" },
+    ],
   },
   {
     id: "yarou-he",
@@ -773,7 +873,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$100-200/人",
     must_try: ["鴨肉飯", "下水湯"],
-    note: "📺 痛風老饕 jOjSo6QpE60 06:22。10:00–21:00，週一休。鴨肉珍的三民區對手。",
+    note: "10:00–21:00，週一休。鴨肉珍的三民區對手。",
+    youtube: [
+      { id: "jOjSo6QpE60", time: "06:22" },
+    ],
   },
   {
     id: "yunjia-lemon",
@@ -785,7 +888,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$40-80/杯",
     must_try: ["招牌檸檬汁", "綜合果汁"],
-    note: "📺 痛風老饕 jOjSo6QpE60 09:27。09:00–22:00。三民市場內。",
+    note: "09:00–22:00。三民市場內。",
+    youtube: [
+      { id: "jOjSo6QpE60", time: "09:27" },
+    ],
   },
   {
     id: "xiaodao-apartment",
@@ -797,7 +903,10 @@ const RESTAURANTS = [
     days: [2],
     price: "NT$200-400/人",
     must_try: ["早午餐盤", "手沖咖啡"],
-    note: "📺 痛風老饕 jOjSo6QpE60 11:44。六合一路文青咖啡店。",
+    note: "六合一路文青咖啡店。",
+    youtube: [
+      { id: "jOjSo6QpE60", time: "11:44" },
+    ],
   },
   {
     id: "dengjia-tangyuan",
@@ -809,7 +918,10 @@ const RESTAURANTS = [
     days: [1, 2],
     price: "NT$40-80/人",
     must_try: ["手工粉圓冰", "仙草凍"],
-    note: "📺 痛風老饕 jOjSo6QpE60 17:39。10:00–21:45。",
+    note: "10:00–21:45。",
+    youtube: [
+      { id: "jOjSo6QpE60", time: "17:39" },
+    ],
   },
 
   // === 其他候選 ===

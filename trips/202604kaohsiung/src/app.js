@@ -12,6 +12,19 @@
   function tabelogSearch(name) {
     return `https://tabelog.com/rstLst/?sw=${encodeURIComponent(name)}`;
   }
+  function tsToSeconds(ts) {
+    if (!ts) return 0;
+    const parts = String(ts).split(":").map(Number);
+    if (parts.some(isNaN)) return 0;
+    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    return parts[0] || 0;
+  }
+  function youtubeUrl(ref) {
+    if (!ref || !ref.id) return "";
+    const s = tsToSeconds(ref.time);
+    return s ? `https://youtu.be/${ref.id}?t=${s}` : `https://youtu.be/${ref.id}`;
+  }
 
   // ============== DOM helpers ==============
   const $  = (sel, root = document) => root.querySelector(sel);
@@ -373,6 +386,17 @@
       actions.push(el("a", { class: "btn btn-phone", href: `tel:${phoneMatch[0].replace(/[^\d+]/g, "")}` },
         `📞 ${phoneMatch[0].trim()}`));
     }
+    (r.youtube || []).forEach((yt) => {
+      if (!yt || !yt.id) return;
+      const label = yt.time ? `📺 痛風老饕 ${yt.time}` : `📺 痛風老饕`;
+      actions.push(el("a", {
+        class: "btn btn-yt",
+        href: youtubeUrl(yt),
+        target: "_blank",
+        rel: "noopener",
+        title: `YouTube ${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+      }, label));
+    });
 
     return el("div", { class: "resto", "data-id": r.id },
       el("div", { class: "resto-days" },

@@ -596,6 +596,12 @@ main {
 .btn-web {
   background: #fff;
 }
+.btn-yt {
+  background: #ff0033;
+  color: #fff;
+  border-color: #ff0033;
+}
+.btn-yt:hover { background: #cc0029; }
 .resto-days {
   position: absolute;
   top: 14px;

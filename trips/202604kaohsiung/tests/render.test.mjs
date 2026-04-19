@@ -83,6 +83,24 @@ describe('Food', () => {
     }
     assert.equal(missing, 0);
   });
+  test('restaurants with youtube refs render YouTube link with correct href', () => {
+    const { RESTAURANTS } = dom.window.TRIP_DATA;
+    const withYT = RESTAURANTS.filter((r) => (r.youtube || []).length > 0);
+    assert.ok(withYT.length > 0, 'expected some restaurants to have youtube refs');
+    for (const r of withYT) {
+      const card = dom.window.document.querySelector(`.resto[data-id="${r.id}"]`);
+      assert.ok(card, `card missing for ${r.id}`);
+      const links = Array.from(card.querySelectorAll('.btn-yt'));
+      assert.equal(links.length, r.youtube.length, `${r.id} expected ${r.youtube.length} YT links, got ${links.length}`);
+      r.youtube.forEach((yt, i) => {
+        const href = links[i].getAttribute('href');
+        assert.ok(href.includes(yt.id), `${r.id} link ${i} missing video id`);
+        if (yt.time) {
+          assert.match(href, /[?&]t=\d+/, `${r.id} link ${i} missing timestamp param`);
+        }
+      });
+    }
+  });
 });
 
 describe('Transport', () => {
