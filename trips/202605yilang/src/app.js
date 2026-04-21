@@ -12,6 +12,19 @@
   function tabelogSearch(name) {
     return `https://tabelog.com/rstLst/?sw=${encodeURIComponent(name)}`;
   }
+  function tsToSeconds(ts) {
+    if (!ts) return 0;
+    const parts = String(ts).split(":").map(Number);
+    if (parts.some(isNaN)) return 0;
+    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    return parts[0] || 0;
+  }
+  function youtubeUrl(ref) {
+    if (!ref || !ref.id) return "";
+    const s = tsToSeconds(ref.time);
+    return s ? `https://youtu.be/${ref.id}?t=${s}` : `https://youtu.be/${ref.id}`;
+  }
 
   // ============== DOM helpers ==============
   const $  = (sel, root = document) => root.querySelector(sel);
@@ -39,6 +52,38 @@
   function stars(n) { return n ? "⭐".repeat(n) : ""; }
 
   // ============== Countdown ==============
+  // Populate <title>, meta description, header brand and footer from TRIP.
+  // Everything that was hardcoded in index.html and duplicated in data.js now
+  // flows from data.js only.
+  function fmtDates() {
+    const s = (TRIP.dates.start || "").replace(/-/g, ".");
+    const e = (TRIP.dates.end || "").replace(/-/g, ".");
+    const eShort = e.slice(5); // "04.26" from "2026.04.26"
+    return `${s} – ${eShort}`;
+  }
+  function renderBrand() {
+    const datesLabel = fmtDates();
+    const subLabel = `${datesLabel} ｜ ${TRIP.people} 位大人`;
+    const setText = (id, text) => { const n = document.getElementById(id); if (n) n.textContent = text; };
+    setText("brand-title", TRIP.title);
+    setText("brand-sub", subLabel);
+    setText("foot-title", TRIP.title);
+    setText("foot-year", String(new Date().getFullYear()));
+    const titleEl = document.getElementById("page-title");
+    if (titleEl) titleEl.textContent = `${TRIP.title} ｜ ${datesLabel}`;
+    const metaEl = document.getElementById("meta-desc");
+    if (metaEl) metaEl.setAttribute("content", TRIP.heroDesc || TRIP.subtitle || TRIP.title);
+    if (TRIP.emoji) {
+      setText("brand-emoji", TRIP.emoji);
+      // Also update favicon SVG to match.
+      const favicon = document.querySelector('link[rel="icon"]');
+      if (favicon) {
+        const svg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E${encodeURIComponent(TRIP.emoji)}%3C/text%3E%3C/svg%3E`;
+        favicon.setAttribute("href", svg);
+      }
+    }
+  }
+
   function renderCountdown() {
     const node = $("#countdown");
     if (!node) return;
@@ -213,6 +258,47 @@
     });
   }
 
+  // Resolve a ref (string) to a place with name/address/youtube.
+  // Looks up RESTAURANTS by id first, then SIGHTS by name.
+  function resolveRef(ref) {
+    if (!ref || typeof ref !== "string") return null;
+    const r = RESTAURANTS.find((x) => x.id === ref);
+    if (r) return { name: r.name, address: r.address, youtube: r.youtube, kind: "restaurant" };
+    const s = SIGHTS.find((x) => x.name === ref);
+    if (s) return { name: s.name, address: s.address || s.city, kind: "sight" };
+    return null;
+  }
+
+  // Render a compact row of `📍 Google Maps` + `📺 <creator>` pill links for a list of refs.
+  function renderPlaceLinks(refs) {
+    if (!refs || !refs.length) return null;
+    const children = [];
+    for (const ref of refs) {
+      const place = resolveRef(ref);
+      if (!place) continue;
+      children.push(el("a", {
+        class: `place-link place-link-map place-link-${place.kind}`,
+        href: mapsUrl(place.name, place.address),
+        target: "_blank",
+        rel: "noopener",
+        title: `Google Maps：${place.name}`,
+      }, `📍 ${place.name}`));
+      (place.youtube || []).forEach((yt) => {
+        if (!yt || !yt.id) return;
+        const creator = yt.creator || "YouTube";
+        children.push(el("a", {
+          class: "place-link place-link-yt",
+          href: youtubeUrl(yt),
+          target: "_blank",
+          rel: "noopener",
+          title: `${creator}・${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+        }, yt.time ? `📺 ${creator} ${yt.time}` : `📺 ${creator}`));
+      });
+    }
+    if (!children.length) return null;
+    return el("div", { class: "place-links" }, ...children);
+  }
+
   function renderDayCard(d) {
     const meals = el("div", { class: "meals" },
       ...(d.meals || []).map((m) =>
@@ -221,7 +307,8 @@
             el("span", { class: "meal-type" }, m.type),
             el("span", { class: "meal-name" }, m.title),
             m.star ? el("span", { class: "meal-stars" }, stars(m.star)) : null),
-          m.note ? el("p", { class: "meal-note" }, m.note) : null)));
+          m.note ? el("p", { class: "meal-note" }, m.note) : null,
+          renderPlaceLinks(m.refs))));
 
     const catChips = el("div", { class: "cat-chips" },
       ...(d.categories || []).map((cat) => {
@@ -248,7 +335,8 @@
           ...d.timeline.map((t) =>
             el("li", null,
               el("span", { class: "tl-time" }, t.time),
-              el("span", { class: "tl-event" }, t.event)))) : null,
+              el("span", { class: "tl-event" }, t.event),
+              renderPlaceLinks(t.refs)))) : null,
         (d.meals && d.meals.length) ? el("div", { class: "sec-title" }, "🍽️ 美食推薦") : null,
         (d.meals && d.meals.length) ? meals : null,
         d.tips ? el("div", { class: "tip-box" }, d.tips) : null,
@@ -373,6 +461,18 @@
       actions.push(el("a", { class: "btn btn-phone", href: `tel:${phoneMatch[0].replace(/[^\d+]/g, "")}` },
         `📞 ${phoneMatch[0].trim()}`));
     }
+    (r.youtube || []).forEach((yt) => {
+      if (!yt || !yt.id) return;
+      const creator = yt.creator || "YouTube";
+      const label = yt.time ? `📺 ${creator} ${yt.time}` : `📺 ${creator}`;
+      actions.push(el("a", {
+        class: "btn btn-yt",
+        href: youtubeUrl(yt),
+        target: "_blank",
+        rel: "noopener",
+        title: `${creator}・${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+      }, label));
+    });
 
     return el("div", { class: "resto", "data-id": r.id },
       el("div", { class: "resto-days" },
@@ -532,6 +632,7 @@
 
   // ============== init ==============
   document.addEventListener("DOMContentLoaded", () => {
+    renderBrand();
     renderCountdown();
     setupTabs();
     renderOverview();
