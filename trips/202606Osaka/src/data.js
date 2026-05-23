@@ -93,7 +93,7 @@ const DAYS = [
     level: "💰💰💰",
     timeline: [
       { time: "09:30", event: "步行到黑門市場（約 10 分鐘），邊走邊吃" },
-      { time: "10:00", event: "🦐 黑門市場早午餐：鮪魚生魚片＋帝王蟹腳＋飯蛸串＋鮮榨果汁（痛風老饕點名 4 攤）", refs: ["maguroya", "torepichi", "shinuoei", "daiwa", "mansai-market", "uofuku-market", "ishibashi-market", "uojin-market"] },
+      { time: "10:00", event: "🦐 黑門市場早午餐：鮪魚生魚片＋帝王蟹腳＋飯蛸串＋鮮榨果汁（痛風老饕點名 4 攤＋原本路線 4 攤）", refs: ["maguroya", "torepichi", "shinuoei", "daiwa", "mansai-market", "uofuku-market", "ishibashi-market", "uojin-market"] },
       { time: "12:30", event: "回飯店午休 / 中之島散步 / 心齋橋商店街" },
       { time: "15:00", event: "梅田空中庭園（雨天備案：心齋橋筋拱廊）" },
       { time: "17:30", event: "🎎 晚餐：割烹或河豚二選一（已預約）", refs: ["benkei", "hakataro", "guenpin", "mitsutomi"] },
