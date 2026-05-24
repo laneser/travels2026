@@ -598,20 +598,35 @@
             el("p", null, r.body))));
     } else if (s.type === "sights") {
       body = el("div", null,
-        ...(s.items || []).map((x) =>
-          el("div", { class: "sight" },
+        ...(s.items || []).map((x) => {
+          const acts = [
+            el("a", {
+              class: "btn btn-map",
+              href: mapsUrl(x.name, x.address || x.city || ""),
+              target: "_blank",
+              rel: "noopener",
+            }, "📍 Google Maps"),
+          ];
+          (x.youtube || []).forEach((yt) => {
+            if (!yt || !yt.id) return;
+            const creator = yt.creator || "YouTube";
+            acts.push(el("a", {
+              class: "btn btn-yt",
+              href: youtubeUrl(yt),
+              target: "_blank",
+              rel: "noopener",
+              title: `${creator}・${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+            }, yt.time ? `📺 ${creator} ${yt.time}` : `📺 ${creator}`));
+          });
+          return el("div", { class: "sight" },
             el("div", { class: "sight-head" },
               el("span", { class: "sight-name" }, x.name),
               x.city ? el("span", { class: "sight-badge" }, x.city) : null,
               (x.day || x.time) ? el("span", { class: "sight-day" },
                 [x.day ? `Day ${x.day}` : null, x.time].filter(Boolean).join("・")) : null),
             x.note ? el("p", { class: "sight-note" }, x.note) : null,
-            el("a", {
-              class: "btn btn-map",
-              href: mapsUrl(x.name, x.address || x.city || ""),
-              target: "_blank",
-              rel: "noopener",
-            }, "📍 Google Maps"))));
+            el("div", { class: "sight-actions" }, ...acts));
+        }));
     } else if (s.type === "breakfast") {
       body = el("div", null,
         ...(s.items || []).map((b) =>

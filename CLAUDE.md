@@ -2,6 +2,12 @@
 
 Multi-trip travel repo. Each trip is a self-contained folder under `trips/`.
 
+## 語言慣例（重要）
+
+- **與使用者（Lane）溝通一律用繁體中文。** Lane 不熟悉日文，所有說明、結論、提問都用繁體中文書寫，不要用日文敘述。
+- **旅遊資料（`data.js` 的 note / highlight 等）也以繁體中文撰寫**，但**保留當地原文**（日文店名、地名、菜名等）放在後面或括號內，方便 Lane 到當地時對照確認。例如：「割烹『日本料理 弁慶』（御堂筋銀杏景）」。
+- 不要把整段敘述改成純日文；原文是給現場核對用的輔助，不是主要語言。
+
 ## Structure
 
 ```
