@@ -141,13 +141,26 @@ def _array_span(text: str, const_name: str) -> tuple[int, int]:
 
 def _locate_object(text: str, *, restaurant_id: str | None = None,
                    sight_name: str | None = None) -> tuple[int, int]:
-    """找到目標物件的 '{' 與 '}' 索引。餐廳用 id 定位、景點用 name（限定在 SIGHTS 陣列內）。"""
+    """找到目標物件的 '{' 與 '}' 索引。
+
+    餐廳用 id 定位：但巢狀的 YouTube ref 物件也有 `id:` 欄位，所以
+    (1) 只在 RESTAURANTS 陣列範圍內搜尋，(2) 找到後要求該物件含 `category:`
+    （餐廳一定有、youtube ref 一定沒有），避免誤把影片 id 當餐廳而插錯地方。
+    景點用 name 定位，限定在 SIGHTS 陣列內。
+    """
     if restaurant_id is not None:
+        arr_open, arr_close = _array_span(text, "RESTAURANTS")
         needle = f'id: "{restaurant_id}"'
-        at = text.find(needle)
-        if at == -1:
-            raise ValueError(f"找不到 id 為 {restaurant_id!r} 的餐廳。")
-        open_idx = _find_brace_left(text, at)
+        cursor = arr_open
+        while True:
+            at = text.find(needle, cursor, arr_close)
+            if at == -1:
+                raise ValueError(f"找不到 id 為 {restaurant_id!r} 的餐廳。")
+            open_idx = _find_brace_left(text, at)
+            close_idx = _match_bracket(text, open_idx)
+            if "category:" in text[open_idx:close_idx + 1]:
+                return open_idx, close_idx
+            cursor = at + len(needle)   # 命中的是 youtube ref，繼續往後找
     else:
         arr_open, arr_close = _array_span(text, "SIGHTS")
         needle = f'name: "{sight_name}"'
@@ -155,8 +168,8 @@ def _locate_object(text: str, *, restaurant_id: str | None = None,
         if at == -1:
             raise ValueError(f"在 SIGHTS 裡找不到名稱為 {sight_name!r} 的景點。")
         open_idx = _find_brace_left(text, at)
-    close_idx = _match_bracket(text, open_idx)
-    return open_idx, close_idx
+        close_idx = _match_bracket(text, open_idx)
+        return open_idx, close_idx
 
 
 # ---------- JS literal helpers ----------
@@ -177,12 +190,19 @@ def yt_literal(vid: str, time: str | None, creator: str | None) -> str:
 
 # ---------- write ops (with validate + rollback) ----------
 
-def _write_with_rollback(data_path: Path, new_text: str) -> None:
+def _write_with_rollback(data_path: Path, new_text: str, verify=None) -> None:
+    """寫入後做語法驗證；若給了 verify 再做語意驗證。任一失敗都還原原檔。
+
+    verify(data) 收到重新載入後的 TRIP_DATA dict，語意不符就 raise。
+    這能抓到「語法合法但插到錯物件」這種 validate() 看不出來的破壞。
+    """
     original = data_path.read_text(encoding="utf-8")
     data_path.write_text(new_text, encoding="utf-8")
     try:
         validate(data_path)
-    except SystemExit:
+        if verify is not None:
+            verify(load_data(data_path))
+    except BaseException:
         data_path.write_text(original, encoding="utf-8")
         raise
 
@@ -216,7 +236,15 @@ def add_youtube(data_path: Path, *, restaurant_id: str | None, sight_name: str |
                  f"{field_indent}],\n")
         new_text = text[:line_start] + block + text[line_start:]
 
-    _write_with_rollback(data_path, new_text)
+    def verify(data: dict) -> None:
+        coll = data["RESTAURANTS"] if restaurant_id else data["SIGHTS"]
+        key, want = ("id", restaurant_id) if restaurant_id else ("name", sight_name)
+        item = next((x for x in coll if x.get(key) == want), None)
+        ids = [y.get("id") for y in (item or {}).get("youtube") or []]
+        if vid not in ids:
+            raise ValueError("寫入後語意驗證失敗：目標的 youtube 沒有出現新影片 id，已回滾。")
+
+    _write_with_rollback(data_path, new_text, verify)
     target = restaurant_id or sight_name
     return f"✓ 已為「{target}」加入 YouTube：{ref}"
 
@@ -246,7 +274,11 @@ def add_sight(data_path: Path, *, name: str, city: str, day: int | None,
     line_start = text.rfind("\n", 0, arr_close) + 1
     new_text = text[:line_start] + block + text[line_start:]
 
-    _write_with_rollback(data_path, new_text)
+    def verify(data: dict) -> None:
+        if not any(s.get("name") == name for s in data["SIGHTS"]):
+            raise ValueError(f"寫入後語意驗證失敗：SIGHTS 找不到新景點「{name}」，已回滾。")
+
+    _write_with_rollback(data_path, new_text, verify)
     return f"✓ 已新增景點「{name}」（{city}）。"
 
 
@@ -266,7 +298,10 @@ def cmd_list(data: dict, which: str) -> None:
         for s in data.get("SIGHTS", []):
             yt = len(s.get("youtube") or [])
             tag = f"  📺×{yt}" if yt else ""
-            print(f"  {s.get('name')}  · {s.get('city')} Day{s.get('day')}{tag}")
+            loc = s.get("city", "")
+            if s.get("day") is not None:
+                loc = f"{loc} Day{s.get('day')}".strip()
+            print(f"  {s.get('name')}  · {loc}{tag}")
 
 
 def cmd_show(data: dict, restaurant_id: str | None, sight_name: str | None) -> None:
@@ -345,19 +380,22 @@ def main() -> None:
     args = ap.parse_args()
     data_path = resolve_data_path(args)
 
-    if args.cmd == "list":
-        which = "restaurants" if args.restaurants else "sights" if args.sights else "all"
-        cmd_list(load_data(data_path), which)
-    elif args.cmd == "show":
-        cmd_show(load_data(data_path), args.restaurant, args.sight)
-    elif args.cmd == "add-yt":
-        print(add_youtube(data_path, restaurant_id=args.restaurant,
-                          sight_name=args.sight, vid=args.vid,
-                          time=args.time, creator=args.creator))
-    elif args.cmd == "add-sight":
-        print(add_sight(data_path, name=args.name, city=args.city, day=args.day,
-                        time=args.time, note=args.note, address=args.address,
-                        vid=args.vid, yt_time=args.yt_time, creator=args.creator))
+    try:
+        if args.cmd == "list":
+            which = "restaurants" if args.restaurants else "sights" if args.sights else "all"
+            cmd_list(load_data(data_path), which)
+        elif args.cmd == "show":
+            cmd_show(load_data(data_path), args.restaurant, args.sight)
+        elif args.cmd == "add-yt":
+            print(add_youtube(data_path, restaurant_id=args.restaurant,
+                              sight_name=args.sight, vid=args.vid,
+                              time=args.time, creator=args.creator))
+        elif args.cmd == "add-sight":
+            print(add_sight(data_path, name=args.name, city=args.city, day=args.day,
+                            time=args.time, note=args.note, address=args.address,
+                            vid=args.vid, yt_time=args.yt_time, creator=args.creator))
+    except ValueError as e:
+        sys.exit(f"✗ {e}")
 
 
 if __name__ == "__main__":

@@ -79,6 +79,15 @@ uv run tools/data_tool.py add-sight --trip 202606Osaka \
 - 改完跑 `npm test` 確認資料層與 render 測試仍通過。
 - `data.js` 裡 `youtube: [{ id, time?, creator? }]` 會被該 trip 的 `app.js` 渲染成可點的 `📺 <creator> <time>` 按鈕（餐廳與景點皆然）。
 
+工具自己的單元測試（pytest）：
+
+```bash
+uv run --with pytest pytest tools/tests/      # 不需先安裝 pytest，uv 會臨時帶入
+```
+
+涵蓋字串感知括號掃描、餐廳／景點定位（含「影片 id 不可誤判成餐廳」）、
+以及寫入後的語法＋語意驗證與自動回滾。需要 round-trip 驗證的測試會在沒有 `node` 時自動跳過。
+
 ## Adding a trip
 
 Invoke `/travel` again. The skill detects this repo (sees `trips.json`) and adds a new trip folder + appends to the registry.
