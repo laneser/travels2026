@@ -781,6 +781,11 @@ main {
   color: var(--muted);
 }
 .sight-note { font-size: 13px; color: var(--ink-2); margin: 4px 0 8px; }
+.sight-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
 .bk-item {
   padding: 8px 0;

@@ -2,6 +2,10 @@
 
 Trip folder under a multi-trip travel repo. See repo-level `CLAUDE.md` for overall structure.
 
+## 語言
+
+與 Lane 溝通用**繁體中文**；`data.js` 的敘述也用繁體中文，但**保留日文原文**（店名、地名、菜名）方便現場對照。詳見 repo-level `CLAUDE.md` 的「語言慣例」。
+
 ## SSOT
 
 **`src/data.js` is the single source of truth for this trip.** All edits to itinerary / restaurants / sights / transport go here.

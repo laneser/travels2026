@@ -105,4 +105,11 @@ describe('Tips', () => {
         `sight "${s.querySelector('.sight-name')?.textContent}" missing Maps button`);
     }
   });
+  test('sights with youtube refs render 📺 pills linking to youtu.be', () => {
+    const SIGHTS = dom.window.TRIP_DATA.SIGHTS || [];
+    const expected = SIGHTS.reduce((n, s) => n + (s.youtube?.length || 0), 0);
+    const pills = dom.window.document.querySelectorAll('#tips-sections .sight .btn-yt[href*="youtu.be"]');
+    assert.equal(pills.length, expected,
+      `expected ${expected} sight YouTube pills, got ${pills.length}`);
+  });
 });

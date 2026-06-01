@@ -999,6 +999,10 @@ const SIGHTS = [
     time: "上午（2–3 小時）",
     note: "從三宮站往北步行約 15 分鐘（上坡），或搭 City Loop 巴士至「北野異人館」站。ラインの館免費入門推薦；風見鶏＋萌黄 2 館共通券 ¥650；うろこグループ 7 館＋展望 プレミアムパス ¥3,000。神戶牛鐵板燒午餐前的散步開胃首選。",
     address: "神戸市中央区北野町",
+    youtube: [
+      { id: "AjsYVZxHzXc", time: "3:29", creator: "瑄瑄＆G先生" },
+      { id: "PloMJELlG7Q", creator: "theHuer 呼兒" },
+    ],
   },
   {
     name: "神戶港區（Harborland / Meriken Park）",
@@ -1007,6 +1011,10 @@ const SIGHTS = [
     time: "下午（1–2 小時）",
     note: "從三宮搭 JR 至神戶站（2 站，3 分鐘）。BE KOBE 紀念碑免費 24 小時開放。神戶港塔觀景 ¥1,000／觀景＋天台 ¥1,200。Mosaic 購物中心面海、咖啡廳多。",
     address: "神戸市中央区波止場町",
+    youtube: [
+      { id: "AjsYVZxHzXc", time: "3:13", creator: "瑄瑄＆G先生" },
+      { id: "PloMJELlG7Q", creator: "theHuer 呼兒" },
+    ],
   },
   {
     name: "奈良公園",
@@ -1015,6 +1023,9 @@ const SIGHTS = [
     time: "上午（3–5 小時）",
     note: "從近鐵奈良站東口步行 5 分。鹿仙貝攤 ¥200/束、機台 ¥500/盒。東大寺大佛殿 ¥800、興福寺國寶館 ¥700、春日大社參拜免費。Day 5 自選半日加碼。",
     address: "奈良県奈良市雑司町",
+    youtube: [
+      { id: "_ltmYqArdC0", time: "5:33", creator: "小黑的旅行誌" },
+    ],
   },
   {
     name: "阿倍野 HARUKAS 300",
@@ -1023,6 +1034,9 @@ const SIGHTS = [
     time: "上午（1–2 小時）",
     note: "日本最高建築 300m／60F。觀景台成人 ¥2,000（2026/7/22 前）。6 月下旬日落約 19:00，可欣賞日景過渡夜景。16F 空中花園免費。",
     address: "大阪市阿倍野区阿倍野筋 1-1-43",
+    youtube: [
+      { id: "HhRtRgFacm0", creator: "黑板 HeiBan" },
+    ],
   },
   {
     name: "美國村／堀江",
@@ -1031,6 +1045,9 @@ const SIGHTS = [
     time: "下午（2–3 小時）",
     note: "從心齋橋站往西南步行 3 分。「西之原宿」風格。古著、球鞋、唱片行。南堀江有時尚家具與家居店。離飯店步行 5 分。",
     address: "大阪市中央区西心斎橋 2 丁目",
+    youtube: [
+      { id: "L7DTZYUnbEA", creator: "便便日常" },
+    ],
   },
 ];
 
