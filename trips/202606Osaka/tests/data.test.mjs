@@ -20,7 +20,7 @@ function loadData() {
   return sandbox.window.TRIP_DATA;
 }
 
-const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS } = loadData();
+const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING } = loadData();
 
 describe('TRIP', () => {
   test('dates valid and end >= start', () => {
@@ -152,6 +152,15 @@ describe('Google Maps URLs', () => {
       assert.match(url, /^https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=/);
     }
   });
+
+  test('every shopping spot produces valid URL containing its name', () => {
+    for (const s of ((SHOPPING || {}).spots || [])) {
+      const url = mapsUrl(s.name, s.address || s.city);
+      assert.match(url, /^https:\/\/www\.google\.com\/maps\/search\/\?api=1&query=/);
+      const decoded = decodeURIComponent(url.split('query=')[1]);
+      assert.ok(decoded.includes(s.name), `shopping "${s.name}": URL missing name`);
+    }
+  });
 });
 
 describe('TRANSPORT', () => {
@@ -190,6 +199,36 @@ describe('SIGHTS', () => {
       assert.ok(s.city, `sight "${s.name}" missing city`);
       assert.ok(Number.isInteger(s.day) && s.day >= 1 && s.day <= maxDay,
         `sight "${s.name}" invalid day ${s.day}`);
+    }
+  });
+});
+
+describe('SHOPPING', () => {
+  test('spots is an array', () => {
+    assert.ok(Array.isArray((SHOPPING || {}).spots || []));
+  });
+  test('every spot has name, city, address', () => {
+    for (const s of ((SHOPPING || {}).spots || [])) {
+      assert.ok(s.name, 'shopping spot missing name');
+      assert.ok(s.city, `shopping "${s.name}" missing city`);
+      assert.ok(s.address, `shopping "${s.name}" missing address`);
+    }
+  });
+  test('spot.day in 1..DAYS.length when present', () => {
+    const maxDay = DAYS.length;
+    for (const s of ((SHOPPING || {}).spots || [])) {
+      if (s.day != null) {
+        assert.ok(Number.isInteger(s.day) && s.day >= 1 && s.day <= maxDay,
+          `shopping "${s.name}" invalid day ${s.day}`);
+      }
+    }
+  });
+  test('every link has label and http(s) url', () => {
+    for (const s of ((SHOPPING || {}).spots || [])) {
+      for (const lk of (s.links || [])) {
+        assert.ok(lk.label, `shopping "${s.name}" link missing label`);
+        assert.match(lk.url || '', /^https?:\/\//, `shopping "${s.name}" link bad url`);
+      }
     }
   });
 });

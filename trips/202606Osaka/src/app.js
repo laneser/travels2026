@@ -2,7 +2,7 @@
 // All destination-specific content lives in data.js. This file is generic.
 
 (function () {
-  const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS } = window.TRIP_DATA;
+  const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING } = window.TRIP_DATA;
 
   // ============== Google Maps URL ==============
   function mapsUrl(name, address) {
@@ -259,13 +259,15 @@
   }
 
   // Resolve a ref (string) to a place with name/address/youtube.
-  // Looks up RESTAURANTS by id first, then SIGHTS by name.
+  // Looks up RESTAURANTS by id first, then SIGHTS, then SHOPPING by name.
   function resolveRef(ref) {
     if (!ref || typeof ref !== "string") return null;
     const r = RESTAURANTS.find((x) => x.id === ref);
     if (r) return { name: r.name, address: r.address, youtube: r.youtube, kind: "restaurant" };
     const s = SIGHTS.find((x) => x.name === ref);
     if (s) return { name: s.name, address: s.address || s.city, kind: "sight" };
+    const sh = ((SHOPPING && SHOPPING.spots) || []).find((x) => x.name === ref);
+    if (sh) return { name: sh.name, address: sh.address || sh.city, youtube: sh.youtube, kind: "shop" };
     return null;
   }
 
@@ -645,6 +647,75 @@
     return el("div", { class: "card" }, ...children);
   }
 
+  // ============== Shopping ==============
+  // SHOPPING = { intro?, spots: [{ name, city, area, address, hours, price?, day?, note, youtube?, links? }] }
+  function renderShopping() {
+    const container = $("#shopping-sections");
+    if (!container) return;
+    const data = SHOPPING || {};
+    const spots = data.spots || [];
+    const cards = [];
+    if (data.intro) {
+      cards.push(el("div", { class: "card" },
+        el("div", { class: "card-head" },
+          el("span", { class: "card-icon" }, "🛍️"),
+          el("h2", { class: "card-title" }, "購物攻略")),
+        el("p", { class: "tip-box" }, data.intro)));
+    }
+    if (spots.length) {
+      cards.push(el("div", { class: "card" },
+        el("div", { class: "card-head" },
+          el("span", { class: "card-icon" }, "👟"),
+          el("h2", { class: "card-title" }, "購物地點")),
+        el("div", null, ...spots.map(renderShopSpot))));
+    }
+    if (!cards.length) {
+      container.replaceChildren(el("p", { class: "muted small" }, "尚未填入購物資訊。"));
+      return;
+    }
+    container.replaceChildren(...cards);
+  }
+
+  function renderShopSpot(x) {
+    const acts = [
+      el("a", {
+        class: "btn btn-map",
+        href: mapsUrl(x.name, x.address || x.city || ""),
+        target: "_blank",
+        rel: "noopener",
+      }, "📍 Google Maps"),
+    ];
+    (x.youtube || []).forEach((yt) => {
+      if (!yt || !yt.id) return;
+      const creator = yt.creator || "YouTube";
+      acts.push(el("a", {
+        class: "btn btn-yt",
+        href: youtubeUrl(yt),
+        target: "_blank",
+        rel: "noopener",
+        title: `${creator}・${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+      }, yt.time ? `📺 ${creator} ${yt.time}` : `📺 ${creator}`));
+    });
+    (x.links || []).forEach((lk) => {
+      if (!lk || !lk.url) return;
+      acts.push(el("a", {
+        class: "btn btn-web",
+        href: lk.url,
+        target: "_blank",
+        rel: "noopener",
+      }, `🔗 ${lk.label || "連結"}`));
+    });
+    const meta = [x.day ? `Day ${x.day}` : null, x.hours].filter(Boolean).join("・");
+    return el("div", { class: "sight" },
+      el("div", { class: "sight-head" },
+        el("span", { class: "sight-name" }, x.name),
+        (x.area || x.city) ? el("span", { class: "sight-badge" }, x.area || x.city) : null,
+        meta ? el("span", { class: "sight-day" }, meta) : null),
+      x.price ? el("p", { class: "sight-note" }, `💴 ${x.price}`) : null,
+      x.note ? el("p", { class: "sight-note" }, x.note) : null,
+      el("div", { class: "sight-actions" }, ...acts));
+  }
+
   // ============== init ==============
   document.addEventListener("DOMContentLoaded", () => {
     renderBrand();
@@ -657,6 +728,7 @@
     renderFoodList();
     renderTransport();
     renderTips();
+    renderShopping();
     setInterval(renderCountdown, 60_000);
   });
 })();
