@@ -40,7 +40,7 @@ const TRIP = {
     {
       icon: "🎯",
       title: "本趟主題",
-      body: "梅雨季優雅吃透關西。以大阪帝國飯店為據點，四個美食重點：① Day 2 黑門市場 + 割烹／河豚 ② Day 3 壽司／鰻魚／串炸三料 ③ Day 4 神戶牛鐵板燒午餐（提前 2 週訂位） ④ Day 5 大阪燒名店 + 和牛燒肉。Day 1、Day 6 留白給道頓堀小吃與早午餐告別。",
+      body: "梅雨季優雅吃透關西。以大阪帝國飯店為據點，四個美食重點：① Day 2 黑門市場 + 割烹／河豚 ② Day 3 壽司／鰻魚／串炸三料 ③ Day 4 神戶牛鐵板燒午餐（提前 2 週訂位） ④ Day 5 大阪燒名店 + 和牛燒肉。Day 1、Day 6 留白給道頓堀小吃與早午餐告別。購物：心齋橋筋掃鬼塚虎 Onitsuka Tiger（見「購物」分頁）。",
     },
     {
       icon: "🔒",
@@ -70,7 +70,7 @@ const DAYS = [
       { time: "14:15", event: "搭南海特急ラピート前往難波（38 分鐘）" },
       { time: "15:00", event: "抵達難波，步行到飯店 check-in（補繳 2 人房差 ¥33,000）" },
       { time: "16:00", event: "稍作休息，出門散步" },
-      { time: "17:00", event: "道頓堀・心齋橋散步，沿路吃小吃", refs: ["wanaka", "kukuru", "akaoni"] },
+      { time: "17:00", event: "道頓堀・心齋橋散步，沿路吃小吃（順路逛 Onitsuka Tiger 道頓堀店比款，營業到 21:00）", refs: ["wanaka", "kukuru", "akaoni", "Onitsuka Tiger 道頓堀店（NAMBA）"] },
       { time: "19:00", event: "🍢 串炸晚餐：元祖串かつ だるま 道頓堀店（醬汁二度漬け禁止！）", refs: ["daruma-dotonbori"] },
       { time: "21:00", event: "🍜 拉麵收尾：金久右衛門「大阪ブラック」or 花丸軒巨大叉燒拉麵", refs: ["kingemon", "hanamaruken"] },
     ],
@@ -170,7 +170,7 @@ const DAYS = [
       { time: "09:00", event: "自選半日：奈良（近鐵 35 分）／阿倍野 HARUKAS／美國村・堀江／心齋橋購物", refs: ["奈良公園", "阿倍野 HARUKAS 300", "美國村／堀江"] },
       { time: "12:00", event: "🥞 午餐：大阪燒名店（きじ / 美津の / 福太郎 三選一）", refs: ["kiji", "mizuno", "fukutaro"] },
       { time: "14:00", event: "🍳 下午茶：北極星西心齋橋本店（若 Day 3 沒吃）", refs: ["hokkyokusei"] },
-      { time: "15:00", event: "心齋橋／梅田自由購物" },
+      { time: "15:00", event: "🛍️ 心齋橋自由購物：Onitsuka Tiger 鬼塚虎旗艦店掃鞋（MEXICO 66／帶護照退稅），順逛心齋橋筋球鞋一條街", refs: ["Onitsuka Tiger 大阪心斎橋（關西旗艦店）", "心齋橋筋商店街（掃鞋一條街）"] },
       { time: "18:00", event: "🥩 晚餐：和牛燒肉（已預約）／痛風老饕＋肥波＋Kiki 多家加碼", refs: ["ushigoro", "manryo", "nunogami", "rikimaru-dotonbori", "mansen-yakiniku", "nan-ichien-yakiniku", "aburi-bokujou-osaka", "itto-yakiniku"] },
       { time: "21:00", event: "道頓堀夜景告別散步" },
     ],
@@ -1051,4 +1051,75 @@ const SIGHTS = [
   },
 ];
 
-window.TRIP_DATA = { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS };
+// ── 購物（以 Onitsuka Tiger 鬼塚虎為主的心齋橋／道頓堀掃鞋路線）────────────
+// 飯店（西心齋橋）步行可達心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街。
+const SHOPPING = {
+  intro:
+    "Lane 此行想入手 Onitsuka Tiger（鬼塚虎）。好消息：飯店（西心齋橋）步行可達的心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街——三家鬼塚虎門市加 Nike／adidas 都在腳程內。退稅攻略：帶護照享外國旅客免稅 10%，部分百貨可再疊 5% 優惠券＋信用卡優惠；日幣便宜時比台灣官網划算明顯。經典款 MEXICO 66、SERRANO、GSM 為入手首選。人氣門市常於 11:00 開店前就排隊，建議開店即到或挑平日上午。",
+  spots: [
+    {
+      name: "Onitsuka Tiger 大阪心斎橋（關西旗艦店）",
+      city: "大阪",
+      area: "心齋橋筋",
+      address: "大阪市中央区心斎橋筋1-4-22 心斎橋アセットビル",
+      hours: "11:00–21:00（部分資料標 11:00–20:00，出發前再確認）",
+      price: "MEXICO 66 約 ¥12,100 起（退稅後更低）",
+      day: 5,
+      note:
+        "西日本第一家、關西最大級旗艦店（オニツカタイガー大阪心斎橋）。鞋款＋服飾＋小物最齊全，限定與聯名款也最多。從飯店沿心齋橋筋步行約 5–7 分。口碑：常大排長龍、店員親切可試穿諮詢；建議開店前到或平日上午。可退稅。",
+      youtube: [
+        { id: "_ZxmyFaXmq0", creator: "24 Minds of Alvise" },
+      ],
+      links: [
+        { label: "凱子凱購買攻略", url: "https://ksk.tw/onitsuka-tiger/" },
+        { label: "官方門市介紹", url: "https://www.onitsukatiger.com/jp/magazine/shoplocation/osaka-shinsaibashi/?lang=en" },
+        { label: "Threads 大阪買鞋地圖", url: "https://www.threads.com/@panhanluo/post/DVx76EyD2L5" },
+      ],
+    },
+    {
+      name: "Onitsuka Tiger 道頓堀店（NAMBA）",
+      city: "大阪",
+      area: "道頓堀",
+      address: "大阪市中央区道頓堀1-8-14",
+      hours: "11:00–21:00",
+      day: 1,
+      note:
+        "凱子凱評為「貨況最齊」的一家，就在道頓堀，距飯店步行約 3–5 分。Day 1 晚上道頓堀小吃散步順路（營業到 21:00），可先逛、比款；Day 5 再回旗艦店成交。可退稅。",
+      links: [
+        { label: "凱子凱購買攻略", url: "https://ksk.tw/onitsuka-tiger/" },
+      ],
+    },
+    {
+      name: "THE ONITSUKA（ジ・オニツカ）心斎橋PARCO",
+      city: "大阪",
+      area: "心齋橋筋",
+      address: "大阪市中央区心斎橋筋1-8-3 心斎橋PARCO 2F",
+      hours: "依心斎橋PARCO 營業時間（約 10:00–20:00）",
+      day: 5,
+      note:
+        "鬼塚虎高端副線 THE ONITSUKA（ジ・オニツカ），主打日本製高價位、童裝與高爾夫系列。想找精品款或質感升級可加碼。位於心斎橋PARCO，與旗艦店同一條街。",
+      links: [
+        { label: "心斎橋PARCO 官網", url: "https://shinsaibashi.parco.jp/" },
+      ],
+    },
+    {
+      name: "心齋橋筋商店街（掃鞋一條街）",
+      city: "大阪",
+      area: "心齋橋",
+      address: "大阪市中央区心斎橋筋",
+      hours: "各店約 11:00–21:00（拱廊全天可穿越）",
+      day: 5,
+      note:
+        "長約 600m 的有頂拱廊，鬼塚虎旗艦店、Nike 大阪心齋橋（三層旗艦・日本限定配色，1-4-19）、adidas、New Balance、Salomon 等球鞋店一字排開，下雨也好逛（梅雨季友善）。多數門市支援退稅。距飯店步行 5 分。",
+      youtube: [
+        { id: "_ZxmyFaXmq0", creator: "24 Minds of Alvise" },
+      ],
+      links: [
+        { label: "商店街官網（繁中）", url: "https://global.shinsaibashi.or.jp/zh-TW/" },
+        { label: "NAVITIME 景點（繁中）", url: "https://japantravel.navitime.com/zh-tw/area/jp/spot/02022-1113365/" },
+      ],
+    },
+  ],
+};
+
+window.TRIP_DATA = { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING };

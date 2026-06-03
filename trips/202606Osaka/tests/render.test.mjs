@@ -113,3 +113,27 @@ describe('Tips', () => {
       `expected ${expected} sight YouTube pills, got ${pills.length}`);
   });
 });
+
+describe('Shopping', () => {
+  const spots = () => (dom.window.TRIP_DATA.SHOPPING || {}).spots || [];
+  test('shopping spot cards match SHOPPING.spots.length', () => {
+    const cards = dom.window.document.querySelectorAll('#shopping-sections .sight');
+    assert.equal(cards.length, spots().length);
+  });
+  test('every shopping spot has a Google Maps button', () => {
+    for (const s of dom.window.document.querySelectorAll('#shopping-sections .sight')) {
+      assert.ok(s.querySelector('.btn-map[href*="google.com/maps"]'),
+        `shopping "${s.querySelector('.sight-name')?.textContent}" missing Maps button`);
+    }
+  });
+  test('shopping youtube refs render 📺 pills linking to youtu.be', () => {
+    const expected = spots().reduce((n, s) => n + (s.youtube?.length || 0), 0);
+    const pills = dom.window.document.querySelectorAll('#shopping-sections .sight .btn-yt[href*="youtu.be"]');
+    assert.equal(pills.length, expected, `expected ${expected} shopping YouTube pills, got ${pills.length}`);
+  });
+  test('shopping links render as 🔗 buttons', () => {
+    const expected = spots().reduce((n, s) => n + (s.links?.length || 0), 0);
+    const links = dom.window.document.querySelectorAll('#shopping-sections .sight .btn-web[href^="http"]');
+    assert.equal(links.length, expected, `expected ${expected} shopping link buttons, got ${links.length}`);
+  });
+});
