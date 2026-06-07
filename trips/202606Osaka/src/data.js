@@ -6,7 +6,7 @@ const TRIP = {
   emoji: "🍣",
   subtitle: "六天五夜・大阪 × 神戶・四人美食精選",
   heroTitle: "🍣 關西優雅美食之旅 — 大阪 × 神戶",
-  heroDesc: "六天五夜・四人・大阪帝國飯店為據點。Day 2 黑門市場早餐＋夜晚割烹／河豚、Day 3 壽司 omakase ＋ 鰻魚雙料，Day 4 神戶牛鐵板燒午餐（此行味蕾高潮），Day 5 大阪燒老舖＋和牛燒肉收官。",
+  heroDesc: "六天五夜・四人・大阪帝國飯店為據點。Day 2 黑門市場早餐＋夜晚割烹／河豚、Day 3 壽司 omakase ＋ 鰻魚雙料，Day 4 神戶牛鐵板燒午餐（已訂プロペラ 11:00，此行味蕾高潮），Day 5 大阪燒老舖＋和牛燒肉收官。",
   dates: { start: "2026-06-23", end: "2026-06-28" },
   people: 4,
   country: "JP",
@@ -40,13 +40,13 @@ const TRIP = {
     {
       icon: "🎯",
       title: "本趟主題",
-      body: "梅雨季優雅吃透關西。以大阪帝國飯店為據點，四個美食重點：① Day 2 黑門市場 + 割烹／河豚 ② Day 3 壽司／鰻魚／串炸三料 ③ Day 4 神戶牛鐵板燒午餐（提前 2 週訂位） ④ Day 5 大阪燒名店 + 和牛燒肉。Day 1、Day 6 留白給道頓堀小吃與早午餐告別。購物：心齋橋筋掃鬼塚虎 Onitsuka Tiger（見「購物」分頁）。",
+      body: "梅雨季優雅吃透關西。以大阪帝國飯店為據點，四個美食重點：① Day 2 黑門市場 + 割烹／河豚 ② Day 3 壽司／鰻魚／串炸三料 ③ Day 4 神戶牛鐵板燒午餐（✅ 已訂：プロペラ 11:00） ④ Day 5 大阪燒名店 + 和牛燒肉。Day 1、Day 6 走輕鬆路線：道頓堀小吃巡禮＋心齋橋早午餐告別。購物：心齋橋筋掃鬼塚虎 Onitsuka Tiger，回程日可加碼關西機場旁 outlet（見「購物」分頁）。",
     },
     {
       icon: "🔒",
       title: "提前預約清單",
       rows: [
-        { key: "神戶牛鐵板燒 6/26 午", val: "出發前 2–3 週", wrap: true },
+        { key: "神戶牛鐵板燒 6/26 午", val: "✅ 已訂：神戸ステーキ プロペラ 11:00・4 人", wrap: true },
         { key: "壽司 omakase 6/25 午", val: "出發前 2–3 週（四人桌比兩人搶手）", wrap: true },
         { key: "蘭城晶英級別割烹／河豚 6/24 晚", val: "出發前 2 週", wrap: true },
         { key: "鰻魚名店「鰻 にしはら」", val: "電話預約困難，建議到當地請飯店代撥", wrap: true },
@@ -137,13 +137,14 @@ const DAYS = [
     dow: "五",
     city: "神戶",
     theme: "神戶一日・神戶牛鐵板燒",
-    summary: "此行的味蕾高潮——午間的 A5 神戶牛鐵板燒。早上散步北野異人館，午餐主菜，下午走神戶港，傍晚明石燒輕食收尾。",
+    summary: "此行的味蕾高潮——✅ 已確定預訂「神戸ステーキ プロペラ」神戶牛鐵板燒午餐（週五 11:00・4 人）。早上散步北野異人館，午餐主菜，下午走神戶港，傍晚明石燒輕食收尾。",
     level: "💰💰💰",
     timeline: [
-      { time: "09:30", event: "出發，搭 JR 新快速或阪急特急前往神戶三宮" },
-      { time: "10:10", event: "抵達三宮站" },
-      { time: "10:15", event: "🏛️ 散步北野異人館街（餐前散步、爬坡開胃）", refs: ["北野異人館"] },
-      { time: "11:30", event: "🥩 神戶牛鐵板燒午餐（已預約）⭐⭐⭐", refs: ["kawamura", "mouriya", "steakland", "wako-kitano", "propeller-kobesteak"] },
+      { time: "09:00", event: "出發，搭 JR 新快速或阪急特急前往神戶三宮" },
+      { time: "09:40", event: "抵達三宮站" },
+      { time: "09:45", event: "🏛️ 散步北野異人館街（餐前散步、爬坡開胃）", refs: ["北野異人館"] },
+      { time: "10:35", event: "🚶 從北野下山往磯上通移動（三宮站東南側，步行約 15–20 分，預留充裕時間）" },
+      { time: "11:00", event: "🥩 神戶牛鐵板燒午餐：神戸ステーキ プロペラ（✅ 已確定預訂・4 人）⭐⭐⭐", refs: ["propeller-kobesteak"] },
       { time: "14:00", event: "🚶 飽餐後慢慢走到神戶港區（Harborland / Mosaic）", refs: ["神戶港區（Harborland / Meriken Park）"] },
       { time: "15:30", event: "BE KOBE 紀念碑拍照、神戶港塔觀景" },
       { time: "16:30", event: "自由逛街、咖啡廳休息" },
@@ -152,11 +153,11 @@ const DAYS = [
       { time: "18:30", event: "搭 JR 回大阪（21 分鐘）" },
     ],
     meals: [
-      { type: "午餐", title: "神戶牛鐵板燒", note: "🔒 **本趟味蕾高潮**。午間套餐約 ¥8,000–18,000/人，比晚間省 30–50%。冠軍級「カワムラ 三宮本店」、140 年老店「モーリヤ」六面燒、最平價「ステーキランド」¥3,180 起、Kiki & May 推薦「和黒 北野坂」、心甜推薦「プロペラ」。**提前 2 週預約**。", star: 3, refs: ["kawamura", "mouriya", "steakland", "wako-kitano", "propeller-kobesteak"] },
+      { type: "午餐", title: "神戸ステーキ プロペラ（Kobesteak Propeller）", note: "✅ **已確定預訂：6/26（五）11:00・4 人**。本趟味蕾高潮。心甜 Christy 推薦的三宮口袋名單，入口即化等級評價極高。午間套餐比晚間省 30–50%。請準時抵達——鐵板燒為廚師現場排程，逾時座位可能釋出。原備案（已不需預約）：カワムラ／モーリヤ／ステーキランド／和黒。", star: 3, refs: ["propeller-kobesteak", "kawamura", "mouriya", "steakland", "wako-kitano"] },
       { type: "晚餐", title: "明石燒 ＋ 洋食小點", note: "中午吃太飽的話傍晚輕食。明石燒推「たちばな」（三宮最知名，週四休）；洋食推「グリル一平」（炸牛排傳統多明格拉斯醬）、「アモナ」（神戶牛舒芙蕾蛋包飯）、或 1923 創業百年老店「伊藤グリル」（心甜推薦）。", refs: ["tachibana", "tsukasa", "ippei", "asahi", "amona", "ito-grill-kobe"] },
     ],
     categories: ["kobe", "akashiyaki", "yoshoku"],
-    tips: "高級鐵板燒午間套餐比晚間便宜 30–50%，內容同樣精緻。請至少提前 2 週預約，四人桌會比兩人桌搶手。",
+    tips: "午餐已確定預訂神戸ステーキ プロペラ（11:00・4 人），店在磯上通（三宮站東南步行約 8 分），從北野異人館下山步行約 15–20 分，建議 10:35 前離開北野。高級鐵板燒午間套餐比晚間便宜 30–50%，內容同樣精緻。",
   },
   {
     day: 5,
@@ -193,9 +194,10 @@ const DAYS = [
       { time: "08:00", event: "起床，整理行李" },
       { time: "09:00", event: "☕ 早午餐：心齋橋／難波周邊咖啡廳", refs: ["unreal", "morningbox", "mondial", "tables", "elk"] },
       { time: "10:30", event: "退房（11:00 前）" },
-      { time: "11:00", event: "步行到難波站，coin locker 寄放伴手禮" },
-      { time: "11:15", event: "搭南海特急ラピート前往關西機場（38 分鐘）" },
-      { time: "12:00", event: "抵達關西機場，辦理報到、逛免稅店" },
+      { time: "10:45", event: "🛍️（加碼選項）衝鬼塚虎 outlet：搭南海空港急行至りんくうタウン站（關西機場前 1 站），逛 Rinku Premium Outlets 約 1.5 小時，13:00 前務必抵達機場", refs: ["Onitsuka Tiger アウトレット（りんくうプレミアム・アウトレット）"] },
+      { time: "11:00", event: "（不衝 outlet 的話）步行到難波站，coin locker 寄放伴手禮" },
+      { time: "11:15", event: "（不衝 outlet 的話）搭南海特急ラピート前往關西機場（38 分鐘）" },
+      { time: "12:00", event: "（不衝 outlet 的話）抵達關西機場，辦理報到、逛免稅店" },
       { time: "15:15", event: "Peach 班機 MM23 起飛" },
       { time: "17:30", event: "抵達桃園機場" },
     ],
@@ -203,7 +205,7 @@ const DAYS = [
       { type: "早午餐", title: "心齋橋／難波咖啡廳", note: "離飯店最近的「UNREAL」可俯瞰道頓堀河；「Café Morning Box」班尼迪克蛋；「MONDIAL KAFFEE 328」¥600 早餐套餐；「elk」舒芙蕾厚鬆餅 10:00 起，適合多睡一會。", refs: ["unreal", "morningbox", "mondial", "tables", "elk"] },
     ],
     categories: ["brunch"],
-    tips: "Peach 廉航行李限制嚴格，伴手禮多時可考慮加購行李。退房後伴手禮可寄 coin locker（難波站 ¥600/天）省力。",
+    tips: "Peach 廉航行李限制嚴格，伴手禮多時可考慮加購行李。退房後伴手禮可寄 coin locker（難波站 ¥600/天）省力。若加碼りんくう outlet：10:30 前退房、10:45 從難波出發（空港急行約 35 分到りんくうタウン），逛到 12:40 收手，搭 1 站（6 分）到機場，13:00 報到仍有 2 小時餘裕；行李全帶著走會比較累，請務必抓緊時間。",
   },
 ];
 
@@ -641,12 +643,12 @@ const RESTAURANTS = [
     ],
   },
   {
-    id: "propeller-kobesteak", name: "神戸ステーキ プロペラ", category: "kobe", city: "神戶", area: "三宮", days: [4],
+    id: "propeller-kobesteak", name: "神戸ステーキ プロペラ（Kobesteak Propeller）", category: "kobe", city: "神戶", area: "三宮", days: [4],
     address: "神戸市中央区磯上通 8-1-14",
     price: "午 ¥8,000–15,000／晚 ¥12,000–25,000",
-    highlight: "心甜 Christy 推薦・三宮口袋名單神戶牛",
-    note: "三宮磯上通的神戶牛鐵板燒，入口即化等級評價極高。心甜 Christy 神戶 72 小時必吃 6 間之一。需預約。",
-    reservation: "電話 / Tabelog",
+    highlight: "✅ 已確定預訂 6/26（五）11:00・4 人",
+    note: "三宮磯上通的神戶牛鐵板燒，入口即化等級評價極高。心甜 Christy 神戶 72 小時必吃 6 間之一。✅ 已確定預訂：6/26（五）上午 11:00、4 人。三宮站東南步行約 8 分，請準時抵達。",
+    reservation: "✅ 已完成（4 人・6/26 11:00）",
     youtube: [
       { id: "XunWPojzPWI", creator: "心甜" },
     ],
@@ -954,7 +956,7 @@ const TIPS = {
       title: "出發前提醒",
       type: "reminders",
       items: [
-        { title: "提前預約餐廳（最重要）", body: "神戶牛鐵板燒（6/26 午餐）與壽司 omakase（6/25 中午）請在出發前 3–4 週預約；割烹／河豚（6/24）2 週前訂位；和牛燒肉（6/27）TableCheck 即可。四人座比兩人搶手。可請飯店代訂。" },
+        { title: "提前預約餐廳（最重要）", body: "✅ 神戶牛鐵板燒已確定預訂：神戸ステーキ プロペラ 6/26（五）11:00・4 人。其餘：壽司 omakase（6/25 中午）請在出發前 3–4 週預約；割烹／河豚（6/24）2 週前訂位；和牛燒肉（6/27）TableCheck 即可。四人座比兩人搶手。可請飯店代訂。" },
         { title: "飯店 check-in 補繳", body: "到達飯店時需補繳 2 人房差 ¥33,000（約 NT$7,260），可刷信用卡。" },
         { title: "交通 IC 卡", body: "在關西機場買 ICOCA，或用 iPhone Wallet 開通 Digital ICOCA。全程刷卡搭車最方便。" },
         { title: "現金準備", body: "部分老舖和市場攤位只收現金，建議每人帶 ¥30,000–50,000。機場或難波 ATM（7-11、Lawson）可提領。" },
@@ -1051,11 +1053,11 @@ const SIGHTS = [
   },
 ];
 
-// ── 購物（以 Onitsuka Tiger 鬼塚虎為主的心齋橋／道頓堀掃鞋路線）────────────
+// ── 購物（以 Onitsuka Tiger 鬼塚虎為主的心齋橋／道頓堀掃鞋路線＋機場旁 outlet）──
 // 飯店（西心齋橋）步行可達心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街。
 const SHOPPING = {
   intro:
-    "Lane 此行想入手 Onitsuka Tiger（鬼塚虎）。好消息：飯店（西心齋橋）步行可達的心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街——三家鬼塚虎門市加 Nike／adidas 都在腳程內。退稅攻略：帶護照享外國旅客免稅 10%，部分百貨可再疊 5% 優惠券＋信用卡優惠；日幣便宜時比台灣官網划算明顯。經典款 MEXICO 66、SERRANO、GSM 為入手首選。人氣門市常於 11:00 開店前就排隊，建議開店即到或挑平日上午。",
+    "Onitsuka Tiger（鬼塚虎）掃鞋攻略：飯店（西心齋橋）步行可達的心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街——市區三家鬼塚虎門市加 Nike／adidas 都在腳程內；回程日還可加碼關西機場對岸的 Rinku Premium Outlets 鬼塚虎 outlet（過季款更便宜）。退稅攻略：帶護照享外國旅客免稅 10%，部分百貨可再疊 5% 優惠券＋信用卡優惠；日幣便宜時比台灣官網划算明顯。經典款 MEXICO 66、SERRANO、GSM 為入手首選。人氣門市常於 11:00 開店前就排隊，建議開店即到或挑平日上午。",
   spots: [
     {
       name: "Onitsuka Tiger 大阪心斎橋（關西旗艦店）",
@@ -1117,6 +1119,22 @@ const SHOPPING = {
       links: [
         { label: "商店街官網（繁中）", url: "https://global.shinsaibashi.or.jp/zh-TW/" },
         { label: "NAVITIME 景點（繁中）", url: "https://japantravel.navitime.com/zh-tw/area/jp/spot/02022-1113365/" },
+      ],
+    },
+    {
+      name: "Onitsuka Tiger アウトレット（りんくうプレミアム・アウトレット）",
+      city: "大阪",
+      area: "りんくうタウン（關西機場對岸）",
+      address: "大阪府泉佐野市りんくう往来南 3-28 りんくうプレミアム・アウトレット内（区画 2510・シーサイド區）",
+      hours: "10:00–20:00（outlet 全區共通）",
+      price: "經典款約市價 8 折起、再疊退稅（MEXICO 66 過季配色常見）",
+      day: 6,
+      note:
+        "鬼塚虎在關西機場旁唯一的 outlet 門市，位於 Rinku Premium Outlets（約 250 店、日本最大級 outlet 之一，緊鄰大海景觀）。交通：南海電鐵りんくうタウン站距關西機場僅 1 站（約 6 分、Rapi:t 也停靠），出站步行約 6 分；或搭機場接駁巴士 Sky Shuttle（¥300、約 20 分）。主打過季款與零碼，MEXICO 66 約比定價便宜 2 成、可再退稅；尺寸碼數不如市區旗艦店齊，建議市區先試好尺寸、outlet 撿便宜。⚠️ Day 6 回程班機 15:15：需 10:30 前退房出發、最多逛 1.5 小時、13:00 前抵達機場報到，行李多時請斟酌取捨。店舖電話 072-469-7573。",
+      links: [
+        { label: "官方店舖頁", url: "https://www.premiumoutlets.co.jp/rinku/brands/detail_779.html" },
+        { label: "Rinku Premium Outlets 官網", url: "https://www.premiumoutlets.co.jp/rinku/" },
+        { label: "數位樓層地圖", url: "https://platinumaps.jp/d/premiumoutlets-rinku?spot=139601&culture=en" },
       ],
     },
   ],
