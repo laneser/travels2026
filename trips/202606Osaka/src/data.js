@@ -172,6 +172,7 @@ const DAYS = [
       { time: "12:00", event: "🥞 午餐：大阪燒名店（きじ / 美津の / 福太郎 三選一）", refs: ["kiji", "mizuno", "fukutaro"] },
       { time: "14:00", event: "🍳 下午茶：北極星西心齋橋本店（若 Day 3 沒吃）", refs: ["hokkyokusei"] },
       { time: "15:00", event: "🛍️ 心齋橋自由購物：Onitsuka Tiger 鬼塚虎旗艦店掃鞋（MEXICO 66／帶護照退稅），順逛心齋橋筋球鞋一條街", refs: ["Onitsuka Tiger 大阪心斎橋（關西旗艦店）", "心齋橋筋商店街（掃鞋一條街）"] },
+      { time: "16:30", event: "🖋️ ハンズ心斎橋（心斎橋PARCO 11F 文具）買 Shachihata 朱肉：一般款文具區就有；高級練朱肉「鯱旗印肉」請店員查庫存", refs: ["ハンズ心斎橋店（Shachihata 朱肉／鯱旗印肉）"] },
       { time: "18:00", event: "🥩 晚餐：和牛燒肉（已預約）／痛風老饕＋肥波＋Kiki 多家加碼", refs: ["ushigoro", "manryo", "nunogami", "rikimaru-dotonbori", "mansen-yakiniku", "nan-ichien-yakiniku", "aburi-bokujou-osaka", "itto-yakiniku"] },
       { time: "21:00", event: "道頓堀夜景告別散步" },
     ],
@@ -1057,7 +1058,7 @@ const SIGHTS = [
 // 飯店（西心齋橋）步行可達心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街。
 const SHOPPING = {
   intro:
-    "Onitsuka Tiger（鬼塚虎）掃鞋攻略：飯店（西心齋橋）步行可達的心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街——市區三家鬼塚虎門市加 Nike／adidas 都在腳程內；回程日還可加碼關西機場對岸的 Rinku Premium Outlets 鬼塚虎 outlet（過季款更便宜）。退稅攻略：帶護照享外國旅客免稅 10%，部分百貨可再疊 5% 優惠券＋信用卡優惠；日幣便宜時比台灣官網划算明顯。經典款 MEXICO 66、SERRANO、GSM 為入手首選。人氣門市常於 11:00 開店前就排隊，建議開店即到或挑平日上午。",
+    "Onitsuka Tiger（鬼塚虎）掃鞋攻略：飯店（西心齋橋）步行可達的心齋橋筋商店街與道頓堀，正好是大阪最強的掃鞋一條街——市區三家鬼塚虎門市加 Nike／adidas 都在腳程內；回程日還可加碼關西機場對岸的 Rinku Premium Outlets 鬼塚虎 outlet（過季款更便宜）。退稅攻略：帶護照享外國旅客免稅 10%，部分百貨可再疊 5% 優惠券＋信用卡優惠；日幣便宜時比台灣官網划算明顯。經典款 MEXICO 66、SERRANO、GSM 為入手首選。人氣門市常於 11:00 開店前就排隊，建議開店即到或挑平日上午。文具加碼：Shachihata 朱肉（印泥）在心斎橋PARCO 的ハンズ心斎橋 11F 文具賣場可順路入手（詳見下方）。",
   spots: [
     {
       name: "Onitsuka Tiger 大阪心斎橋（關西旗艦店）",
@@ -1102,6 +1103,21 @@ const SHOPPING = {
         "鬼塚虎高端副線 THE ONITSUKA（ジ・オニツカ），主打日本製高價位、童裝與高爾夫系列。想找精品款或質感升級可加碼。位於心斎橋PARCO，與旗艦店同一條街。",
       links: [
         { label: "心斎橋PARCO 官網", url: "https://shinsaibashi.parco.jp/" },
+      ],
+    },
+    {
+      name: "ハンズ心斎橋店（Shachihata 朱肉／鯱旗印肉）",
+      city: "大阪",
+      area: "心齋橋筋",
+      address: "大阪市中央区心斎橋筋1-8-3 心斎橋PARCO 9〜11F（文具賣場在 11F）",
+      hours: "10:00–20:00（依心斎橋PARCO）",
+      price: "シヤチハタ朱肉 ¥350–1,000；鯱旗印肉（練朱肉）¥2,200–3,100",
+      day: 5,
+      note:
+        "買 Shachihata 朱肉（俗稱印泥）的據點。注意：Shachihata（シヤチハタ）產品線沒有叫「印泥」的品項——一般海綿朱肉（シヤチハタ朱肉エコス ¥600 起、プチ朱肉 ¥350、速乾款 ¥800 起）任何文具店、Loft、ハンズ都有，不必特地跑高檔文具店；若要的是傳統印泥質感的高級「練朱肉」，對應產品是「鯱旗印肉」系列（書画落款用 ¥3,100／公用 ¥2,200），小文具店通常沒現貨，建議到大型文具賣場（ハンズ心斎橋 11F 文具）請店員查庫存，或退而求其次找印章專門店、書道用品店。就在心斎橋PARCO（與 THE ONITSUKA 高端副線同棟），Day 5 掃鞋順路。同店滿 ¥5,000 可退稅。"
+      links: [
+        { label: "ハンズ心斎橋店", url: "https://store.hands.net/shinsaibashi/" },
+        { label: "Shachihata 朱肉・印肉目錄", url: "https://item.shachihata.co.jp/catalog/g020" },
       ],
     },
     {
