@@ -850,7 +850,7 @@ const RESTAURANTS = [
     hours: "10:00 起",
   },
   {
-    id: "marufuku-coffee", name: "丸福珈琲店 千日前本店", category: "brunch", city: "大阪", area: "千日前", days: [3],
+    id: "marufuku-coffee", name: "丸福珈琲店 千日前本店", category: "brunch", city: "大阪", area: "千日前", days: [2, 3, 4],
     address: "大阪市中央区千日前 1-9-1", price: "¥800–1,500",
     highlight: "1934 創業昭和老喫茶・モーニング平日限定",
     note: "大阪喫茶文化代表，深焙濃苦咖啡＋厚鬆餅（ホットケーキ）聞名。モーニングセット限平日 8:00–11:00——6/24（三）、6/25（四）、6/26（五）三個平日早晨都用得上。飯店步行約 8 分，梅雨季室內雨備佳。",
