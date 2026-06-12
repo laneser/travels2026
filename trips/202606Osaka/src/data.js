@@ -300,10 +300,10 @@ const RESTAURANTS = [
     note: "甜而濃郁的獨門醬汁。使用獨特「頭油」讓油炸更清爽。通天閣步行 1 分。免預約。",
   },
   {
-    id: "yaekatsu", name: "八重勝（Yaekatsu）", category: "kushikatsu", city: "大阪", area: "新世界・ジャンジャン横丁", days: [3],
+    id: "yaekatsu", name: "八重勝（Yaekatsu）", category: "kushikatsu", city: "大阪", area: "新世界・ジャンジャン横丁", days: [2, 5],
     address: "ジャンジャン横丁，動物園前駅步行 5 分", price: "¥1,000–2,000（單串 ¥110 起）",
     highlight: "在地人最愛・週四休",
-    note: "永遠在排隊。每串現點現炸，約 40–50 種。僅吧台座位，週轉快。⚠️ 本行程新世界日 Day 3（6/25）適逢週四公休，僅供他日參考。",
+    note: "永遠在排隊。每串現點現炸，約 40–50 種。僅吧台座位，週轉快。⚠️ 週四休——本行程新世界日 Day 3（6/25）正逢公休吃不到，改掛 Day 2（三）／Day 5（六）備選：兩天都營業，從難波搭地鐵到動物園前約 10 分，想吃在地派串炸可繞過去。",
   },
   {
     id: "ittoku", name: "新世界串カツ いっとく 総本店", category: "kushikatsu", city: "大阪", area: "新世界", days: [3],
