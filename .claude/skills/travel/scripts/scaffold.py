@@ -202,6 +202,11 @@ def main(argv: list[str]) -> int:
 
     args = parser.parse_args(argv)
 
+    slug = args.slug
+    if (not slug or slug != slug.lower() or "--" in slug or slug.startswith("-") or slug.endswith("-")
+        or any((not (ch.isalnum() or ch == "-")) for ch in slug)):
+        raise SystemExit("error: --slug must be kebab-case [a-z0-9-] (lowercase), with no spaces or path separators")
+
     if args.end < args.start:
         raise SystemExit("error: --end must be >= --start")
 
