@@ -267,7 +267,7 @@ def main(argv: list[str]) -> int:
         "end": args.end.isoformat(),
         "emoji": args.emoji,
         "destinations": destinations,
-        "description": args.description,
+        "description": description,
     }
     append_to_registry(repo, registry_entry)
 
