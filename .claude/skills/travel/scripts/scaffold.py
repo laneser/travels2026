@@ -131,6 +131,8 @@ def scaffold_repo(repo: Path, repo_title: str, repo_slug: str, repo_desc: str, r
     trips_json = repo / "trips.json"
     if trips_json.exists():
         return
+    if repo.exists() and any(repo.iterdir()):
+        raise SystemExit(f"error: {repo} exists and is non-empty but has no trips.json (refusing to overwrite). Choose an empty --repo or an existing travel repo.")
     copy_tree(REPO_TEMPLATE, repo)
     vars = {
         "REPO_TITLE": repo_title,
