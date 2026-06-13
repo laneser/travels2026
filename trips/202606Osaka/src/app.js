@@ -287,8 +287,8 @@
 
   // Resolve a ref (string) to a place with name/address/youtube.
   // Looks up RESTAURANTS by id first, then SIGHTS, then SHOPPING by name,
-  // then fixed PLACES anchors (airports/stations/origin city), and finally
-  // the keyword "飯店" (or the hotel's own name) → TRIP.hotel.
+  // then the keyword "飯店" (or the hotel's own name) → TRIP.hotel, and
+  // finally the fixed PLACES anchors (airports/stations/origin city).
   function resolveRef(ref) {
     if (!ref || typeof ref !== "string") return null;
     const r = RESTAURANTS.find((x) => x.id === ref);

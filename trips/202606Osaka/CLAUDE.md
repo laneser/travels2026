@@ -21,11 +21,13 @@ Trip folder under a multi-trip travel repo. See repo-level `CLAUDE.md` for overa
 
 ## `data.js` 資料結構（SSOT 速查）
 
-`data.js` 結尾 `window.TRIP_DATA = { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING }`。各區塊：
+`data.js` 結尾 `window.TRIP_DATA = { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING, PLACES }`。各區塊：
 
 - **`TRIP`** — 標題、日期、飯店、航班、預算、`extraCards`（總覽卡片）。
-- **`DAYS[]`** — 每天 `{ day, date, dow, city, theme, summary, level, timeline[], meals[], categories[], tips }`。
-  `timeline[].refs` 與 `meals[].refs` 放**字串**：餐廳用 `id`、景點／購物點用**名稱**，由 `app.js` 的 `resolveRef()` 解析成地圖／YouTube 連結。
+- **`DAYS[]`** — 每天 `{ day, route?, date, dow, city, theme, summary, level, timeline[], meals[], categories[], tips }`。
+  `timeline[].refs` 與 `meals[].refs` 放**字串**：餐廳用 `id`、景點／購物點用**名稱**、固定點用 `PLACES` 的 key 或「飯店」，由 `app.js` 的 `resolveRef()` 解析成地圖／YouTube 連結。
+  `route` 選填 `{ start, end }`，把每日地圖路線的固定起訖點釘在頭尾（值同樣是 `PLACES` key 或「飯店」），中途點仍由 `timeline[].refs` 自動串。
+- **`PLACES`** — 固定錨點註冊表（key → `{ name, address }`）：機場、車站、起訖城市等**非餐廳／景點／購物點**。供 `route` 與 transit timeline refs 使用；「飯店」關鍵字另由 `app.js` 自動對應 `TRIP.hotel`，不必列在這裡。
 - **`CATEGORIES`** — 美食分類（key → `{label, icon}`）；`RESTAURANTS[].category` 與 `DAYS[].categories[]` 必須對得上。
 - **`RESTAURANTS[]`** — `{ id, name, category, city, area, days[], address, price, note, hours, tabelog?, youtube?[] }`。`id` 要 url-safe 且唯一。
 - **`SIGHTS[]`** — `{ name, city, day, time, note, address, youtube?[] }`，自動掛到「實用」分頁的「景點資訊」。

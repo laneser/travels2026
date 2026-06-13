@@ -108,9 +108,13 @@ describe('Day map', () => {
   // Each day pins fixed anchors (origin city / hotel / airports) on its route via
   // d.route.start / d.route.end. The rendered ".day-map-trail" text is the ordered
   // "A → B → C" list, so we assert the trail starts/ends at the expected anchor.
-  const trail = (day) =>
-    dom.window.document.getElementById(`day-${day}`)
-      .querySelector('.day-map-trail').textContent;
+  const trail = (day) => {
+    const card = dom.window.document.getElementById(`day-${day}`);
+    assert.ok(card, `Day ${day} card missing`);
+    const el = card.querySelector('.day-map-trail');
+    assert.ok(el, `Day ${day} missing .day-map-trail`);
+    return el.textContent;
+  };
   const { PLACES, TRIP } = dom.window.TRIP_DATA;
   const HOTEL = TRIP.hotel.name;
 
