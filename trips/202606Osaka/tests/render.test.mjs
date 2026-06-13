@@ -70,6 +70,42 @@ describe('Itinerary', () => {
   });
 });
 
+describe('Day map', () => {
+  // A day has a route if any timeline entry resolves at least one ref.
+  const resolvable = (refs) => {
+    const { RESTAURANTS, SIGHTS, SHOPPING } = dom.window.TRIP_DATA;
+    const spots = (SHOPPING && SHOPPING.spots) || [];
+    return (refs || []).some((ref) =>
+      RESTAURANTS.some((r) => r.id === ref) ||
+      SIGHTS.some((s) => s.name === ref) ||
+      spots.some((s) => s.name === ref));
+  };
+  const daysWithRoute = () =>
+    dom.window.TRIP_DATA.DAYS.filter((d) => (d.timeline || []).some((t) => resolvable(t.refs)));
+
+  test('every day with resolvable timeline refs renders a map iframe', () => {
+    for (const d of daysWithRoute()) {
+      const card = dom.window.document.getElementById(`day-${d.day}`);
+      assert.ok(card.querySelector('iframe.day-map[src*="output=embed"]'),
+        `Day ${d.day} missing map iframe`);
+    }
+  });
+  test('map iframes use google maps with no API key', () => {
+    for (const f of dom.window.document.querySelectorAll('iframe.day-map')) {
+      const src = f.getAttribute('src') || '';
+      assert.ok(/maps\.google\.com/.test(src), `unexpected map src: ${src}`);
+      assert.ok(!/[?&]key=/.test(src), `map src must not embed an API key: ${src}`);
+    }
+  });
+  test('every day map has a full-route Google Maps link', () => {
+    for (const d of daysWithRoute()) {
+      const card = dom.window.document.getElementById(`day-${d.day}`);
+      assert.ok(card.querySelector('.day-map-link[href*="google.com/maps"]'),
+        `Day ${d.day} missing full-route link`);
+    }
+  });
+});
+
 describe('Food', () => {
   const { RESTAURANTS } = dom ? dom.window.TRIP_DATA : { RESTAURANTS: [] };
   test('restaurant cards match RESTAURANTS.length', () => {
