@@ -104,6 +104,43 @@ describe('Day map', () => {
         `Day ${d.day} missing full-route link`);
     }
   });
+
+  // Each day pins fixed anchors (origin city / hotel / airports) on its route via
+  // d.route.start / d.route.end. The rendered ".day-map-trail" text is the ordered
+  // "A → B → C" list, so we assert the trail starts/ends at the expected anchor.
+  const trail = (day) =>
+    dom.window.document.getElementById(`day-${day}`)
+      .querySelector('.day-map-trail').textContent;
+  const { PLACES, TRIP } = dom.window.TRIP_DATA;
+  const HOTEL = TRIP.hotel.name;
+
+  test('every day route pins its start and end anchors', () => {
+    for (const d of dom.window.TRIP_DATA.DAYS) {
+      assert.ok(d.route && d.route.start && d.route.end,
+        `Day ${d.day} missing route.start/route.end`);
+      const resolve = (k) => (k === '飯店' ? HOTEL : (PLACES[k] ? PLACES[k].name : k));
+      const t = trail(d.day);
+      const stops = t.split('→').map((s) => s.trim());
+      assert.equal(stops[0], resolve(d.route.start),
+        `Day ${d.day} trail should start at ${d.route.start}: ${t}`);
+      assert.equal(stops[stops.length - 1], resolve(d.route.end),
+        `Day ${d.day} trail should end at ${d.route.end}: ${t}`);
+    }
+  });
+
+  test('Day 1 route passes through both airports and 難波站', () => {
+    const t = trail(1);
+    for (const k of ['桃園機場', '關西機場', '難波站']) {
+      assert.ok(t.includes(PLACES[k].name), `Day 1 trail missing ${k}: ${t}`);
+    }
+  });
+
+  test('Day 6 route passes through 難波站 and 關西機場 on the way to 台北', () => {
+    const t = trail(6);
+    for (const k of ['難波站', '關西機場', '台北']) {
+      assert.ok(t.includes(PLACES[k].name), `Day 6 trail missing ${k}: ${t}`);
+    }
+  });
 });
 
 describe('Food', () => {

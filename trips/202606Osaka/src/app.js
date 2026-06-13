@@ -2,7 +2,8 @@
 // All destination-specific content lives in data.js. This file is generic.
 
 (function () {
-  const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING } = window.TRIP_DATA;
+  const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING, PLACES } = window.TRIP_DATA;
+  const HOTEL = TRIP.hotel || null;
 
   // ============== Google Maps URL ==============
   function mapsUrl(name, address) {
@@ -285,7 +286,9 @@
   }
 
   // Resolve a ref (string) to a place with name/address/youtube.
-  // Looks up RESTAURANTS by id first, then SIGHTS, then SHOPPING by name.
+  // Looks up RESTAURANTS by id first, then SIGHTS, then SHOPPING by name,
+  // then fixed PLACES anchors (airports/stations/origin city), and finally
+  // the keyword "飯店" (or the hotel's own name) → TRIP.hotel.
   function resolveRef(ref) {
     if (!ref || typeof ref !== "string") return null;
     const r = RESTAURANTS.find((x) => x.id === ref);
@@ -294,13 +297,27 @@
     if (s) return { name: s.name, address: s.address || s.city, kind: "sight" };
     const sh = ((SHOPPING && SHOPPING.spots) || []).find((x) => x.name === ref);
     if (sh) return { name: sh.name, address: sh.address || sh.city, youtube: sh.youtube, kind: "shop" };
+    if (HOTEL && (ref === "飯店" || ref === HOTEL.name)) {
+      return { name: HOTEL.name, address: HOTEL.address, kind: "hotel" };
+    }
+    const p = PLACES && PLACES[ref];
+    if (p) return { name: p.name, address: p.address, kind: "transit" };
     return null;
   }
 
   // The day's primary trajectory: first resolvable ref per timeline entry, in order.
   // Skips transit/no-ref entries; dedupes consecutive repeats of the same place.
+  // `d.route.start` / `d.route.end` pin fixed anchors (origin city, hotel, …)
+  // at the head/tail so the map always opens at the day's real start and end.
   function dayRouteStops(d) {
     const stops = [];
+    const pushStop = (place) => {
+      if (!place) return;
+      const last = stops[stops.length - 1];
+      if (last && last.name === place.name) return;
+      stops.push(place);
+    };
+    if (d.route && d.route.start) pushStop(resolveRef(d.route.start));
     for (const t of (d.timeline || [])) {
       if (!t.refs || !t.refs.length) continue;
       let place = null;
@@ -308,11 +325,9 @@
         place = resolveRef(ref);
         if (place) break;
       }
-      if (!place) continue;
-      const last = stops[stops.length - 1];
-      if (last && last.name === place.name) continue;
-      stops.push(place);
+      pushStop(place);
     }
+    if (d.route && d.route.end) pushStop(resolveRef(d.route.end));
     return stops;
   }
 
