@@ -89,7 +89,9 @@
   }
   function renderBrand() {
     const datesLabel = fmtDates();
-    const subLabel = `${datesLabel} ｜ ${TRIP.people} 位大人`;
+    const lang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
+    const peopleLabel = lang.startsWith("zh") ? `${TRIP.people} 位大人` : `${TRIP.people} people`;
+    const subLabel = `${datesLabel} ｜ ${peopleLabel}`;
     const setText = (id, text) => { const n = document.getElementById(id); if (n) n.textContent = text; };
     setText("brand-title", TRIP.title);
     setText("brand-sub", subLabel);
