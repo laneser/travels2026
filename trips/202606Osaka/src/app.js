@@ -30,7 +30,7 @@
     const enc = (p) => encodeURIComponent(placeQuery(p));
     const origin = enc(stops[0]);
     const destination = enc(stops[stops.length - 1]);
-    const waypoints = stops.slice(1, -1).map(enc).join("|");
+    const waypoints = stops.slice(1, -1).map(enc).join("%7C");
     let url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=walking`;
     if (waypoints) url += `&waypoints=${waypoints}`;
     return url;
