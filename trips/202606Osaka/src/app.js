@@ -9,6 +9,32 @@
     const query = encodeURIComponent(`${name} ${address || ""}`.trim());
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
   }
+  function placeQuery(p) {
+    return `${p.name} ${p.address || ""}`.trim();
+  }
+  // No-API-key Google Maps embed (classic saddr/daddr+to: syntax → renders a route
+  // line through the day's stops). Single stop falls back to a `q=` pin.
+  function mapEmbedUrl(stops) {
+    if (!stops || !stops.length) return "";
+    if (stops.length === 1) {
+      return `https://maps.google.com/maps?q=${encodeURIComponent(placeQuery(stops[0]))}&z=15&output=embed`;
+    }
+    const saddr = encodeURIComponent(placeQuery(stops[0]));
+    const daddr = stops.slice(1).map((p) => encodeURIComponent(placeQuery(p))).join("+to:");
+    return `https://maps.google.com/maps?saddr=${saddr}&daddr=${daddr}&output=embed`;
+  }
+  // Full-route link: opens Google Maps directions (walking) with waypoints.
+  function mapDirUrl(stops) {
+    if (!stops || !stops.length) return "";
+    if (stops.length === 1) return mapsUrl(stops[0].name, stops[0].address);
+    const enc = (p) => encodeURIComponent(placeQuery(p));
+    const origin = enc(stops[0]);
+    const destination = enc(stops[stops.length - 1]);
+    const waypoints = stops.slice(1, -1).map(enc).join("|");
+    let url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=walking`;
+    if (waypoints) url += `&waypoints=${waypoints}`;
+    return url;
+  }
   function tabelogSearch(name) {
     return `https://tabelog.com/rstLst/?sw=${encodeURIComponent(name)}`;
   }
@@ -271,6 +297,51 @@
     return null;
   }
 
+  // The day's primary trajectory: first resolvable ref per timeline entry, in order.
+  // Skips transit/no-ref entries; dedupes consecutive repeats of the same place.
+  function dayRouteStops(d) {
+    const stops = [];
+    for (const t of (d.timeline || [])) {
+      if (!t.refs || !t.refs.length) continue;
+      let place = null;
+      for (const ref of t.refs) {
+        place = resolveRef(ref);
+        if (place) break;
+      }
+      if (!place) continue;
+      const last = stops[stops.length - 1];
+      if (last && last.name === place.name) continue;
+      stops.push(place);
+    }
+    return stops;
+  }
+
+  // Per-day Google Map: a route line through the day's stops + a full-route link.
+  // The iframe is native-lazy so off-screen day cards don't fetch maps eagerly.
+  function renderDayMap(d) {
+    const stops = dayRouteStops(d);
+    if (!stops.length) return null;
+    const trail = stops.map((s) => s.name).join(" → ");
+    return el("div", { class: "day-map-wrap" },
+      el("div", { class: "sec-title" }, "🗺️ 當日地圖路線"),
+      el("p", { class: "day-map-trail muted small" }, trail),
+      el("div", { class: "day-map-frame" },
+        el("iframe", {
+          class: "day-map",
+          src: mapEmbedUrl(stops),
+          loading: "lazy",
+          title: `Day ${d.day} 地圖路線`,
+          referrerpolicy: "no-referrer-when-downgrade",
+          allowfullscreen: "",
+        })),
+      el("a", {
+        class: "btn btn-map day-map-link",
+        href: mapDirUrl(stops),
+        target: "_blank",
+        rel: "noopener",
+      }, "🗺️ 在 Google Maps 開啟完整路線"));
+  }
+
   // Render a compact row of `📍 Google Maps` + `📺 <creator>` pill links for a list of refs.
   function renderPlaceLinks(refs) {
     if (!refs || !refs.length) return null;
@@ -339,6 +410,7 @@
               el("span", { class: "tl-time" }, t.time),
               el("span", { class: "tl-event" }, t.event),
               renderPlaceLinks(t.refs)))) : null,
+        renderDayMap(d),
         (d.meals && d.meals.length) ? el("div", { class: "sec-title" }, "🍽️ 美食推薦") : null,
         (d.meals && d.meals.length) ? meals : null,
         d.tips ? el("div", { class: "tip-box" }, d.tips) : null,
