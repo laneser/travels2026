@@ -56,9 +56,22 @@ const TRIP = {
   ],
 };
 
+// 固定錨點（非餐廳／景點／購物點）：機場、車站、起訖城市。
+// 由 app.js 的 resolveRef() 解析，供每日地圖路線當起點／終點／中途點用。
+// 「飯店」這個關鍵字另由 app.js 自動對應到 TRIP.hotel，不必列在這裡。
+const PLACES = {
+  "台北":     { name: "台北車站", address: "台北市中正區北平西路 3 號" },
+  "桃園機場": { name: "桃園國際機場 第一航廈（T1）", address: "桃園市大園區航站南路 9 號" },
+  "關西機場": { name: "関西国際空港 第2ターミナル（T2）", address: "大阪府泉佐野市泉州空港北 1" },
+  "難波站":   { name: "大阪難波駅", address: "大阪市中央区難波 4-1-15" },
+};
+
 const DAYS = [
   {
     day: 1,
+    // 每日地圖路線的固定起訖點（中途點靠 timeline refs 串）：
+    // Day1 台北出發、飯店收尾；中途桃園機場→關西機場→難波站由下方 timeline refs 帶入。
+    route: { start: "台北", end: "飯店" },
     date: "2026-06-23",
     dow: "二",
     city: "大阪",
@@ -68,13 +81,13 @@ const DAYS = [
     timeline: [
       { time: "05:30", event: "台北起床，最後檢查行李（Peach 廉航秤重嚴格：手提＋託運都要確認）" },
       { time: "06:00", event: "🚗 搭 Uber 從台北出發前往桃園機場第一航廈（T1）（不塞車約 40 分鐘；平日清晨國道順暢，仍預留緩衝）" },
-      { time: "06:45", event: "抵達桃園機場第一航廈（T1），前往 Peach 報到櫃台排隊（07:00 開櫃＝起飛前 150 分鐘；⚠️ 08:40 關櫃＝起飛前 50 分鐘）" },
+      { time: "06:45", event: "抵達桃園機場第一航廈（T1），前往 Peach 報到櫃台排隊（07:00 開櫃＝起飛前 150 分鐘；⚠️ 08:40 關櫃＝起飛前 50 分鐘）", refs: ["桃園機場"] },
       { time: "07:30", event: "完成報到託運＋安檢出境，吃早餐、逛免稅店" },
       { time: "09:00", event: "前往登機門準備登機" },
       { time: "09:30", event: "✈️ Peach MM24 起飛" },
-      { time: "13:20", event: "抵達關西機場第 2 航廈（T2，Peach 專用），入境＋領行李（預留 45–60 分）後搭免費連絡巴士到 T1 側的南海関西空港站（約 10 分）" },
+      { time: "13:20", event: "抵達關西機場第 2 航廈（T2，Peach 專用），入境＋領行李（預留 45–60 分）後搭免費連絡巴士到 T1 側的南海関西空港站（約 10 分）", refs: ["關西機場"] },
       { time: "14:30", event: "搭南海特急ラピート或空港急行前往難波（37–50 分；各約每 30 分一班，趕不上就搭下一班，不用急）" },
-      { time: "15:30", event: "抵達難波，步行到飯店 check-in（補繳 2 人房差 ¥33,000）" },
+      { time: "15:30", event: "抵達難波，步行到飯店 check-in（補繳 2 人房差 ¥33,000）", refs: ["難波站"] },
       { time: "16:30", event: "稍作休息，出門散步" },
       { time: "17:00", event: "道頓堀・心齋橋散步，沿路吃小吃（順路逛 Onitsuka Tiger 道頓堀店比款，營業到 20:00；りくろーおじさん現烤起司蛋糕、551蓬莱豚まん 都在腳程內）", refs: ["wanaka", "kukuru", "akaoni", "Onitsuka Tiger 道頓堀店（NAMBA）", "rikuro-namba", "horai-551"] },
       { time: "19:00", event: "🍢 串炸晚餐：元祖串かつ だるま 道頓堀店（醬汁二度漬け禁止！）", refs: ["daruma-dotonbori"] },
@@ -91,6 +104,8 @@ const DAYS = [
   },
   {
     day: 2,
+    // 大阪市區日：以飯店為起訖點，中途景點由 timeline refs 串。
+    route: { start: "飯店", end: "飯店" },
     date: "2026-06-24",
     dow: "三",
     city: "大阪",
@@ -114,6 +129,7 @@ const DAYS = [
   },
   {
     day: 3,
+    route: { start: "飯店", end: "飯店" },
     date: "2026-06-25",
     dow: "四",
     city: "大阪",
@@ -139,6 +155,8 @@ const DAYS = [
   },
   {
     day: 4,
+    // 神戶一日來回：仍以大阪飯店為起訖點，中途三宮／北野／神戶港由 timeline refs 串。
+    route: { start: "飯店", end: "飯店" },
     date: "2026-06-26",
     dow: "五",
     city: "神戶",
@@ -165,6 +183,7 @@ const DAYS = [
   },
   {
     day: 5,
+    route: { start: "飯店", end: "飯店" },
     date: "2026-06-27",
     dow: "六",
     city: "大阪 / 近郊",
@@ -189,6 +208,8 @@ const DAYS = [
   },
   {
     day: 6,
+    // 回程日：飯店出發，一路經難波站→關西機場，終點回到台北。
+    route: { start: "飯店", end: "台北" },
     date: "2026-06-28",
     dow: "日",
     city: "回程",
@@ -200,9 +221,9 @@ const DAYS = [
       { time: "08:30", event: "☕ 早午餐：心齋橋／難波周邊咖啡廳（衝 outlet 的話 08:30 開吃；elk 10:00 才開店、僅適合不衝 outlet 的悠閒版）", refs: ["unreal", "morningbox", "mondial", "tables", "elk"] },
       { time: "10:15", event: "退房（衝 outlet：10:15 前；不衝：11:00 前即可）" },
       { time: "10:30", event: "🛍️（加碼選項）衝鬼塚虎 outlet：搭南海空港急行至りんくうタウン站（約 35 分、¥820），11:20 起實逛約 70 分鐘，⚠️ 12:40 強制收手（週日人潮＋退稅排隊會吃時間；下雨或行李超過每人一件建議放棄、走悠閒版）", refs: ["Onitsuka Tiger アウトレット（りんくうプレミアム・アウトレット）"] },
-      { time: "11:00", event: "（不衝 outlet 的話）步行到難波站，coin locker 寄放伴手禮" },
+      { time: "11:00", event: "（不衝 outlet 的話）步行到難波站，coin locker 寄放伴手禮", refs: ["難波站"] },
       { time: "11:15", event: "（不衝 outlet 的話）搭南海特急ラピート前往關西機場（38 分鐘；ラピート也停りんくうタウン）" },
-      { time: "12:00", event: "（不衝 outlet 的話）抵達南海関西空港站（T1 側）→ 搭免費連絡巴士到第 2 航廈 T2（約 10 分）→ Peach 櫃台報到、逛免稅店" },
+      { time: "12:00", event: "（不衝 outlet 的話）抵達南海関西空港站（T1 側）→ 搭免費連絡巴士到第 2 航廈 T2（約 10 分）→ Peach 櫃台報到、逛免稅店", refs: ["關西機場"] },
       { time: "12:50", event: "（outlet 案）りんくうタウン → 南海関西空港站（T1 側）（南海 1 站・6 分）→ 轉免費連絡巴士到 T2 → 13:30 前務必站上櫃台" },
       { time: "14:25", event: "⚠️ Peach 關櫃（起飛前 50 分）——一切行程以此為死線回推" },
       { time: "15:15", event: "Peach 班機 MM23 起飛" },
@@ -1214,4 +1235,4 @@ const SHOPPING = {
   ],
 };
 
-window.TRIP_DATA = { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING };
+window.TRIP_DATA = { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING, PLACES };
