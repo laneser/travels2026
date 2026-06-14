@@ -20,7 +20,7 @@ function loadData() {
   return sandbox.window.TRIP_DATA;
 }
 
-const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING } = loadData();
+const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SIGHTS_META, SHOPPING } = loadData();
 
 describe('TRIP', () => {
   test('dates valid and end >= start', () => {
@@ -192,13 +192,32 @@ describe('TIPS', () => {
 });
 
 describe('SIGHTS', () => {
-  test('every sight has name, city, day, note', () => {
-    const maxDay = DAYS.length;
+  test('every sight has name, city, region, whyGo, highlight', () => {
     for (const s of SIGHTS) {
       assert.ok(s.name, 'sight missing name');
       assert.ok(s.city, `sight "${s.name}" missing city`);
-      assert.ok(Number.isInteger(s.day) && s.day >= 1 && s.day <= maxDay,
-        `sight "${s.name}" invalid day ${s.day}`);
+      assert.ok(s.region, `sight "${s.name}" missing region`);
+      assert.ok(s.whyGo, `sight "${s.name}" missing whyGo`);
+      assert.ok(s.highlight, `sight "${s.name}" missing highlight`);
+    }
+  });
+
+  test('sight.day in 1..DAYS.length when present', () => {
+    const maxDay = DAYS.length;
+    for (const s of SIGHTS) {
+      if (s.day != null) {
+        assert.ok(Number.isInteger(s.day) && s.day >= 1 && s.day <= maxDay,
+          `sight "${s.name}" invalid day ${s.day}`);
+      }
+    }
+  });
+
+  test('every sight.region is declared in SIGHTS_META.regionOrder', () => {
+    const order = (SIGHTS_META && SIGHTS_META.regionOrder) || [];
+    assert.ok(order.length > 0, 'SIGHTS_META.regionOrder missing');
+    for (const s of SIGHTS) {
+      assert.ok(order.includes(s.region),
+        `sight "${s.name}" region "${s.region}" not in SIGHTS_META.regionOrder`);
     }
   });
 });
