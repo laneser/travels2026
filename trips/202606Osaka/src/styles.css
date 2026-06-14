@@ -804,7 +804,22 @@ main {
   font-size: 11px;
   color: var(--muted);
 }
-.sight-note { font-size: 13px; color: var(--ink-2); margin: 4px 0 8px; }
+.sight-why { font-size: 13.5px; color: var(--ink); margin: 5px 0; line-height: 1.65; }
+.sight-why-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--indigo);
+  padding: 1px 7px;
+  border-radius: 6px;
+  margin-right: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.sight-why-hl { background: var(--gold); }
+.sight-note { font-size: 13px; color: var(--ink-2); margin: 6px 0 8px; line-height: 1.6; }
 .sight-actions {
   display: flex;
   gap: 8px;

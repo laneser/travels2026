@@ -176,18 +176,39 @@ describe('Tips', () => {
     const container = dom.window.document.getElementById('tips-sections');
     assert.ok(container, 'tips-sections container missing');
   });
+  test('sights are no longer rendered in the 實用 tab', () => {
+    const sightsInTips = dom.window.document.querySelectorAll('#tips-sections .sight');
+    assert.equal(sightsInTips.length, 0, 'sights should now live in their own 景點 tab');
+  });
+});
+
+describe('Sights', () => {
+  const SIGHTS = () => dom.window.TRIP_DATA.SIGHTS || [];
+  test('sight cards match SIGHTS.length', () => {
+    const cards = dom.window.document.querySelectorAll('#sights-sections .sight');
+    assert.equal(cards.length, SIGHTS().length);
+  });
   test('every sight has a Google Maps button', () => {
-    for (const s of dom.window.document.querySelectorAll('#tips-sections .sight')) {
+    for (const s of dom.window.document.querySelectorAll('#sights-sections .sight')) {
       assert.ok(s.querySelector('.btn-map[href*="google.com/maps"]'),
         `sight "${s.querySelector('.sight-name')?.textContent}" missing Maps button`);
     }
   });
   test('sights with youtube refs render 📺 pills linking to youtu.be', () => {
-    const SIGHTS = dom.window.TRIP_DATA.SIGHTS || [];
-    const expected = SIGHTS.reduce((n, s) => n + (s.youtube?.length || 0), 0);
-    const pills = dom.window.document.querySelectorAll('#tips-sections .sight .btn-yt[href*="youtu.be"]');
+    const expected = SIGHTS().reduce((n, s) => n + (s.youtube?.length || 0), 0);
+    const pills = dom.window.document.querySelectorAll('#sights-sections .sight .btn-yt[href*="youtu.be"]');
     assert.equal(pills.length, expected,
       `expected ${expected} sight YouTube pills, got ${pills.length}`);
+  });
+  test('every sight renders 為什麼去 + 重點 intro labels', () => {
+    const labels = dom.window.document.querySelectorAll('#sights-sections .sight .sight-why-label');
+    assert.equal(labels.length, SIGHTS().length * 2,
+      `expected ${SIGHTS().length * 2} intro labels (2 per sight), got ${labels.length}`);
+  });
+  test('sights are grouped under region cards', () => {
+    const cards = dom.window.document.querySelectorAll('#sights-sections > .card');
+    // intro card + one card per region present
+    assert.ok(cards.length >= 2, `expected region group cards, got ${cards.length}`);
   });
 });
 

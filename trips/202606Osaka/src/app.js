@@ -2,7 +2,7 @@
 // All destination-specific content lives in data.js. This file is generic.
 
 (function () {
-  const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SHOPPING, PLACES } = window.TRIP_DATA;
+  const { TRIP, DAYS, CATEGORIES, RESTAURANTS, TRANSPORT, TIPS, SIGHTS, SIGHTS_META, SHOPPING, PLACES } = window.TRIP_DATA;
   const HOTEL = TRIP.hotel || null;
 
   // ============== Google Maps URL ==============
@@ -657,16 +657,12 @@
   function renderTips() {
     const container = $("#tips-sections");
     const sections = (TIPS && TIPS.sections) || [];
-    // Append sights as a special section if SIGHTS exists and user didn't already put one in.
-    const combined = [...sections];
-    if (SIGHTS && SIGHTS.length && !sections.some((s) => s.type === "sights")) {
-      combined.push({ icon: "🏛️", title: "景點資訊", type: "sights", items: SIGHTS });
-    }
-    if (!combined.length) {
+    // Sights now live in their own 景點 tab (renderSights); not appended here.
+    if (!sections.length) {
       container.replaceChildren(el("p", { class: "muted small" }, "尚未填入實用資訊。"));
       return;
     }
-    container.replaceChildren(...combined.map(renderTipsSection));
+    container.replaceChildren(...sections.map(renderTipsSection));
   }
 
   function renderTipsSection(s) {
@@ -803,6 +799,90 @@
       el("div", { class: "sight-actions" }, ...acts));
   }
 
+  // ============== Sights (景點) ==============
+  // SIGHTS = [{ name, city, area?, region, day?, time?, whyGo, highlight, note, address, youtube? }]
+  // SIGHTS_META = { intro?, regionOrder:[...], regionMeta:{ <region>: {icon,label,intro} } }
+  // Grouped by region into its own 景點 tab; each sight shows 為什麼去 / 重點 intros.
+  function renderSights() {
+    const container = $("#sights-sections");
+    if (!container) return;
+    const sights = SIGHTS || [];
+    const meta = SIGHTS_META || {};
+    if (!sights.length) {
+      container.replaceChildren(el("p", { class: "muted small" }, "尚未填入景點資訊。"));
+      return;
+    }
+    const cards = [];
+    if (meta.intro) {
+      cards.push(el("div", { class: "card" },
+        el("div", { class: "card-head" },
+          el("span", { class: "card-icon" }, "🗺️"),
+          el("h2", { class: "card-title" }, "景點功課")),
+        el("p", { class: "tip-box" }, meta.intro)));
+    }
+    // Region order: declared order first, then any leftover regions in data order.
+    const order = [];
+    for (const r of (meta.regionOrder || [])) if (sights.some((s) => s.region === r)) order.push(r);
+    for (const s of sights) if (s.region && !order.includes(s.region)) order.push(s.region);
+    for (const region of order) {
+      const items = sights.filter((s) => s.region === region);
+      if (!items.length) continue;
+      const rm = (meta.regionMeta && meta.regionMeta[region]) || {};
+      const children = [
+        el("div", { class: "card-head" },
+          el("span", { class: "card-icon" }, rm.icon || "📍"),
+          el("h2", { class: "card-title" }, rm.label || region)),
+      ];
+      if (rm.intro) children.push(el("p", { class: "tip-box" }, rm.intro));
+      children.push(el("div", null, ...items.map(renderSightCard)));
+      cards.push(el("div", { class: "card" }, ...children));
+    }
+    // Any sight without a region falls into a trailing "其他" card.
+    const noRegion = sights.filter((s) => !s.region);
+    if (noRegion.length) {
+      cards.push(el("div", { class: "card" },
+        el("div", { class: "card-head" },
+          el("span", { class: "card-icon" }, "📍"),
+          el("h2", { class: "card-title" }, "其他")),
+        el("div", null, ...noRegion.map(renderSightCard))));
+    }
+    container.replaceChildren(...cards);
+  }
+
+  function renderSightCard(x) {
+    const acts = [
+      el("a", {
+        class: "btn btn-map",
+        href: mapsUrl(x.name, x.address || x.city || ""),
+        target: "_blank",
+        rel: "noopener",
+      }, "📍 Google Maps"),
+    ];
+    (x.youtube || []).forEach((yt) => {
+      if (!yt || !yt.id) return;
+      const creator = yt.creator || "YouTube";
+      acts.push(el("a", {
+        class: "btn btn-yt",
+        href: youtubeUrl(yt),
+        target: "_blank",
+        rel: "noopener",
+        title: `${creator}・${yt.id}${yt.time ? ` 跳到 ${yt.time}` : ""}`,
+      }, yt.time ? `📺 ${creator} ${yt.time}` : `📺 ${creator}`));
+    });
+    const tag = [x.day ? `Day ${x.day}` : "自選", x.time].filter(Boolean).join("・");
+    return el("div", { class: "sight" },
+      el("div", { class: "sight-head" },
+        el("span", { class: "sight-name" }, x.name),
+        (x.area || x.city) ? el("span", { class: "sight-badge" }, x.area || x.city) : null,
+        tag ? el("span", { class: "sight-day" }, tag) : null),
+      x.whyGo ? el("p", { class: "sight-why" },
+        el("span", { class: "sight-why-label" }, "為什麼去"), x.whyGo) : null,
+      x.highlight ? el("p", { class: "sight-why" },
+        el("span", { class: "sight-why-label sight-why-hl" }, "重點"), x.highlight) : null,
+      x.note ? el("p", { class: "sight-note" }, x.note) : null,
+      el("div", { class: "sight-actions" }, ...acts));
+  }
+
   // ============== init ==============
   document.addEventListener("DOMContentLoaded", () => {
     renderBrand();
@@ -815,6 +895,7 @@
     renderFoodList();
     renderTransport();
     renderTips();
+    renderSights();
     renderShopping();
     setInterval(renderCountdown, 60_000);
   });
