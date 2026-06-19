@@ -69,8 +69,11 @@ Gather real content. Use `WebSearch` and `WebFetch` to find:
 
 - **Restaurants**: ~8–15 per destination, balanced across meal types / price. Prefer Tabelog / Michelin / Bib Gourmand / Eater guides for the local market.
 - **Sights**: ~3–6 per destination, tied to specific days.
-- **Transport**: origin→first city, inter-city, intra-city, airport transit, relevant passes.
+- **YouTube vlogs (中文創作者)**: a dedicated pass over the curated restaurants **and** headline sights — find real walk-through videos from the Chinese/TW/HK creators travellers watch (痛風老饕、Kiki、滔滔、肥波、食尚玩家… or the region's own channels). Capture `{ id, time?, creator }`; **never invent an id**, and verify each one resolves (oEmbed → 200) before committing. Restaurants also take a `website` (🌐 官網), shopping spots take `links[]` (🔗). See `references/research-plan.md` → "YouTube vlogs".
+- **Transport**: origin→first city, inter-city, intra-city, airport transit, relevant passes. For IC cards, don't just name the default — briefly say *why* it beats the alternatives (single-journey, tourist passes, contactless credit, stored-value cards) for this trip.
 - **Tips**: weather for the specific month, packing, rainy-day fallbacks.
+
+A multi-agent `Workflow` is a good fit for Phase 3 when the trip is large: fan out one agent per research domain (food / sights / YouTube / transport / shopping / tips), each returning structured JSON, then assemble `data.js` yourself. Fan the oEmbed/URL validation out the same way.
 
 **Save raw findings to `trips/<slug>/docs/references/*.md` BEFORE shaping `data.js`.** Once written, treat them as frozen historical record — the `CLAUDE.md` rule in every trip folder tells any future editor the same. Raw research lets you audit sources later without re-searching.
 

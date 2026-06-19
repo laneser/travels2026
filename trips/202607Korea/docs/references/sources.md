@@ -15,5 +15,15 @@
 彙整後的結構化內容見 `research.md`。實際採用並排進行程的版本，
 以 `../../src/data.js`（SSOT）為準——兩者若有出入，以 `data.js` 為對。
 
+## 補件研究（第二輪）
+
+`research-enrich.md` 由 workflow `seoul-enrich-2ndshow`（5 agents）產出，補上：
+- 餐廳／景點／購物的中文 YouTuber 實拍影片（痛風老饕級的台/港/韓中文創作者）
+- 餐廳官網、購物攻略連結
+- 交通卡與付費方式完整比較（為什麼選 T-money 不選 Climate Card／WOWPASS）
+- 第二場演唱會（7/3 19:00）與「連刷兩晚」logistics
+
+所有 YouTube id 經 YouTube oEmbed 驗證確實可解析、所有連結經 HTTP 驗證，連不上的已丟棄。
+
 ⚠️ 研究中的營業時間、價位、票務規定為「規劃當時」的快照，
 出發前請務必再以官方公告 / Naver Map 確認（尤其演唱會換票與入場規定）。
