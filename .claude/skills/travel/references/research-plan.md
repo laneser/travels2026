@@ -101,6 +101,38 @@ youtube: [
 ```
 Multiple creators per place is good — keep them all. Card support differs by type: **restaurants** also render `website` (🌐 官網) and **shopping** spots render `links: [{label,url}]` (🔗); **sights** support `youtube` only. Validate those URLs too (an HTTP HEAD that isn't 4xx/5xx).
 
+## Verify each place is still operating (anti-stale pass)
+
+**Do this for every restaurant and sight before you commit `data.js` — and re-run it whenever you revisit an existing trip.** Search results and old vlogs happily recommend places that have since closed; a beautiful itinerary built around a shuttered restaurant is the worst kind of failure because nobody notices until they're standing outside a locked door. This pass is cheap insurance.
+
+### The check, per place
+
+Search the **original-language name + street address** (not the romanization — Google/Tabelog index the native name):
+```
+"<原文店名>" <地址 or 地標> 営業時間
+"<原文店名>" 食べログ
+"<原文店名>" 閉店 OR 移転 OR 跡地      # explicitly fish for closure/relocation news
+```
+Then classify each place:
+- **✅ open** — found a live listing with **current opening hours** (Google Maps「営業時間／定休日」, official site, or a Tabelog page that is *not* flagged「閉店」「掲載保留」). Capture the hours into `data.js`.
+- **⚠️ doubt** — the shop seems to exist but the address doesn't match, only a *different* same-name branch shows up, or sources conflict. **Don't guess** — fix it only if one answer is unambiguous (vague→concrete address from the official site), otherwise surface it to the user with the specific conflict.
+- **❌ closed / not found** — no current hours findable anywhere, or an explicit「閉店／Permanently closed」. **The core heuristic: no findable hours ⇒ very likely closed.** Comment the entry out (don't delete — keep it as a reversible record) with a one-line reason, and remove its `id` from any `DAYS[].timeline[].refs` / `meals[].refs` so the map/links don't point at a ghost.
+
+### Watch for these failure modes
+
+- **Relocation, not closure** — chains and old shops move; the name is alive but your address is dead. Fix the address (and area label) instead of dropping the place.
+- **Wrong branch** — "<name> 本店" in your data may actually be a different branch, or the famous branch is in another district than your note claims. A YouTuber's video framing ("鶴橋的春駒") can pin it to the wrong neighbourhood. When the real location conflicts with the entry's framing/YouTube refs, flag it rather than silently rewriting.
+- **Renamed** — same owner, same address, new sign (e.g. 「ちよ松」→「大阪とんかつ」). Update the `name` (keep the old name in parentheses) so on-site searching and Google Maps still find it.
+- **Market stalls / tiny places** — high churn and thin web presence; weight the "explicit closure news" search more and accept that some genuinely-open stalls are hard to confirm (mark ⚠️ and tell the user).
+
+### Keep the test invariant intact
+
+Before commenting a restaurant out, check its `category`+`day`: the `every day.category has a matching restaurant` data-test fails if you remove the **last** restaurant for a day's category. Either keep one alive, or also drop that category from the day's `categories[]`.
+
+### Fan it out for big trips
+
+For a trip with dozens of places, a `Workflow` (or parallel `Agent` calls) is the right tool: one agent per batch of ~10 places, each told to search-and-classify and return `{ id, status, hours, evidence }`. Assemble the verdicts yourself and apply the comment-outs / address fixes in `data.js`. (Real run: verifying 81 Osaka eateries across 8 parallel agents surfaced 3 that no longer resolve on Maps — all 3 commented out — plus ~10 with wrong addresses.)
+
 ## Transport
 
 This is the section most likely to be stale. Double-check:
@@ -177,11 +209,12 @@ Once `docs/references/` is in decent shape:
 
 1. Start with `CATEGORIES` — survey all the cuisines you captured and create keys.
 2. Fill `RESTAURANTS` — each entry with an id matching your research headers.
-3. Fill `DAYS[].categories` — pick 2–4 categories per day that match the theme.
-4. **Run `npm run test:data` early and often**. The "every day.category has a matching restaurant" check catches drift instantly.
-5. Fill `TRANSPORT.sections` and `TIPS.sections`.
-6. Fill `SIGHTS` last — sight curation benefits from already knowing each day's rhythm.
-7. Run `npm run test:render` to catch any runtime bugs in `app.js` exposed by your data shape.
+3. **Run the anti-stale pass (above) over every entry** — confirm each is still operating with current hours; comment out the dead ones, fix wrong addresses. Don't skip this to "save time"; a closed restaurant in the itinerary is the failure this whole step exists to prevent.
+4. Fill `DAYS[].categories` — pick 2–4 categories per day that match the theme.
+5. **Run `npm run test:data` early and often**. The "every day.category has a matching restaurant" check catches drift instantly.
+6. Fill `TRANSPORT.sections` and `TIPS.sections`.
+7. Fill `SIGHTS` last — sight curation benefits from already knowing each day's rhythm.
+8. Run `npm run test:render` to catch any runtime bugs in `app.js` exposed by your data shape.
 
 When tests pass, do `cd src && python3 -m http.server 8000` and eyeball it in a browser. Things to check visually that tests miss:
 - Does the hero look right on mobile width (375px)?
