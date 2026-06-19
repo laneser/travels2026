@@ -115,14 +115,14 @@ const DAYS = [
     level: "💰💰💰",
     timeline: [
       { time: "09:30", event: "步行到黑門市場（約 10 分鐘），邊走邊吃" },
-      { time: "10:00", event: "🦐 黑門市場早午餐：鮪魚生魚片＋帝王蟹腳＋飯蛸串＋鮮榨果汁（痛風老饕點名 4 攤＋原本路線 4 攤）", refs: ["maguroya", "torepichi", "shinuoei", "daiwa", "mansai-market", "uofuku-market", "ishibashi-market", "uojin-market"] },
+      { time: "10:00", event: "🦐 黑門市場早午餐：鮪魚生魚片＋帝王蟹腳＋飯蛸串＋鮮榨果汁（痛風老饕點名＋原本路線多攤）", refs: ["maguroya", "torepichi", "shinuoei", "daiwa", "mansai-market", "uofuku-market", "ishibashi-market"] },
       { time: "12:30", event: "回飯店午休 / 中之島散步（中央公会堂・府立図書館・中之島美術館）+ 順路上堂島 WowUs 16F 免費展望台 / 心齋橋商店街", refs: ["中之島", "WowUs（ワオアス）堂島浜タワー"] },
       { time: "15:00", event: "梅田空中庭園（雨天備案：心齋橋筋拱廊）；茶屋町順路逛 DAISO 大阪梅田店（關西最大級大型大創 B1・B2 兩層）", refs: ["DAISO 大阪梅田店（茶屋町 ABC-MART梅田ビル）"] },
       { time: "17:30", event: "🎎 晚餐：割烹或河豚二選一（⚠️ 訂位待確認——已逾原建議 2 週時程，請立即訂位或請飯店代訂）", refs: ["benkei", "hakataro", "guenpin", "mitsutomi", "hanagoyomi"] },
       { time: "21:00", event: "回飯店或法善寺横丁夜景散步" },
     ],
     meals: [
-      { type: "早午餐", title: "黑門市場巡禮", note: "現切生魚片、炙烤和牛串、帝王蟹腳、鰻魚飯⋯每人 ¥2,000–4,000。痛風老饕海鮮市場攻略點名 4 攤：萬彩（炸物）／魚福（烤生蠔）／石橋食品（豆腐豆漿）／魚仁（生魚片＋海膽）；另推鮪魚攤まぐろや黒銀。⚠️ 魚福 6/24 適逢週三公休，烤生蠔當天吃不到——可改其他鮮魚攤，或把市場行程挪到 6/25（四）早上。", refs: ["maguroya", "torepichi", "shinuoei", "daiwa", "iseya", "mansai-market", "uofuku-market", "ishibashi-market", "uojin-market"] },
+      { type: "早午餐", title: "黑門市場巡禮", note: "現切生魚片、炙烤和牛串、帝王蟹腳、鰻魚飯⋯每人 ¥2,000–4,000。痛風老饕海鮮市場攻略點名：萬彩（炸物）／魚福（烤生蠔）／石橋食品（豆腐豆漿）；另推鮪魚攤まぐろや黒銀。（原點名的「魚仁」生魚片攤 2026-06 查證已查無，下架。）⚠️ 魚福 6/24 適逢週三公休，烤生蠔當天吃不到——可改其他鮮魚攤，或把市場行程挪到 6/25（四）早上。", refs: ["maguroya", "torepichi", "shinuoei", "daiwa", "iseya", "mansai-market", "uofuku-market", "ishibashi-market"] },
       { type: "晚餐", title: "割烹料理 ／ 河豚套餐", note: "🔒 **本趟主題晚餐**。割烹推「日本料理 弁慶」（御堂筋銀杏景）或「博多廊 法善寺」（九州食材）；河豚推「玄品 法善寺総本店」（虎河豚連鎖旗艦，¥6,000–10,000）或「美津富」（頂級野生 ¥16,500）。**⚠️ 訂位狀態待確認——已逾原建議 2 週時程，請立即處理（可請飯店代訂）**。", star: 2, refs: ["benkei", "hakataro", "guenpin", "mitsutomi", "hanagoyomi"] },
     ],
     categories: ["market", "kappo", "fugu"],
@@ -143,7 +143,7 @@ const DAYS = [
       { time: "12:00", event: "🍣 午餐：壽司 omakase 或鰻魚飯（⚠️ 訂位待確認——已逾原建議 2–3 週時程，請立即處理）／ Kiki 推薦春駒、魚伊備選；想吃飽派可改千日前「かつ丼 ちよ松」5cm 厚切豬排丼", refs: ["isseki", "aomi", "iwashi", "nishihara", "unagiya", "yoshitora", "haruko-honten", "uo-i-unagi", "chiyomatsu"] },
       { time: "14:00", event: "🍳 飯後甜點：北極星西心齋橋本店（蛋包飯發祥地）", refs: ["hokkyokusei"] },
       { time: "16:00", event: "新世界・通天閣散步（通天閣 TOWER SLIDER／串カツ街）", refs: ["新世界・通天閣"] },
-      { time: "18:00", event: "🍢 晚餐：新世界串炸 + 壽喜燒老舖 ／ 松葉屋／天狗／六覺燈串炸 加碼（⚠️ 八重勝 6/25 週四公休，改だるま総本店／いっとく）", refs: ["daruma-shinsekai", "rokkakutei", "harijyu", "kitamura", "matsubaya-kushikatsu", "tengu-kushikatsu", "higekatsu-kushikatsu"] },
+      { time: "18:00", event: "🍢 晚餐：新世界串炸 + 壽喜燒老舖 ／ 天狗／六覺燈串炸 加碼（⚠️ 八重勝 6/25 週四公休，改だるま総本店／いっとく）", refs: ["daruma-shinsekai", "rokkakutei", "harijyu", "kitamura", "tengu-kushikatsu", "higekatsu-kushikatsu"] },
       { time: "21:00", event: "回道頓堀夜景散步" },
     ],
     meals: [
@@ -197,12 +197,12 @@ const DAYS = [
       { time: "14:00", event: "🍳 下午茶：北極星西心齋橋本店（若 Day 3 沒吃）", refs: ["hokkyokusei"] },
       { time: "15:00", event: "🛍️ 心齋橋自由購物：🪒 電動刮鬍刀（EDION 難波本店／BIC 難波，Panasonic ラムダッシュ等型號見購物頁、帶護照當場免稅）＋伴手禮（ドンキ道頓堀 24h 免稅、高島屋 B1 デパ地下、りくろー＆551）；鬼塚虎已 Day1 成交，缺碼可回旗艦店補、順逛心齋橋筋球鞋一條街", refs: ["EDION 難波本店（エディオン なんば本店・電動刮鬍刀）", "Onitsuka Tiger 大阪心斎橋（關西旗艦店）", "心齋橋筋商店街（掃鞋一條街）", "ドン・キホーテ 道頓堀店", "高島屋大阪店 B1 デパ地下", "rikuro-namba", "horai-551"] },
       { time: "16:30", event: "🖋️ ハンズ心斎橋（心斎橋PARCO 11F 文具）買 Shachihata 朱肉：一般款文具區就有；高級練朱肉「鯱旗印肉」請店員查庫存；同棟 2F 順逛 THE ONITSUKA 高端副線", refs: ["ハンズ心斎橋店（Shachihata 朱肉／鯱旗印肉）", "THE ONITSUKA（ジ・オニツカ）心斎橋PARCO"] },
-      { time: "18:00", event: "🥩 晚餐：和牛燒肉（⚠️ 訂位待確認——うしごろ TableCheck 線上仍可訂，本週內完成）／痛風老饕＋肥波＋Kiki 多家加碼；想換梅田平價爐端燒可改「力丸 漁火」385 円均一居酒屋", refs: ["ushigoro", "manryo", "nunogami", "rikimaru-dotonbori", "mansen-yakiniku", "nan-ichien-yakiniku", "aburi-bokujou-osaka", "itto-yakiniku", "isaribi-umeda"] },
+      { time: "18:00", event: "🥩 晚餐：和牛燒肉（⚠️ 訂位待確認——うしごろ TableCheck 線上仍可訂，本週內完成）／痛風老饕＋肥波＋Kiki 多家加碼；想換梅田平價爐端燒可改「力丸 漁火」385 円均一居酒屋", refs: ["ushigoro", "manryo", "nunogami", "rikimaru-dotonbori", "mansen-yakiniku", "nan-ichien-yakiniku", "itto-yakiniku", "isaribi-umeda"] },
       { time: "21:00", event: "道頓堀夜景告別散步" },
     ],
     meals: [
       { type: "午餐", title: "大阪燒（お好み焼き）", note: "梅田「きじ」蓬鬆蛋液モダン焼 vs 道頓堀「美津の」山藥麵糊 vs 千日前「福太郎」三色お好み焼。三家都是米其林必比登＋百名店 2025。", refs: ["kiji", "mizuno", "fukutaro", "yamamoto"] },
-      { type: "晚餐", title: "和牛燒肉", note: "🔒 **此行最後一頓大餐**。約 ¥8,000–15,000/人。Tabelog 百名店組：「焼肉うしごろ 梅田店」（2025/3 新開、半包廂代烤）／「万両 南森町店」（幻カルビ ¥980）／「布上 本店」（雌牛幻盛り）／「焼肉ホルモン 万千」（肥波 6/5 想二刷）。痛風老饕＋Kiki 加碼選項：「燒肉力丸 道頓堀」「南一園燒肉」「板前燒肉 一斗」「神戶あぶり牧場」。", star: 2, refs: ["ushigoro", "manryo", "nunogami", "mansen-yakiniku", "rikimaru-dotonbori", "nan-ichien-yakiniku", "itto-yakiniku", "aburi-bokujou-osaka"] },
+      { type: "晚餐", title: "和牛燒肉", note: "🔒 **此行最後一頓大餐**。約 ¥8,000–15,000/人。Tabelog 百名店組：「焼肉うしごろ 梅田店」（2025/3 新開、半包廂代烤）／「万両 南森町店」（幻カルビ ¥980）／「布上 本店」（雌牛幻盛り）／「焼肉ホルモン 万千」（肥波 6/5 想二刷）。痛風老饕＋Kiki 加碼選項：「燒肉力丸 道頓堀」「南一園燒肉」「板前燒肉 一斗」。", star: 2, refs: ["ushigoro", "manryo", "nunogami", "mansen-yakiniku", "rikimaru-dotonbori", "nan-ichien-yakiniku", "itto-yakiniku"] },
     ],
     categories: ["okonomiyaki", "yakiniku", "izakaya", "omurice", "sweets"],
     tips: "若走 B 案半日奈良：9:00 從近鐵難波出發（快速急行 35 分），13:00 從奈良回程、14:00 接大阪燒午餐，購物壓縮為約 1 小時，16:00 前回到心齋橋仍接得上 18:00 燒肉晚餐。",
@@ -307,11 +307,12 @@ const RESTAURANTS = [
     hours: "平日 11:00–22:30／假日 10:30–22:30",
   },
   {
-    id: "rokkakutei", name: "六覺燈（ろっかくてい）", category: "kushikatsu", city: "大阪", area: "法善寺／難波", days: [3],
-    address: "法善寺附近，難波站步行 3 分", tabelog: 3.70, price: "¥5,000–10,000+",
+    id: "rokkakutei", name: "六覺燈（ろっかくてい）", category: "kushikatsu", city: "大阪", area: "日本橋・黑門市場", days: [3],
+    address: "大阪市中央区日本橋 1-21-16 たこそうビル 2F", tabelog: 3.70, price: "¥5,000–10,000+",
     highlight: "米其林星級・高級串揚",
-    note: "1946 年創業，創意串揚。提供季節性おまかせ套餐，搭配葡萄酒。",
+    note: "1946 年創業，創意串揚。提供季節性おまかせ套餐，搭配葡萄酒。位於黑門市場拱廊內（日本橋駅步行約 3 分），僅晚間營業。",
     reservation: "電話或 Tabelog 預約",
+    hours: "17:00–22:00（週三公休）",
   },
   {
     id: "yoneya", name: "串カツの店 ヨネヤ 難波ミナミ店", category: "kushikatsu", city: "大阪", area: "難波", days: [1, 3],
@@ -339,6 +340,10 @@ const RESTAURANTS = [
     address: "新世界區域（4 間分店）", price: "10 本盛 ¥2,068／15 本盛 ¥2,948",
     note: "「黃金串カツ」輕薄酥脆的麵衣，深受女性歡迎。40 種以上可選，含大阪名物紅薑天婦羅。另有吃到飽方案。",
   },
+  // ❌ 2026-06 查證下架：Google Maps／Tabelog／ぐるなび 以「南船場 3-8-1」皆查無此串炸店，
+  // 知名同名「串かつ 松葉」實際在梅田新梅田食道街，與此地址無關 → 疑似歇業或地址誤植。
+  // 痛風老饕影片雖有到訪畫面，但現無法在地圖確認營業，暫時下架；若日後查到請解除註解。
+  /*
   {
     id: "matsubaya-kushikatsu", name: "松葉屋", category: "kushikatsu", city: "大阪", area: "南船場", days: [3],
     address: "大阪市中央区南船場 3-8-1",
@@ -351,6 +356,7 @@ const RESTAURANTS = [
       { id: "hPXEoK2C68E", time: "24:27", creator: "痛風老饕" },
     ],
   },
+  */
   {
     id: "tengu-kushikatsu", name: "天狗串炸（天狗）", category: "kushikatsu", city: "大阪", area: "新世界", days: [3],
     address: "大阪市浪速区恵美須東 3-4-12",
@@ -364,8 +370,8 @@ const RESTAURANTS = [
     ],
   },
   {
-    id: "higekatsu-kushikatsu", name: "串かつ ひげ勝", category: "kushikatsu", city: "大阪", area: "梅田", days: [3],
-    address: "大阪市北区曽根崎 2 丁目（梅田周邊）", tabelog: 3.63,
+    id: "higekatsu-kushikatsu", name: "串かつ ひげ勝", category: "kushikatsu", city: "大阪", area: "西成・花園町", days: [3],
+    address: "大阪市西成区旭 1-3-20", tabelog: 3.63,
     price: "爽吃 20 串 ¥6,000",
     highlight: "Tabelog 百名店・肥波 5/5 想二刷",
     note: "肥波開吃啦 72 小時大阪推薦的高分串炸百名店——20 串套餐 ¥6,000 性價比高。Tabelog 3.63、肥波給「很想二刷指數 5/5」。",
@@ -481,7 +487,7 @@ const RESTAURANTS = [
   },
   {
     id: "ishibashi-market", name: "石橋食品", category: "market", city: "大阪", area: "黑門市場", days: [2],
-    address: "大阪市中央区日本橋 2-2-20（黑門市場内）",
+    address: "大阪市中央区日本橋 2-4-1（黑門市場内）",
     highlight: "痛風老饕黑門必逛 3：豆製品老店",
     note: "創業多年的豆腐、豆漿、油揚老舖。現做嫩豆腐與豆漿可現場喝。週日公休。",
     hours: "9:00–17:00（週日公休）",
@@ -489,6 +495,10 @@ const RESTAURANTS = [
       { id: "yVcCiLsvefc", time: "21:41", creator: "痛風老饕" },
     ],
   },
+  // ❌ 2026-06 查證下架：以「魚仁」＋日本橋 2-2-19 在 Google Maps／Tabelog／黑門市場官網皆查無，
+  // 搜尋一律導向發音相近的「魚一（うおかず）」（日本橋 1-17-9，週一休）→ 疑似當初誤植或攤位已換店。
+  // 若想保留生魚片攤，可改為「魚一（うおかず）」並更新地址；暫時下架。
+  /*
   {
     id: "uojin-market", name: "魚仁", category: "market", city: "大阪", area: "黑門市場", days: [2],
     address: "大阪市中央区日本橋 2-2-19（黑門市場内）",
@@ -499,6 +509,7 @@ const RESTAURANTS = [
       { id: "yVcCiLsvefc", time: "23:19", creator: "痛風老饕" },
     ],
   },
+  */
 
   // === 割烹 ===
   {
@@ -559,11 +570,11 @@ const RESTAURANTS = [
     reservation: "完全予約制・平日 2–3 週、週六 2 個月以上",
   },
   {
-    id: "haruko-honten", name: "春駒 本店", category: "sushi", city: "大阪", area: "鶴橋", days: [3],
-    address: "大阪市天王寺区下味原町 6-12",
+    id: "haruko-honten", name: "春駒 本店", category: "sushi", city: "大阪", area: "天神橋筋六丁目", days: [3],
+    address: "大阪市北区天神橋 5-5-2",
     price: "¥1,500–2,500",
-    highlight: "Kiki 大阪 10 家爆吃推薦・鶴橋庶民壽司王道",
-    note: "鶴橋人氣壽司老店，鮪魚大腹、海膽、北寄貝等握壽司價格平實，常排 1–2 小時。Kiki 1 天 10 家爆吃大阪第 7 站，CP 值代表。週二公休。",
+    highlight: "Kiki 大阪 10 家爆吃推薦・天滿排隊庶民壽司",
+    note: "天滿・天神橋筋六丁目（天六）的人氣壽司居酒屋，鮪魚大腹、海膽、北寄貝等握壽司價格平實，常排 1–2 小時。Kiki 1 天 10 家爆吃大阪第 7 站，CP 值代表。本店與支店相鄰，皆在天神橋筋商店街上。週二公休。",
     hours: "11:00–22:30（週二公休）",
     youtube: [
       { id: "WGEUyFK68cM", time: "11:54", creator: "Kiki" },
@@ -596,14 +607,14 @@ const RESTAURANTS = [
     note: "關西風地焼き（不蒸直接炭火燒烤），備長炭。眼前活鰻現殺現烤。店內禁止拍照。週一、日、假日休。",
   },
   {
-    id: "yoshitora", name: "吉寅（Yoshitora）", category: "unagi", city: "大阪", area: "本町", days: [3],
-    address: "大阪市中央区（本町）", tabelog: 3.61, price: "午 ¥5,000–5,999／晚 ¥10,000–14,999",
+    id: "yoshitora", name: "吉寅（Yoshitora）", category: "unagi", city: "大阪", area: "堺筋本町", days: [3],
+    address: "大阪市中央区備後町 1-6-6", tabelog: 3.61, price: "午 ¥5,000–5,999／晚 ¥10,000–14,999",
     highlight: "Tabelog 百名店 2024",
     note: "江戶前風格，80 年以上歷史的料亭氛圍，附坪庭園。鰻魚肥厚、口感軟嫩。鰻重 ¥4,000 起。",
   },
   {
-    id: "uo-i-unagi", name: "魚伊 鰻魚飯本店", category: "unagi", city: "大阪", area: "天王寺", days: [3],
-    address: "大阪市阿倍野区阪南町 1-50-22",
+    id: "uo-i-unagi", name: "魚伊 鰻魚飯本店", category: "unagi", city: "大阪", area: "関目高殿", days: [3],
+    address: "大阪市旭区高殿 4-8-10",
     price: "¥2,500–4,500",
     highlight: "Kiki 大阪 10 家爆吃推薦・大阪老字號鰻屋",
     note: "創業百年的鰻魚飯老店，關西風地焼き炭火烤。Kiki 1 天 10 家爆吃大阪第 6 站「神級鰻魚飯」。",
@@ -708,10 +719,10 @@ const RESTAURANTS = [
 
   // === 洋食 ===
   {
-    id: "ippei", name: "グリル一平", category: "yoshoku", city: "神戶", area: "元町", days: [4],
-    address: "多家分店（元町本店等）", price: "¥1,200–2,500",
+    id: "ippei", name: "グリル一平 元町店", category: "yoshoku", city: "神戶", area: "元町", days: [4],
+    address: "兵庫県神戸市中央区元町通 2-3-2 ジェムビル B1F", price: "¥1,200–2,500",
     highlight: "1952 創業・四代傳承",
-    note: "招牌ビフカツ（炸牛排）搭配傳統多明格拉斯醬。使用兵庫縣コシヒカリ米。常大排長龍。",
+    note: "招牌ビフカツ（炸牛排）搭配傳統多明格拉斯醬。使用兵庫縣コシヒカリ米。常大排長龍。原「元町本店」與元町東店於 2022 統合，現役提供完整洋食正餐的就是這家元町店（ジェムビル B1F），JR/阪神元町駅西口步行 2 分。",
   },
   {
     id: "asahi", name: "洋食の朝日", category: "yoshoku", city: "神戶", area: "元町", days: [4],
@@ -804,8 +815,8 @@ const RESTAURANTS = [
     ],
   },
   {
-    id: "mansen-yakiniku", name: "焼肉 ホルモン 万千", category: "yakiniku", city: "大阪", area: "梅田", days: [5],
-    address: "大阪市北区曽根崎周邊（梅田區域）", tabelog: 3.71,
+    id: "mansen-yakiniku", name: "焼肉 ホルモン 万千", category: "yakiniku", city: "大阪", area: "島之内・長堀橋", days: [5],
+    address: "大阪市中央区島之内 2-13-9", tabelog: 3.71,
     price: "¥4,000–8,000",
     highlight: "Tabelog 日式燒肉百名店 2025・肥波 6/5 想二刷",
     note: "肥波 72 小時大阪「最想二刷」的燒肉店——蔥鹽牛舌 ¥1,760、鹽味牛五花 ¥1,760、鹽味牛肋肉 ¥1,870、醬燒橫隔膜 ¥1,870。Tabelog 3.71、肥波給滿分以上 6/5 評價。",
@@ -825,6 +836,10 @@ const RESTAURANTS = [
       { id: "hPXEoK2C68E", time: "22:53", creator: "痛風老饕" },
     ],
   },
+  // ❌ 2026-06 查證下架：查無「神戶あぶり牧場 道頓堀店」此分店，該品牌大阪僅「梅田本店」。
+  // 道頓堀同名易混的是另一家不同經營的「焼肉屋 大牧場 道頓堀店」→ 疑似誤記。
+  // 若想保留，可改為「神戸あぶり牧場 梅田本店」並更新地址；暫時下架。
+  /*
   {
     id: "aburi-bokujou-osaka", name: "燒肉 神戶あぶり牧場 道頓堀店", category: "yakiniku", city: "大阪", area: "道頓堀", days: [5],
     address: "大阪市中央区道頓堀 1 丁目（道頓堀區域）",
@@ -835,6 +850,7 @@ const RESTAURANTS = [
       { id: "WGEUyFK68cM", time: "14:25", creator: "Kiki" },
     ],
   },
+  */
   {
     id: "itto-yakiniku", name: "板前燒肉 一斗", category: "yakiniku", city: "大阪", area: "東心齋橋", days: [5],
     address: "大阪市中央区東心斎橋 1-16-26 一斗ビル",
