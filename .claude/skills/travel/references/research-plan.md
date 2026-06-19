@@ -64,6 +64,40 @@ Search pattern:
 
 Capture per sight: name, nearest station / access, what makes it worth an hour, which day it fits on. Aim for **3–6 per destination** tied to actual days in the itinerary — not a generic Top-20 list.
 
+## YouTube vlogs (中文創作者) — do this for food AND sights
+
+A travel site feels alive when each restaurant/sight card carries a `📺 <creator>` button to a real walk-through video. **Treat this as a first-class research pass, not an afterthought.** Run it for the curated restaurants and the headline sights once their names are settled.
+
+Use the `youtube-survey` skill (it calls YouTube's InnerTube API — works when WebFetch returns near-empty for a watch page) or plain WebSearch:
+
+```
+"<店名/景點 中文或當地原文>" youtube 痛風老饕 | Kiki | 食尚玩家
+<city> <cuisine> vlog 中文 心得
+<景點> 一日遊 youtube
+```
+
+Lean on the Chinese/Taiwanese/HK creators travellers actually watch — e.g. **痛風老饕、Kiki、滔滔、肥波、食尚玩家**, plus whatever region-specific channel you find (Korea, Thailand, Europe… capture the *real* channel name you saw). Prefer creators the user already trusts if they named any.
+
+**Hard rules (or the buttons become lies):**
+- The `id` MUST be the 11-char id from a real `youtube.com/watch?v=…` / `youtu.be/…` URL you actually saw in results. **Never invent or guess an id.** No match → skip that entry. 寧缺勿假。
+- **Verify every id resolves before committing it.** Cheapest check — the oEmbed endpoint returns 200 + JSON for a live video, 404/401 for a dead one:
+  ```bash
+  curl -s -o /dev/null -w "%{http_code}" \
+    "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<ID>&format=json"
+  ```
+  Drop any id that isn't `200`. (A workflow can fan this out across all ids at once.)
+- `time` (e.g. `08:31`) only when the clip clearly points at that spot in the video; otherwise omit.
+- `creator` = the channel's Chinese name, so the button reads `📺 痛風老饕 08:31`.
+
+Shape (same for `RESTAURANTS[].youtube` and `SIGHTS[].youtube`):
+```js
+youtube: [
+  { id: "hPXEoK2C68E", time: "08:31", creator: "痛風老饕" },
+  { id: "WGEUyFK68cM", creator: "Kiki" },
+]
+```
+Multiple creators per place is good — keep them all. Card support differs by type: **restaurants** also render `website` (🌐 官網) and **shopping** spots render `links: [{label,url}]` (🔗); **sights** support `youtube` only. Validate those URLs too (an HTTP HEAD that isn't 4xx/5xx).
+
 ## Transport
 
 This is the section most likely to be stale. Double-check:
