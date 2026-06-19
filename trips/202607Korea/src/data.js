@@ -86,7 +86,7 @@ const DAYS = [
     ],
     meals: [
       { type: "晚餐", title: "廣藏市場夜食巡禮", note: "離飯店步行 10 分的廣藏市場（광장시장）：富村생牛肉（육회，曾入米其林指南）、原祖順熙家綠豆煎餅（빈대떡）、母女小麻藥紫菜飯捲（마약김밥）。多為現金、現場抽號。", refs: ["buchon-yukhoe", "sunhuine-bindaetteok", "monyeo-mayak-gimbap"] },
-      { type: "宵夜", title: "乙支路啤酒街或東大門夜市", note: "만선호프（노가리골목招牌烤明太魚乾配生啤，露天야장超道地）；或東大門夜市/간식창고釜山魚板＋辣炒年糕。想吃烤肉就近慶尚道家炭火豬排，想吃辣炒年糕鍋有新堂洞마복림。", refs: ["mansun-hof", "dongdaemun-yasijang", "gyeongsangdojip", "mabokrim-tteokbokki", "imo-bunsik"] },
+      { type: "宵夜", title: "乙支路啤酒街或東大門夜市", note: "만선호프（노가리골목招牌烤明太魚乾配生啤，露天야장超道地）；或東大門夜市/간식창고釜山魚板＋辣炒年糕。想吃烤肉就近慶尚道家炭火豬排或痛風老饕✨推的을지정육（乙支精肉・烤豬肩肉），辣炒年糕鍋有新堂洞마복림、想喝湯有痛風老饕推的真味감자탕（馬鈴薯排骨湯）。", refs: ["mansun-hof", "dongdaemun-yasijang", "gyeongsangdojip", "euljijeongyuk", "mabokrim-tteokbokki", "jinmi-gamjatang", "imo-bunsik"] },
     ],
     categories: ["market", "streetfood", "kbbq", "bunsik"],
     tips: "金浦 GMP → 東大門首選 5 號線直達（₩1,400、40–44 分），務必搭往『馬川 마천』方向的東行列車。傍晚落地行李多也可用 Kakao T 叫車（約 ₩25,000–35,000、35–50 分）。廣藏市場與東大門夜市攤位營業時間各異、多收現金，請現場確認。",
@@ -110,7 +110,7 @@ const DAYS = [
       { time: "18:30", event: "🍜 晚餐：明洞餃子（명동교자）刀削麵＋餃子（米其林必比登），飯後逛明洞街頭小吃當宵夜", refs: ["myeongdong-gyoja", "myeongdong-street"] },
     ],
     meals: [
-      { type: "午餐", title: "土俗村蔘雞湯（토속촌 삼계탕）", note: "景福宮旁的蔘雞湯（삼계탕）名店，藍帶得獎，整隻童子雞燉糯米人蔘。想吃牛肉湯飯（곰탕）可改明洞河東館；西村通仁市場有趣的「銅錢便當咖啡」可當輕食體驗。", refs: ["tosokchon", "hadongkwan", "tongin-market"] },
+      { type: "午餐", title: "土俗村蔘雞湯（토속촌 삼계탕）", note: "景福宮旁的蔘雞湯（삼계탕）名店，藍帶得獎，整隻童子雞燉糯米人蔘。想吃牛肉湯飯（곰탕）可改明洞河東館；西村通仁市場有趣的「銅錢便當咖啡」可當輕食體驗；益善洞旁有痛風老饕✨推的雞林辣雞湯（계림・닭볶음탕）。", refs: ["tosokchon", "hadongkwan", "tongin-market", "gyerim-dak"] },
       { type: "下午茶", title: "安國／北村・益善洞咖啡", note: "Café Onion 안국（韓屋庭院名店）、London Bagel Museum（排隊貝果）、Café Layered（草莓維多利亞蛋糕）；益善洞韓屋咖啡청수당（水景庭院）與낙원장（老旅館改建）。", refs: ["onion-anguk", "london-bagel", "cafe-layered", "cheongsudang", "nagwonjang"] },
       { type: "晚餐", title: "明洞餃子刀削麵＋明洞街頭小吃", note: "명동교자本店雞高湯刀削麵（칼국수）配重蒜泡菜，米其林必比登；明洞主街傍晚整排小吃攤（龍捲風起司薯、奶油烤蝦、雞蛋麵包）邊走邊分食。忠武路솜이辣炒年糕也在附近。", refs: ["myeongdong-gyoja", "myeongdong-street", "somi-tteokbokki"] },
     ],
@@ -142,7 +142,7 @@ const DAYS = [
       { time: "22:30", event: "回飯店：整理今晚周邊與票根，把明晚（7/4）第二場電子票 QR＋護照先備好，早點休息" },
     ],
     meals: [
-      { type: "午餐", title: "聖水熟成烤肉＋咖啡簡餐", note: "一味樂熟成豬肉（일미락 성수）米麴發酵梅花肉（목살）；或聖水洞咖啡簡餐二選一。傍晚是平日尖峰，午餐吃巧不吃撐。", refs: ["ilmirak", "onion-seongsu"] },
+      { type: "午餐", title: "聖水熟成烤肉＋咖啡簡餐", note: "一味樂熟成豬肉（일미락 성수）米麴發酵梅花肉（목살）；或痛風老饕推的電線桿家（전봇대집・脆皮骰子豬）、肥波二刷的能東水芹牛肉（능동미나리・水芹生牛肉拌飯）。聖水洞咖啡簡餐也行。傍晚是平日尖峰，午餐吃巧不吃撐。", refs: ["ilmirak", "jeonbatdaejip", "neungdong-minari", "onion-seongsu"] },
       { type: "晚餐", title: "會場周邊墊胃＋散場慶功（可選）", note: "進場前在奧林匹克公園站 1 號出口商街海林食堂（해림식당）快速吃湯飯定食。散場若有力氣，芳荑洞먹자골목화반韓牛烤肉開到凌晨可慶功。", refs: ["haerim-sikdang", "hwaban-bangi"] },
       { type: "咖啡", title: "聖水洞咖啡街巡禮", note: "Café Onion 성수（紅磚廠房改建始祖店）、NUDAKE（GENTLE MONSTER 旗下黑色概念甜點）、大林倉庫（倉庫畫廊咖啡）。早上趁人少悠閒坐。", refs: ["onion-seongsu", "nudake", "daelim-changgo"] },
     ],
@@ -799,6 +799,113 @@ const RESTAURANTS = [
     "note": "芳荑洞먹자골목（小吃街）的烤肉店，距奧林匹克公園／KSPO DOME 一帶不遠，適合演唱會結束後吃宵夜烤肉慶功（營業到凌晨 01:00）。芳荑洞먹자골목整條都是고기·곱창·냉면選擇，散場後人多，建議結伴前往。請出發前確認。",
     "hours": "每日約 11:30–01:00，請出發前確認",
     "website": "https://app.catchtable.co.kr/ct/shop/hwaban_bangyi"
+  },
+  {
+    "id": "euljijeongyuk",
+    "name": "乙支精肉（을지정육・烤豬肩肉）",
+    "category": "kbbq",
+    "city": "首爾",
+    "area": "乙支路三街",
+    "days": [
+      1
+    ],
+    "address": "서울 중구 충무로5길 24 (24 Chungmu-ro 5-gil, Jung-gu)",
+    "price": "人均約 ₩15,000–25,000",
+    "hours": "13:00–22:30",
+    "note": "痛風老饕✨推。乙支路三街的炭烤豬肩肉（돼지목살），就在飯店（乙支路）步行範圍，落地夜或任何一晚想吃烤肉的口袋名單。痛風老饕首爾 foodlog 推薦。",
+    "youtube": [
+      {
+        "id": "xUcFFk8MUmk",
+        "creator": "痛風老饕"
+      }
+    ]
+  },
+  {
+    "id": "gyerim-dak",
+    "name": "雞林辣雞湯（계림）",
+    "category": "stew",
+    "city": "首爾",
+    "area": "鐘路／益善洞",
+    "days": [
+      2
+    ],
+    "address": "서울 종로구 돈화문로4길 39 (39 Donhwamun-ro 4-gil, Jongno-gu)",
+    "price": "人均約 ₩12,000–20,000",
+    "hours": "11:30–15:30、16:30–21:45（週日公休）",
+    "note": "痛風老饕✨推（兩支首爾影片都拍）。隱藏巷弄的辣雞湯（닭볶음탕），吃完再來碗蒜味雞湯刀削麵。就在益善洞旁，Day2 古宮・益善洞動線順路。",
+    "youtube": [
+      {
+        "id": "jo54Jetw_L8",
+        "time": "08:46",
+        "creator": "痛風老饕"
+      },
+      {
+        "id": "xUcFFk8MUmk",
+        "creator": "痛風老饕"
+      }
+    ]
+  },
+  {
+    "id": "jinmi-gamjatang",
+    "name": "真味馬鈴薯排骨湯（감자탕）",
+    "category": "stew",
+    "city": "首爾",
+    "area": "新堂洞／藥水站",
+    "days": [
+      1
+    ],
+    "address": "서울 중구 다산로 107 (107 Dasan-ro, Jung-gu)",
+    "price": "人均約 ₩10,000–18,000",
+    "hours": "09:30–24:00",
+    "note": "痛風老饕✨推。新堂洞的馬鈴薯排骨湯（감자탕），離飯店一兩站、與마복림辣炒年糕同區，宵夜或暖胃都合適。",
+    "youtube": [
+      {
+        "id": "xUcFFk8MUmk",
+        "creator": "痛風老饕"
+      }
+    ]
+  },
+  {
+    "id": "jeonbatdaejip",
+    "name": "電線桿家（전봇대집）",
+    "category": "kbbq",
+    "city": "首爾",
+    "area": "城東／聖水",
+    "days": [
+      3
+    ],
+    "address": "서울 성동구 살곶이길 18 3층 302호 (18 Salgoji-gil, Seongdong-gu)",
+    "price": "人均約 ₩18,000–30,000",
+    "hours": "11:00–22:30",
+    "note": "痛風老饕推。炭烤脆皮骰子豬（바삭한 껍데기），城東／聖水一帶，Day3 聖水動線可順加。",
+    "youtube": [
+      {
+        "id": "jo54Jetw_L8",
+        "time": "01:35",
+        "creator": "痛風老饕"
+      }
+    ]
+  },
+  {
+    "id": "neungdong-minari",
+    "name": "能東水芹牛肉（능동미나리 성수점）",
+    "category": "stew",
+    "city": "首爾",
+    "area": "聖水洞",
+    "days": [
+      3
+    ],
+    "address": "서울 성동구 성수동 (능동미나리 성수점)",
+    "price": "水芹生牛肉拌飯 ₩15,000／水芹牛肉湯飯 ₩25,000",
+    "hours": "請出發前確認",
+    "note": "肥波「最想二刷指數 6/5」。聖水店招牌水芹菜生牛肉拌飯（미나리 육회비빔밥）與水芹牛肉湯飯，Day3 聖水咖啡街順吃。",
+    "youtube": [
+      {
+        "id": "0ycWDjHeFwU",
+        "time": "00:20",
+        "creator": "肥波"
+      }
+    ]
   }
 ];
 

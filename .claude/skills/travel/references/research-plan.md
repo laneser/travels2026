@@ -89,6 +89,9 @@ Lean on the Chinese/Taiwanese/HK creators travellers actually watch — e.g. **�
 - `time` (e.g. `08:31`) only when the clip clearly points at that spot in the video; otherwise omit.
 - `creator` = the channel's Chinese name, so the button reads `📺 痛風老饕 08:31`.
 
+**Gotcha — per-store search misses aggregated vlogs (search creator-first too):**
+Searching `"<店名>" youtube <creator>` one store at a time only finds videos whose *title* names that store. But the creators users care about (痛風老饕, 肥波, Kiki…) mostly publish **one video covering many shops** ("首爾 foodlog 18 餐", "最想二刷的 10 家店") — the title names none of them, so per-store search silently returns nothing and you wrongly conclude "this creator has no content for this city." Always **also search creator-first**: `<creator> <city>` / `<creator> <country> 美食`, confirm the channel via oEmbed `author_name`, then `youtube-survey` the video to pull its **chapters + description** (creators list `MM:SS 店名 地址` per stop) and map each stop back to a restaurant — adding the shop to your list if it's not there yet. A single aggregated vlog can enrich 5–10 cards with exact timestamps. (Real miss: a first pass searched per-store for a Seoul trip and found zero 痛風老饕 hits; a creator-first pass found two 首爾 vlogs covering ~20 shops, several right on the itinerary.)
+
 Shape (same for `RESTAURANTS[].youtube` and `SIGHTS[].youtube`):
 ```js
 youtube: [
