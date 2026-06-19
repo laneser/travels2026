@@ -116,8 +116,8 @@ const DAYS = [
     timeline: [
       { time: "09:30", event: "步行到黑門市場（約 10 分鐘），邊走邊吃" },
       { time: "10:00", event: "🦐 黑門市場早午餐：鮪魚生魚片＋帝王蟹腳＋飯蛸串＋鮮榨果汁（痛風老饕點名 4 攤＋原本路線 4 攤）", refs: ["maguroya", "torepichi", "shinuoei", "daiwa", "mansai-market", "uofuku-market", "ishibashi-market", "uojin-market"] },
-      { time: "12:30", event: "回飯店午休 / 中之島散步（中央公会堂・府立図書館・中之島美術館）/ 心齋橋商店街", refs: ["中之島"] },
-      { time: "15:00", event: "梅田空中庭園（雨天備案：心齋橋筋拱廊）" },
+      { time: "12:30", event: "回飯店午休 / 中之島散步（中央公会堂・府立図書館・中之島美術館）+ 順路上堂島 WowUs 16F 免費展望台 / 心齋橋商店街", refs: ["中之島", "WowUs（ワオアス）堂島浜タワー"] },
+      { time: "15:00", event: "梅田空中庭園（雨天備案：心齋橋筋拱廊）；茶屋町順路逛 DAISO 大阪梅田店（關西最大級大型大創 B1・B2 兩層）", refs: ["DAISO 大阪梅田店（茶屋町 ABC-MART梅田ビル）"] },
       { time: "17:30", event: "🎎 晚餐：割烹或河豚二選一（⚠️ 訂位待確認——已逾原建議 2 週時程，請立即訂位或請飯店代訂）", refs: ["benkei", "hakataro", "guenpin", "mitsutomi", "hanagoyomi"] },
       { time: "21:00", event: "回飯店或法善寺横丁夜景散步" },
     ],
@@ -140,7 +140,7 @@ const DAYS = [
     timeline: [
       { time: "08:00", event: "睡到自然醒，飯店附近輕食早餐（推薦丸福珈琲店 千日前本店：昭和老喫茶モーニング，平日 8:00–11:00 限定）", refs: ["marufuku-coffee"] },
       { time: "10:00", event: "阿倍野 HARUKAS 展望台 / 中之島 / 心齋橋・美國村", refs: ["阿倍野 HARUKAS 300"] },
-      { time: "12:00", event: "🍣 午餐：壽司 omakase 或鰻魚飯（⚠️ 訂位待確認——已逾原建議 2–3 週時程，請立即處理）／ Kiki 推薦春駒、魚伊備選", refs: ["isseki", "aomi", "iwashi", "nishihara", "unagiya", "yoshitora", "haruko-honten", "uo-i-unagi"] },
+      { time: "12:00", event: "🍣 午餐：壽司 omakase 或鰻魚飯（⚠️ 訂位待確認——已逾原建議 2–3 週時程，請立即處理）／ Kiki 推薦春駒、魚伊備選；想吃飽派可改千日前「かつ丼 ちよ松」5cm 厚切豬排丼", refs: ["isseki", "aomi", "iwashi", "nishihara", "unagiya", "yoshitora", "haruko-honten", "uo-i-unagi", "chiyomatsu"] },
       { time: "14:00", event: "🍳 飯後甜點：北極星西心齋橋本店（蛋包飯發祥地）", refs: ["hokkyokusei"] },
       { time: "16:00", event: "新世界・通天閣散步（通天閣 TOWER SLIDER／串カツ街）", refs: ["新世界・通天閣"] },
       { time: "18:00", event: "🍢 晚餐：新世界串炸 + 壽喜燒老舖 ／ 松葉屋／天狗／六覺燈串炸 加碼（⚠️ 八重勝 6/25 週四公休，改だるま総本店／いっとく）", refs: ["daruma-shinsekai", "rokkakutei", "harijyu", "kitamura", "matsubaya-kushikatsu", "tengu-kushikatsu", "higekatsu-kushikatsu"] },
@@ -151,7 +151,7 @@ const DAYS = [
       { type: "午餐", title: "壽司 omakase 或鰻魚飯", note: "🔒 壽司首選「鮨 青海 北新地」午餐 ¥4,000–9,000、性價比首選「いわ志 本店」每貫 ¥100；鰻魚六月當季，關東風「鰻 にしはら」蓬鬆柔軟 vs 關西風「鰻家」備長炭地焼。", star: 2, refs: ["aomi", "iwashi", "nishihara", "unagiya"] },
       { type: "晚餐", title: "新世界串炸 + 壽喜燒", note: "新世界串炸便宜量大（⚠️ 八重勝週四休、6/25 吃不到，改いっとく、だるま総本店），或回道頓堀吃壽喜燒老舖（はり重 1919 / 北むら 1881 / せきぐち）人均 ¥10,000+", star: 1, refs: ["daruma-shinsekai", "ittoku", "harijyu", "kitamura", "sekiguchi"] },
     ],
-    categories: ["sushi", "unagi", "kushikatsu", "sukiyaki", "omurice"],
+    categories: ["sushi", "unagi", "kushikatsu", "sukiyaki", "omurice", "tonkatsu"],
     tips: "壽司 omakase 與壽喜燒老舖都需提前訂位。蛋包飯發祥店「北極星」就在飯店步行 2–3 分，飯後可順吃當下午茶。",
   },
   {
@@ -197,14 +197,14 @@ const DAYS = [
       { time: "14:00", event: "🍳 下午茶：北極星西心齋橋本店（若 Day 3 沒吃）", refs: ["hokkyokusei"] },
       { time: "15:00", event: "🛍️ 心齋橋自由購物：🪒 電動刮鬍刀（EDION 難波本店／BIC 難波，Panasonic ラムダッシュ等型號見購物頁、帶護照當場免稅）＋伴手禮（ドンキ道頓堀 24h 免稅、高島屋 B1 デパ地下、りくろー＆551）；鬼塚虎已 Day1 成交，缺碼可回旗艦店補、順逛心齋橋筋球鞋一條街", refs: ["EDION 難波本店（エディオン なんば本店・電動刮鬍刀）", "Onitsuka Tiger 大阪心斎橋（關西旗艦店）", "心齋橋筋商店街（掃鞋一條街）", "ドン・キホーテ 道頓堀店", "高島屋大阪店 B1 デパ地下", "rikuro-namba", "horai-551"] },
       { time: "16:30", event: "🖋️ ハンズ心斎橋（心斎橋PARCO 11F 文具）買 Shachihata 朱肉：一般款文具區就有；高級練朱肉「鯱旗印肉」請店員查庫存；同棟 2F 順逛 THE ONITSUKA 高端副線", refs: ["ハンズ心斎橋店（Shachihata 朱肉／鯱旗印肉）", "THE ONITSUKA（ジ・オニツカ）心斎橋PARCO"] },
-      { time: "18:00", event: "🥩 晚餐：和牛燒肉（⚠️ 訂位待確認——うしごろ TableCheck 線上仍可訂，本週內完成）／痛風老饕＋肥波＋Kiki 多家加碼", refs: ["ushigoro", "manryo", "nunogami", "rikimaru-dotonbori", "mansen-yakiniku", "nan-ichien-yakiniku", "aburi-bokujou-osaka", "itto-yakiniku"] },
+      { time: "18:00", event: "🥩 晚餐：和牛燒肉（⚠️ 訂位待確認——うしごろ TableCheck 線上仍可訂，本週內完成）／痛風老饕＋肥波＋Kiki 多家加碼；想換梅田平價爐端燒可改「力丸 漁火」385 円均一居酒屋", refs: ["ushigoro", "manryo", "nunogami", "rikimaru-dotonbori", "mansen-yakiniku", "nan-ichien-yakiniku", "aburi-bokujou-osaka", "itto-yakiniku", "isaribi-umeda"] },
       { time: "21:00", event: "道頓堀夜景告別散步" },
     ],
     meals: [
       { type: "午餐", title: "大阪燒（お好み焼き）", note: "梅田「きじ」蓬鬆蛋液モダン焼 vs 道頓堀「美津の」山藥麵糊 vs 千日前「福太郎」三色お好み焼。三家都是米其林必比登＋百名店 2025。", refs: ["kiji", "mizuno", "fukutaro", "yamamoto"] },
       { type: "晚餐", title: "和牛燒肉", note: "🔒 **此行最後一頓大餐**。約 ¥8,000–15,000/人。Tabelog 百名店組：「焼肉うしごろ 梅田店」（2025/3 新開、半包廂代烤）／「万両 南森町店」（幻カルビ ¥980）／「布上 本店」（雌牛幻盛り）／「焼肉ホルモン 万千」（肥波 6/5 想二刷）。痛風老饕＋Kiki 加碼選項：「燒肉力丸 道頓堀」「南一園燒肉」「板前燒肉 一斗」「神戶あぶり牧場」。", star: 2, refs: ["ushigoro", "manryo", "nunogami", "mansen-yakiniku", "rikimaru-dotonbori", "nan-ichien-yakiniku", "itto-yakiniku", "aburi-bokujou-osaka"] },
     ],
-    categories: ["okonomiyaki", "yakiniku", "omurice", "sweets"],
+    categories: ["okonomiyaki", "yakiniku", "izakaya", "omurice", "sweets"],
     tips: "若走 B 案半日奈良：9:00 從近鐵難波出發（快速急行 35 分），13:00 從奈良回程、14:00 接大阪燒午餐，購物壓縮為約 1 小時，16:00 前回到心齋橋仍接得上 18:00 燒肉晚餐。",
   },
   {
@@ -219,7 +219,7 @@ const DAYS = [
     level: "💰",
     timeline: [
       { time: "08:00", event: "起床，整理行李" },
-      { time: "08:30", event: "☕ 早午餐：心齋橋／難波周邊咖啡廳（衝 outlet 的話 08:30 開吃；elk 10:00 才開店、僅適合不衝 outlet 的悠閒版）", refs: ["unreal", "morningbox", "mondial", "tables", "elk"] },
+      { time: "08:30", event: "☕ 早午餐：心齋橋／難波周邊咖啡廳（衝 outlet 的話 08:30 開吃；elk 10:00 才開店、僅適合不衝 outlet 的悠閒版）；想吃老建築麵包早餐可選南船場「パンとエスプレッソと堺筋倶楽部」（8:00 開、百年銀行大廳），或漢堡派 Shake Shack 大丸心斎橋（10:00 開、悠閒版）", refs: ["unreal", "morningbox", "mondial", "tables", "elk", "bread-espresso-sakaisuji", "shakeshack-shinsaibashi"] },
       { time: "10:15", event: "退房（衝 outlet：10:15 前；不衝：11:00 前即可）" },
       { time: "10:30", event: "🛍️（加碼選項）衝鬼塚虎 outlet：搭南海空港急行至りんくうタウン站（約 35 分、¥820），11:20 起實逛約 70 分鐘，⚠️ 12:40 強制收手（週日人潮＋退稅排隊會吃時間；下雨或行李超過每人一件建議放棄、走悠閒版）", refs: ["Onitsuka Tiger アウトレット（りんくうプレミアム・アウトレット）"] },
       { time: "11:00", event: "（不衝 outlet 的話）步行到難波站，coin locker 寄放伴手禮", refs: ["難波站"] },
@@ -233,7 +233,7 @@ const DAYS = [
     meals: [
       { type: "早午餐", title: "心齋橋／難波咖啡廳", note: "離飯店最近的「UNREAL」可俯瞰道頓堀河；「Café Morning Box」班尼迪克蛋；「MONDIAL KAFFEE 328」¥600 早餐套餐；「elk」舒芙蕾厚鬆餅 10:00 起，適合多睡一會。", refs: ["unreal", "morningbox", "mondial", "tables", "elk"] },
     ],
-    categories: ["brunch"],
+    categories: ["brunch", "burger"],
     tips: "Peach 廉航行李限制嚴格，伴手禮多時可考慮加購行李。⚠️ Peach 在 KIX 第 2 航廈（T2），南海関西空港站在 T1 側、需轉免費連絡巴士約 10 分，真正死線是 14:25 關櫃（起飛前 50 分）。若加碼りんくう outlet：10:15 前退房、10:30 從難波出發（空港急行 ¥820、約 35 分），實逛約 70 分、12:40 強制收手，搭南海 1 站（¥370、6 分）到関西空港站再轉巴士到 T2，13:30 前抵櫃台——緩衝不到 1 小時，任一段出包就骨牌倒，⚠️ 回程勿等 Sky Shuttle（中午約 1 小時僅 1 班）。outlet 路線交通合計 ¥1,190/人（比直達 ¥970 多 ¥220）。",
   },
 ];
@@ -253,6 +253,9 @@ const CATEGORIES = {
   yoshoku:    { label: "洋食",         icon: "🍛" },
   okonomiyaki:{ label: "大阪燒",       icon: "🥞" },
   yakiniku:   { label: "和牛燒肉",     icon: "🔥" },
+  tonkatsu:   { label: "豬排丼",       icon: "🍚" },
+  burger:     { label: "美式漢堡",     icon: "🍔" },
+  izakaya:    { label: "居酒屋",       icon: "🏮" },
   omurice:    { label: "蛋包飯",       icon: "🍳" },
   brunch:     { label: "早午餐",       icon: "☕" },
   sweets:     { label: "甜點伴手禮",   icon: "🧀" },
@@ -323,9 +326,13 @@ const RESTAURANTS = [
   },
   {
     id: "yaekatsu", name: "八重勝（Yaekatsu）", category: "kushikatsu", city: "大阪", area: "新世界・ジャンジャン横丁", days: [2, 5],
-    address: "ジャンジャン横丁，動物園前駅步行 5 分", price: "¥1,000–2,000（單串 ¥110 起）",
+    address: "大阪市浪速区恵美須東 3-4-13（ジャンジャン横丁，動物園前駅步行 5 分）", price: "¥1,000–2,000（單串 ¥110 起）",
     highlight: "在地人最愛・週四休",
-    note: "永遠在排隊。每串現點現炸，約 40–50 種。僅吧台座位，週轉快。⚠️ 週四休——本行程新世界日 Day 3（6/25）正逢公休吃不到，改掛 Day 2（三）／Day 5（六）備選：兩天都營業，從難波搭地鐵到動物園前約 10 分，想吃在地派串炸可繞過去。",
+    note: "永遠在排隊。每串現點現炸，約 40–50 種，必點炸大蝦（海老）與招牌どて焼き（味噌牛筋）。僅吧台座位、不接受預約、週轉快，有「ソース二度づけお断り」（醬汁禁止二度沾）規矩。⚠️ 週四休——本行程新世界日 Day 3（6/25）正逢公休吃不到，改掛 Day 2（三）／Day 5（六）備選：兩天都營業，從難波搭地鐵到動物園前約 10 分，想吃在地派串炸可繞過去。",
+    youtube: [
+      { id: "B4t6OSMFZw8", creator: "火星主廚的回歸之旅" },
+      { id: "oypcfSilbVs", creator: "樂活的大方" },
+    ],
   },
   {
     id: "ittoku", name: "新世界串カツ いっとく 総本店", category: "kushikatsu", city: "大阪", area: "新世界", days: [3],
@@ -894,6 +901,56 @@ const RESTAURANTS = [
     note: "現蒸豚まん熱買熱吃，燒賣、甜點也齊。每月第 1・3 週二休——6/23 為第 4 個週二，本行程期間每天營業。回程日不用扛：KIX 機場內也有分店可現買（注意保冷與航班規定）。",
     hours: "外帶 10:00–21:30／2F 餐廳 11:00–21:30",
   },
+
+  // === 豬排丼 ===
+  {
+    id: "chiyomatsu", name: "かつ丼 ちよ松 道頓堀本店（大阪とんかつ）", category: "tonkatsu", city: "大阪", area: "難波・千日前", days: [3],
+    address: "大阪市中央区千日前 1-1-10", tabelog: 3.44, price: "午餐約 ¥1,000–1,999；特上焼きカツ丼約 ¥2,400",
+    highlight: "前相撲力士開店・日本一 5 公分厚切豬排丼",
+    note: "由前相撲力士開設的話題名店，藏在難波・千日前小巷裡（日本橋駅 B28 出口步行約 1–4 分）。招牌「日本一分厚い」5 公分厚切炸豬排丼（特上焼きカツ丼）：選用鹿兒島阿久根、宮崎黑豬，24 小時低溫慢煮後再炸，外酥內嫩、約 400g 厚到蓋子蓋不上，配半熟蛋與酥脆海苔。店內僅約 12 個吧檯座，IG 爆紅、外國客眾多，務必營業前提早排隊。",
+    hours: "11:00–15:00、17:30–21:30（豬肉售完提早打烊，以現場為準）",
+    youtube: [
+      { id: "Ziq1cNMehoI", creator: "JoEmAn Travel" },
+      { id: "btXadplq6qk", creator: "渡覓越" },
+    ],
+  },
+
+  // === 美式漢堡 ===
+  {
+    id: "shakeshack-shinsaibashi", name: "Shake Shack 大丸心斎橋店", category: "burger", city: "大阪", area: "心齋橋", days: [1, 6],
+    address: "大阪市中央区心斎橋筋 1-7-1 大丸心斎橋店本館 1F", price: "ShackBurger 約 ¥1,140；一餐＋薯條＋奶昔人均約 ¥1,800–2,500",
+    highlight: "紐約名店關西首店・心齋橋筋起點",
+    note: "紐約起家、號稱「全紐約最好吃漢堡」的美式 fine casual 品牌，2019 年在大丸心斎橋店本館 1F 開出關西首店。招牌 ShackBurger 用 100% 安格斯牛現煎肉排＋獨門 ShackSauce，搭波浪薯條與現打奶昔（含黑芝麻等限定口味）。自助點餐機支援中英日韓四語、拿叫號器超好上手；店內「御堂筋のパラレルワールド」大阪塗鴉牆是這家分店限定打卡點，還有道頓堀風限定甜點「道頓トフィークリート」。就在心齋橋筋商店街起點、距道頓堀步行幾分鐘，逛街順路補一餐很方便。",
+    hours: "10:00–22:00（L.O. 21:30）",
+    youtube: [
+      { id: "r9FzzW4hJuc", creator: "千千進食中" },
+    ],
+  },
+
+  // === 早午餐（咖啡・麵包）===
+  {
+    id: "bread-espresso-sakaisuji", name: "パンとエスプレッソと堺筋倶楽部", category: "brunch", city: "大阪", area: "南船場", days: [6],
+    address: "大阪市中央区南船場 1-15-12 堺筋倶楽部 1F", price: "每人約 ¥1,000–2,800；鉄板フレンチトースト ¥1,500（14:00 起店內限定）",
+    highlight: "1931 年銀行老建築改建・百年大廳裡吃早午餐",
+    note: "人氣烘焙品牌「パンとエスプレッソと」2021 年於南船場開的旗艦店。最大賣點是建築本身——這棟 1931 年的近代洋風建築原為川崎貯蓄銀行，保留約 10m 挑高的銀行大廳、大理石櫃檯與古董磁磚地板，連金庫室都變成包廂座。招牌是用名物吐司「ムー」做的法式吐司，以及限定丹麥吐司與各式可頌。早上 8 點就開門，可在百年銀行老建築裡吃奢華早餐或下午茶；早午餐尖峰常需排隊。距心齋橋步行約 10 分，Day 6 告別早午餐順路（比心齋橋更東一點）。",
+    hours: "8:00–19:00（不定休；以官網為準）",
+    youtube: [
+      { id: "OUXZOu4jmio", time: "3:20", creator: "cafe-vlog" },
+    ],
+  },
+
+  // === 居酒屋・爐端燒 ===
+  {
+    id: "isaribi-umeda", name: "力丸 炉ばた焼 漁火（いさりび）", category: "izakaya", city: "大阪", area: "梅田・芝田", days: [5],
+    address: "大阪市北区芝田 1-5-12 備後屋ビル B1F", tabelog: 3.05, price: "全品 385 円均一（部分 770 円）；套餐約 ¥1,650–5,000",
+    highlight: "梅田老字號爐端燒・385 円均一・木槳遞菜",
+    note: "1966 年創業的梅田爐端燒海鮮居酒屋，力丸集團元祖店。幾乎「全品 385 円均一」的佛心定價，新鮮海產擺在吧台爐端現點現烤，師傅再用傳統長木槳把料理遞到客人面前。招牌活帆立貝奶油燒、蠑螺壺燒、天然大蝦鹽燒便宜又大碗，可容約 45 人聚餐，晚上 10 點還有賓果抽獎。距阪急梅田站／JR 大阪站僅 2–3 分，CP 值高，適合一群人熱鬧吃海鮮喝酒。Day 5 燒肉日想換梅田平價爐端燒可改這家。",
+    hours: "每日 16:00–23:15（L.O. 約 22:30）",
+    youtube: [
+      { id: "M-ijL8GLesU", creator: "Yi-chun Chen" },
+      { id: "KaLGyq-TT0E", creator: "ケニチ kenichi" },
+    ],
+  },
 ];
 
 const TRANSPORT = {
@@ -1139,6 +1196,33 @@ const SIGHTS = [
     highlight: "招牌是種滿植栽的屋上日本庭園與足湯，穿浴衣散步拍照超有氣氛；天然溫泉露天風呂＋多種內湯，加購岩盤浴可流汗放鬆；館內浴衣、大小毛巾與盥洗備品全含在門票裡、空手就能去。",
     note: "營業 11:00–23:00（最終入館 22:00、大浴場至 22:30）。入館料大人依日期分 A–E 型 ¥2,310–3,630（含浴衣＋毛巾＋盥洗備品），17:00 後 Nighter 票 ¥1,980 起；岩盤浴另加 ¥1,100 起；另收入湯税 ¥150。交通：心齋橋搭御堂筋線到「本町駅」轉中央線到「弁天町駅」約 15 分 ¥240，2A 出口步行約 1 分、與大阪ベイタワー直結。",
     address: "大阪市港区弁天1-2-3 大阪ベイタワー",
+  },
+  {
+    name: "WowUs（ワオアス）堂島浜タワー",
+    city: "大阪",
+    area: "堂島・中之島",
+    region: "大阪市區",
+    day: 2,
+    time: "1 小時（順路展望）",
+    whyGo: "2024 年 9 月才開幕的免費觀光展望施設，位於大阪堂島浜タワー 16 樓，是堂島・中之島一帶很新的「穴場」（私房景點）。重點在免費眺望御堂筋與堂島川／中之島，順便喝杯咖啡、看藝廊，輕鬆塞進 Day 2 中之島散步的空檔，下雨也能進來吹冷氣看景。",
+    highlight: "中央展望休息室俯瞰御堂筋與中之島，東西兩側木甲板露台（ウッドデッキテラス）可拍照看綠意與夜景；另有藝廊「WowUs GALLERY」季節展與咖啡廳「Le Ciel（ル・シエル）」。免費入場、傍晚夜景最美。",
+    note: "入場免費。木甲板露台 8:00–21:00，咖啡廳／藝廊／展望休息室 9:00–21:00。交通：心齋橋搭御堂筋線到「淀屋橋駅」約 5 分 ¥240、步行約 4 分；京阪中之島線「大江橋駅」步行 2 分。與 Day 2 中之島散步順路。※ 御堂筋イルミネーション（點燈）為 11–12 月活動，6 月來看不到、只能看一般夜景。",
+    address: "大阪市北区堂島1-1-25 堂島浜タワー 16F",
+    youtube: [
+      { id: "16NgySqH0MQ", creator: "あべの経済新聞 & OSAKA STYLE" },
+      { id: "GoP7Qtly_0w", creator: "Gorimon 2" },
+    ],
+  },
+  {
+    name: "エスリードホテル難波南III（住宿備案）",
+    city: "大阪",
+    area: "新世界・恵美須西",
+    region: "大阪市區",
+    time: "住宿備案（自選）",
+    whyGo: "Lane 釘選的點，實為新世界・ジャンジャン横丁旁的平價商務旅館（Google 反查到的就是這棟），列為住宿備案——本趟主住「大阪帝國飯店」（西心齋橋），這家放著當萬一需要時的新世界區替代選項。",
+    highlight: "位置就在新世界・通天閣、ジャンジャン横丁（八重勝、てんぐ 串炸）旁，動物園前駅／恵美須町駅腳程內，串炸與庶民美食一帶；走平價商務旅館路線。",
+    note: "住宿備案性質，非景點；訂房請至各訂房網站查當日房價與空房。地點偏新世界，與主住的西心齋橋（道頓堀／心齋橋筋圈）是不同生活圈，臨時調整住宿時再考慮。",
+    address: "大阪市浪速区恵美須西 2-8-6",
   },
   // ── 神戶 ──
   {
@@ -1506,6 +1590,23 @@ const SHOPPING = {
         { label: "官方店舖頁", url: "https://www.premiumoutlets.co.jp/rinku/brands/detail_779.html" },
         { label: "Rinku Premium Outlets 官網", url: "https://www.premiumoutlets.co.jp/rinku/" },
         { label: "數位樓層地圖", url: "https://platinumaps.jp/d/premiumoutlets-rinku?spot=139601&culture=en" },
+      ],
+    },
+    {
+      name: "DAISO 大阪梅田店（茶屋町 ABC-MART梅田ビル）",
+      city: "大阪",
+      area: "梅田・茶屋町",
+      address: "大阪市北区茶屋町 1-27 ABC-MART梅田ビル B1・B2F",
+      hours: "9:00–22:00（2025/5 起提前到 9:00 開門；部分舊資料寫 10:00）",
+      price: "多數商品 ¥110；換算匯差後常只要台灣／香港約一半價",
+      day: 2,
+      note:
+        "梅田唯一的大型大創（ダイソー），就在阪急大阪梅田站旁的「ABC-MART梅田ビル」（前身 OPA 百貨）B1・B2 兩整層，賣場約 2,440㎡、商品逾 7 萬種，是關西圈規模最大的一家。兩層依類別分區（廚房、收納、文具、美妝小物、季節限定、聯名商品），好逛好找、結帳櫃台多。車站地面層與地下街都能直接走進來。挖日本限定文具、廚房小物、美妝雜貨的好去處；Day 2 梅田空中庭園順路或購物日加碼皆可。※ 另有一家常被混淆的「梅田DTタワー店」（梅田1-10-1，DAISO＋Standard Products＋THREEPPY 三業態複合店）是不同地點，本店為茶屋町 ABC-MART 店。",
+      youtube: [
+        { id: "B_-C1ea-Em0", creator: "安妮與陳 攝影小夫妻日常" },
+      ],
+      links: [
+        { label: "DAISO 大阪梅田店 官方店舖頁", url: "https://www.daiso-sangyo.co.jp/shop/detail/008952" },
       ],
     },
   ],
