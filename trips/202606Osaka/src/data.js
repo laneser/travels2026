@@ -138,7 +138,7 @@ const DAYS = [
     summary: "不出遠門，用一整天好好探索大阪的美食實力。午餐壽司／鰻魚二選一，晚餐回新世界吃串炸＋壽喜燒。",
     level: "💰💰",
     timeline: [
-      { time: "08:00", event: "睡到自然醒，飯店附近輕食早餐（推薦丸福珈琲店 千日前本店：昭和老喫茶モーニング，平日 8:00–11:00 限定）", refs: ["marufuku-coffee"] },
+      { time: "08:00", event: "睡到自然醒，早餐挑一家：🕰️ 懷舊派＝丸福珈琲店（昭和喫茶 8:00–11:00）；☕ 新式派＝離飯店最近 STREAMER（拉花冠軍 9:00 開）／MONDIAL 328 CLUB ACE（百名店 8:00 開）；想吃飽＝難波 OSARU COFFEE（8:00 morning）、堀江 GOUTE（8:00 有 galette/可麗餅）、東心齋橋 Morning Box（班尼迪克蛋）；咖啡控散步＝堀江 GRANKNOT（9:00 開）；想看河景＝北浜 Brooklyn Roasting（需搭地鐵）", refs: ["marufuku-coffee", "streamer-coffee", "mondial", "osaru-coffee", "goute-coffee", "morningbox", "granknot-coffee", "brooklyn-roasting-kitahama"] },
       { time: "10:00", event: "阿倍野 HARUKAS 展望台 / 中之島 / 心齋橋・美國村", refs: ["阿倍野 HARUKAS 300"] },
       { time: "12:00", event: "🍣 午餐：壽司 omakase 或鰻魚飯（⚠️ 訂位待確認——已逾原建議 2–3 週時程，請立即處理）／ Kiki 推薦春駒、魚伊備選；想吃飽派可改千日前「かつ丼 ちよ松」5cm 厚切豬排丼", refs: ["isseki", "aomi", "iwashi", "nishihara", "unagiya", "yoshitora", "haruko-honten", "uo-i-unagi", "chiyomatsu"] },
       { time: "14:00", event: "🍳 飯後甜點：北極星西心齋橋本店（蛋包飯發祥地）", refs: ["hokkyokusei"] },
@@ -147,7 +147,7 @@ const DAYS = [
       { time: "21:00", event: "回道頓堀夜景散步" },
     ],
     meals: [
-      { type: "早餐", title: "咖啡廳或連鎖定食", note: "想吃有大阪風情的：丸福珈琲店 千日前本店（1934 創業，深焙咖啡＋厚鬆餅，モーニング平日 8:00–11:00，¥800–1,500）；想省的：松屋／すき家／なか卯 ¥400–600。把胃留給午晚餐。", refs: ["marufuku-coffee"] },
+      { type: "早餐", title: "懷舊喫茶 or 新式 specialty coffee", note: "🕰️ 懷舊派：丸福珈琲店 千日前本店（1934 創業，深焙咖啡＋厚鬆餅，モーニング平日 8:00–11:00，¥800–1,500）。☕ 新式派（皆 6/25 週四營業）依腳程分三層——【離飯店最近・步行 5–8 分】STREAMER COFFEE（拉花世界冠軍 Streamer Latte，9:00 開、純咖啡）、MONDIAL 328 CLUB ACE（Tabelog 咖啡百名店 2025，8:00 開有 morning）；【想吃飽的真早餐】難波 OSARU COFFEE（脫鞋放鬆，morning 8:00–11:30 吐司／法式吐司／鹹派）、堀江 GOUTE（古道具空間，8:00 有 galette／可麗餅／巴斯克起司蛋糕）、東心齋橋 Morning Box（班尼迪克蛋、素食友善）；【咖啡控散步／換氣氛】堀江 GRANKNOT（Brooklyn 風烘豆名店 9:00 開）、北浜 Brooklyn Roasting（土佐堀川河畔露台，需搭地鐵 20–30 分）。想省的：松屋／すき家／なか卯 ¥400–600。把胃留給午晚餐。", refs: ["marufuku-coffee", "streamer-coffee", "mondial", "osaru-coffee", "goute-coffee", "morningbox", "granknot-coffee", "brooklyn-roasting-kitahama"] },
       { type: "午餐", title: "壽司 omakase 或鰻魚飯", note: "🔒 壽司首選「鮨 青海 北新地」午餐 ¥4,000–9,000、性價比首選「いわ志 本店」每貫 ¥100；鰻魚六月當季，關東風「鰻 にしはら」蓬鬆柔軟 vs 關西風「鰻家」備長炭地焼。", star: 2, refs: ["aomi", "iwashi", "nishihara", "unagiya"] },
       { type: "晚餐", title: "新世界串炸 + 壽喜燒", note: "新世界串炸便宜量大（⚠️ 八重勝週四休、6/25 吃不到，改いっとく、だるま総本店），或回道頓堀吃壽喜燒老舖（はり重 1919 / 北むら 1881 / せきぐち）人均 ¥10,000+", star: 1, refs: ["daruma-shinsekai", "ittoku", "harijyu", "kitamura", "sekiguchi"] },
     ],
@@ -872,16 +872,17 @@ const RESTAURANTS = [
     hours: "8:00–15:00（L.O.14:00）",
   },
   {
-    id: "morningbox", name: "Café Morning Box", category: "brunch", city: "大阪", area: "東心齋橋", days: [6],
+    id: "morningbox", name: "Café Morning Box", category: "brunch", city: "大阪", area: "東心齋橋", days: [3, 6],
     address: "大阪市中央区東心斎橋 1-10-3 ホテルモーニングボックス 1F", price: "¥1,200–1,800",
-    note: "班尼迪克蛋 ¥1,600（含飲品）、酪梨吐司、紅豆奶油吐司。素食與無麩質選項。復古家具、大量植物、黑膠唱片。",
-    hours: "8:00–11:00",
+    note: "新式精品咖啡（用關西在地烘豆廠的豆子）＋班尼迪克蛋 ¥1,600（含飲品）、酪梨吐司、紅豆奶油吐司，素食與無麩質選項。復古家具、大量植物、黑膠唱片。モーニング 8:00–11:00、基本無休，6/25 週四可吃；距飯店往東北步行約 12–18 分（長堀橋站旁）。Day 3 早餐、Day 6 告別早午餐都順路。",
+    hours: "8:00–22:30（L.O. 22:00；モーニング 8:00–11:00）",
   },
   {
-    id: "mondial", name: "MONDIAL KAFFEE 328", category: "brunch", city: "大阪", area: "四ツ橋", days: [6],
-    address: "四ツ橋駅出口旁", price: "¥600–1,200",
-    note: "モーニングセット ¥600（法式先生／雞蛋熱壓三明治＋沙拉＋咖啡）。世界級咖啡師駐店，Slayer 義式咖啡機。戶外露台座位。",
-    hours: "8:30 起",
+    id: "mondial", name: "MONDIAL KAFFEE 328", category: "brunch", city: "大阪", area: "北堀江／西心齋橋", days: [3, 6],
+    address: "本店 NY3：大阪市西区北堀江 1-6-16（四ツ橋站徒步 1 分）／分店 CLUB ACE：中央区西心斎橋 1-10-4 エースビル 1F（離飯店步行約 5–8 分）", price: "¥600–1,200",
+    highlight: "Tabelog 咖啡百名店 2025・雙拉花世界冠軍主理",
+    note: "由兩位拉花世界冠軍（山口淳一 2014、田中大介 2015）主理、自家烘焙手沖的精品咖啡名店，獲選 Tabelog Café 百名店 2025。モーニングセット ¥600（法式先生／雞蛋熱壓三明治＋沙拉＋咖啡）、世界級咖啡師、Slayer 義式機、戶外露台。共 5 家分店：想離飯店最近選 **CLUB ACE（西心齋橋 1-10-4，8:00 開）**；想坐本店河景選 **NY3（北堀江，8:30 開）**。皆不定休，6/25 週四可吃。Day 3 早餐或 Day 6 早午餐都合適。",
+    hours: "CLUB ACE 8:00 起／本店 NY3 8:30–21:00（不定休）",
   },
   {
     id: "tables", name: "TABLES CAFE／クロスホテル大阪 1F", category: "brunch", city: "大阪", area: "心齋橋", days: [6],
@@ -952,6 +953,47 @@ const RESTAURANTS = [
     hours: "8:00–19:00（不定休；以官網為準）",
     youtube: [
       { id: "OUXZOu4jmio", time: "3:20", creator: "cafe-vlog" },
+    ],
+  },
+  {
+    id: "osaru-coffee", name: "OSARU COFFEE（オサルコーヒー）", category: "brunch", city: "大阪", area: "難波", days: [3],
+    address: "大阪市浪速区元町 1-7-15", tabelog: 3.55, price: "モーニング ¥400–800；トースト ¥400、キッシュプレート ¥800、フレンチトースト ¥750",
+    highlight: "難波第三波・自家烘焙 specialty coffee・脫鞋放鬆早晨",
+    note: "和懷舊喫茶不同路線的「新式」選擇：難波在地排隊人氣的自家烘焙 specialty coffee 專門店。兩層樓共約 22 席，2F 有脫鞋區可盤腿放鬆，整體走簡約自然風。「Simple is Best」概念、每道餐都設計成配咖啡剛好。**morning 8:00–11:30** 供應吐司、法式吐司、鹹派盤（quiche plate）等輕食，很適合 Day 3（6/25 週四）睡飽後出門吃。⚠️ 週二公休——6/25 是週四照常營業。距 JR 難波站步行約 3 分、地鐵御堂筋線難波站約 5 分；從飯店步行約 10–12 分。來源：Tabelog 3.55、Yahoo!ニュース専門家コラム「こだわりのモーニング」、シティリビング Web「旅行者にもオススメの朝食」。",
+    hours: "8:00–17:00（L.O. 約 16:30；週二公休。1F TO GO 部分至 19:00，以現場為準）",
+    youtube: [
+      { id: "IpDQFjxp554", creator: "グルメ旅（難波モーニング朝カフェ巡り）" },
+    ],
+  },
+  {
+    id: "granknot-coffee", name: "GRANKNOT coffee（グランノットコーヒー）", category: "brunch", city: "大阪", area: "北堀江", days: [3],
+    address: "大阪市西区北堀江 1-23-4", tabelog: 3.62, price: "咖啡 ¥450 起；拿鐵 ¥520 前後（以店內為準）",
+    highlight: "堀江名店・Brooklyn 風自家烘焙 specialty・咖啡控朝聖",
+    note: "想把早餐重點放在「一杯好咖啡」而非份量的話首選。北堀江住宅區裡的極簡白色外觀、內裝走 Brooklyn 工業風，是大阪 specialty coffee 圈長年被點名的烘豆名店，拿鐵與手沖評價極高（輕食偏少，以咖啡＋烘焙小點為主）。**平日 9:00 開店**（週四 6/25 屬平日，9:00 起營業；六日假日 11:00 才開），全年無休。距西心齋橋飯店往四橋・西大橋方向步行約 12–15 分，可當咖啡控的早晨散步行程。來源：goodcoffee.me、CaféAdvisor、Walkerplus「コーヒーで旅する日本／関西編」、Tabelog 3.62。",
+    hours: "平日 9:00–18:00（L.O. 17:30）／六日假日 11:00–18:00；無休",
+  },
+  {
+    id: "streamer-coffee", name: "STREAMER COFFEE COMPANY 心斎橋店", category: "brunch", city: "大阪", area: "西心齋橋・美國村", days: [3],
+    address: "大阪市中央区西心斎橋 1-10-19", tabelog: 3.36, price: "拿鐵約 ¥600–800；人均 ¥1,000–1,999",
+    highlight: "拉花世界冠軍・離飯店最近的新式 specialty coffee",
+    note: "離飯店最近的新式選擇（步行約 5–8 分，同在西心齋橋・美國村一帶）。創辦人澤田洋史是亞洲首位 Free Pour 拉花世界冠軍，招牌大杯「Streamer Latte」拉花是必拍，自家烘焙、工業風大空間，是日本第三波精品咖啡指標品牌（2010 澀谷創業、本店 2016 進駐心齋橋）。**每日 9:00 開門、僅元旦休**，6/25 週四照常。⚠️ 以咖啡／拿鐵為主、沒有和洋式早餐套餐，當「早晨來一杯好咖啡」最對味，要吃飽請搭配別家。臨時公休以官方 IG 為準。來源：官網 stores 頁、Tabelog 3.36、andcoffee.net 媒體介紹。",
+    hours: "9:00–19:00（公休：1/1）",
+  },
+  {
+    id: "goute-coffee", name: "GOUTE vintage, used & coffee（グテ）", category: "brunch", city: "大阪", area: "南堀江", days: [3],
+    address: "大阪市西区南堀江 1-15-27 好川産業ビル 1F", tabelog: 3.4, price: "人均約 ¥1,000–1,999",
+    highlight: "堀江古道具 × 自家烘焙・8:00 就能吃到真早餐",
+    note: "想要「新式咖啡＋真的有東西吃」首選。南堀江巷弄裡的古道具（vintage/used）混搭咖啡店，木質復古空間、單人也好坐，自家烘焙 specialty coffee 配可麗餅、法式鹹薄餅（galette）、巴斯克起司蛋糕等。**8:00 開門、全年無休**，6/25 週四 8:00 就能吃到，是少數一大早就有正經食物的新式咖啡廳。距飯店往四橋方向步行約 13–17 分（四ツ橋站步行約 5 分），可串成堀江早晨散步。來源：官網 goute.jp、Tabelog、堀江咖啡整理（osakalucci 等 Google 搜尋）。",
+    hours: "8:00–20:00（L.O. 19:30）；無休",
+  },
+  {
+    id: "brooklyn-roasting-kitahama", name: "Brooklyn Roasting Company 北浜店", category: "brunch", city: "大阪", area: "北浜", days: [3],
+    address: "大阪市中央区北浜 1-1-9 ハウザー北浜ビル 1F", tabelog: 3.5, price: "咖啡 ¥500–700；人均 ¥1,000–1,999",
+    highlight: "紐約第三波・土佐堀川河畔露台・8:00 開有輕食",
+    note: "想換個氣氛、邊吃早餐邊看河景的選擇。紐約布魯克林 2009 年創業的 specialty roaster，這家是它的日本首店，臨土佐堀川有開放露台，用 Loring 烘豆機、產地直接交易，走 NY 流中深焙（有別於日本常見淺焙）。**每日 8:00 開門、不定休**，供應貝果、三明治、糕點等輕食可當早餐，6/25 週四照常。⚠️ 不在飯店腳程內——位北浜，需搭地鐵（御堂筋線轉淀屋橋／堺筋線北浜站徒步 3 分），單程約 20–30 分；2022 年已從舊址東移至現地，Yelp 殘留的「北浜2-1-16」是舊店請忽略。來源：官網 location 頁、Tabelog、Daniel Food Diary 2025/6 現地報導、YouTube（B-xHvJLpQkY，土佐堀川河景）。",
+    hours: "平日 8:00–20:00（L.O. 19:30）／土日祝 8:00–19:00；不定休",
+    youtube: [
+      { id: "B-xHvJLpQkY", creator: "カフェ動画（土佐堀川ビュー）" },
     ],
   },
 
