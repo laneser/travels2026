@@ -15,7 +15,7 @@ Trip folder under a multi-trip travel repo. See repo-level `CLAUDE.md` for overa
 ## 這趟的重點
 
 - **核心目的**：2026/7/4（六）18:00 在 **KSPO DOME（올림픽체조경기장，松坡區奧林匹克公園內）** 看 **DAY6 10th Anniversary Tour〈The DECADE〉FINALE in SEOUL**。Day 4 整天圍著演唱會安排（白天蠶室/奧林匹克公園輕鬆走，傍晚進場）。
-- **據點**：Nine Tree by Parnas Seoul Dongdaemun（나인트리 바이 파르나스 서울 동대문），中區乙支路 224，近東大門／乙支路4街站。步行可達廣藏市場、DDP、東大門商圈。
+- **據點**：Uljiro Co-op Residence（을지로 코업 레지던스），中區乙支路 246，緊鄰동대문역사문화공원站（2／4／5 號線、約 320m）。步行可達廣藏市場、DDP、東大門商圈。公寓式住宿、房內附小廚房。入住 7/1（三）14:00 後、退房 7/5（日）12:00 前。
 - **班機**：去程 7/1 T'way TW668 松山 TSA 14:00 → 金浦 GMP 17:25；回程 7/5 T'way TW667 金浦 GMP 11:20 → 松山 TSA 13:00。**回程班機早（11:20），Day 5 基本上只剩早餐＋趕機場。**
 - **主軸**：演唱會＋美食為主，景點輕鬆走。
 

@@ -132,9 +132,9 @@ describe('Day map', () => {
     }
   });
 
-  test('Day 1 route passes through 金浦機場 and 乙支路4街站 to the hotel', () => {
+  test('Day 1 route passes through 金浦機場 and 동대문역사문화공원站 to the hotel', () => {
     const t = trail(1);
-    for (const k of ['松山機場', '金浦機場', '乙支路4街站']) {
+    for (const k of ['松山機場', '金浦機場', '동대문역사문화공원站']) {
       assert.ok(t.includes(PLACES[k].name), `Day 1 trail missing ${k}: ${t}`);
     }
   });
@@ -144,9 +144,9 @@ describe('Day map', () => {
     assert.ok(t.includes(PLACES['KSPO DOME'].name), `Day 4 trail missing KSPO DOME: ${t}`);
   });
 
-  test('Day 5 route passes through 乙支路4街站 and 金浦機場 on the way to 松山機場', () => {
+  test('Day 5 route passes through 동대문역사문화공원站 and 金浦機場 on the way to 松山機場', () => {
     const t = trail(5);
-    for (const k of ['乙支路4街站', '金浦機場', '松山機場']) {
+    for (const k of ['동대문역사문화공원站', '金浦機場', '松山機場']) {
       assert.ok(t.includes(PLACES[k].name), `Day 5 trail missing ${k}: ${t}`);
     }
   });
