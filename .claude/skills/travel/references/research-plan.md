@@ -118,6 +118,32 @@ Then classify each place:
 - **⚠️ doubt** — the shop seems to exist but the address doesn't match, only a *different* same-name branch shows up, or sources conflict. **Don't guess** — fix it only if one answer is unambiguous (vague→concrete address from the official site), otherwise surface it to the user with the specific conflict.
 - **❌ closed / not found** — no current hours findable anywhere, or an explicit「閉店／Permanently closed」. **The core heuristic: no findable hours ⇒ very likely closed.** Comment the entry out (don't delete — keep it as a reversible record) with a one-line reason, and remove its `id` from any `DAYS[].timeline[].refs` / `meals[].refs` so the map/links don't point at a ghost.
 
+### 景點・步道・園區的開放狀態（另一套查法）
+
+餐廳的失敗模式是「歇業」，景點的失敗模式是**「施工封閉」與「部分路段封閉」** — 而且部落格幾乎不會更新這件事。熱門步道尤其危險：搜尋結果前十筆全是推薦文，官方公告排在後面或根本不在搜尋結果裡。
+
+**查法**：
+```
+<步道/景點名> 封閉 OR 施工 OR 暫停開放 <year>
+<步道/景點名> 最新 開放狀況
+<景點名> 休館日          # 博物館、觀光工廠
+```
+
+**權威來源優先於部落格**，依序：
+1. 主管機關官網 — 台灣的步道查林業及自然保育署「台灣山林悠遊網」`recreation.forest.gov.tw`，國家公園查各園區官網
+2. 地方政府 / 鄉鎮公所公告
+3. 場館官網的「休館日」頁
+4. 部落格與影片 — 只能用來判斷「值不值得去」，**不能用來判斷「有沒有開」**
+
+**三種容易踩到的狀況**：
+- **全線封閉**：施工期間可能只有一兩週，剛好卡到旅程。務必用**實際旅行日期**去對，不要只看「今年有沒有公告」。
+- **部分路段封閉**：步道開放 0–0.9K、但最精華的瀑布在 1.2K 處 — 等於去了也看不到主景。要查清楚**封閉的是哪一段、亮點在不在開放範圍內**。
+- **公告互相矛盾／已過期**：看到「即日起至民國115年1月31日止不對外開放」這種公告，先換算西元並確認期限是否已過；若同時有較新的遊記說某層平台仍封閉，就是**資訊不可靠** → 別排進主行程，列為備案並註明「出發前需電話確認」。
+
+**公休日要對到實際日期**：博物館常見週一或週三休、小吃店各有公休日。把每個點的公休日與行程當天的星期對一次，並把結論寫進 `note`（例如「**週三休館 — 9/19 是週六，正常開放**」），讓使用者看得到你確實對過。
+
+**查到封閉怎麼辦**：不要只是刪掉。① 找同區域、同性質的替代點（封閉的是輕鬆步道就找另一條輕鬆步道，不要換成硬爬山）② 在 `TIPS` 用 `reminders` 寫明「❌ 不要去 + 為什麼 + 官方公告來源」，因為使用者很可能在別處看到推薦文而困惑 ③ 備案也一併列出。
+
 ### Watch for these failure modes
 
 - **Relocation, not closure** — chains and old shops move; the name is alive but your address is dead. Fix the address (and area label) instead of dropping the place.
