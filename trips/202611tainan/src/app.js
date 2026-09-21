@@ -78,9 +78,8 @@
   function stars(n) { return n ? "⭐".repeat(n) : ""; }
 
   // ============== Countdown ==============
-  // Populate <title>, meta description, header brand and footer from TRIP.
-  // Everything that was hardcoded in index.html and duplicated in data.js now
-  // flows from data.js only.
+  // Populate <title>, meta description, header brand and footer from TRIP at runtime.
+  // index.html still contains initial fallback text before JS runs.
   function fmtDates() {
     const s = (TRIP.dates.start || "").replace(/-/g, ".");
     const e = (TRIP.dates.end || "").replace(/-/g, ".");
